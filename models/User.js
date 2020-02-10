@@ -13,10 +13,6 @@ const UserSchema = new Schema({
     password: {
         type: String,
         required: true
-    },
-    sessionToken: {
-        type: String,
-        // required: true
     }
 }, { timestamps: true })
 
