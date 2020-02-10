@@ -10,13 +10,13 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    passwordDigest: {
+    password: {
         type: String,
         required: true
     },
     sessionToken: {
         type: String,
-        required: true
+        // required: true
     }
 }, { timestamps: true })
 
