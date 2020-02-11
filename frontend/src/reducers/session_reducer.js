@@ -20,11 +20,11 @@ export default function(state = initialState, action) {
         isAuthenticated: false,
         user: undefined
       };
-    case RECEIVE_USER_SIGN_IN:
-      return {
-        ...state,
-        isAuthenticated: true
-      }
+    // case RECEIVE_USER_SIGN_IN:
+    //   return {
+    //     ...state,
+    //     isAuthenticated: true
+    //   }
     default:
       return state;
   }

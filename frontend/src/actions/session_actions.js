@@ -32,7 +32,7 @@ export const logoutUser = () => ({
 export const signup = user => dispatch => (
     APIUtil.signup(user).then(res => {
         const { token } = res.data;
-        localStorage.setItem('jwtToken', token);
+        localStorage.setItem('jwtToken', token); //localStorage.getItem('jwtToken')
         APIUtil.setAuthToken(token);
         const decoded = jwt_decode(token);
         dispatch(receiveCurrentUser(decoded))

@@ -1,5 +1,6 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import './login.css';
 
 class LoginForm extends React.Component {
     constructor(props) {
@@ -15,10 +16,10 @@ class LoginForm extends React.Component {
         this.renderErrors = this.renderErrors.bind(this);
     }
 
-    // Once the user has been authenticated, redirect to the Tweets page
+    // Once the user has been authenticated, redirect to the Channels page
     componentWillReceiveProps(nextProps) {
         if (nextProps.currentUser === true) {
-            this.props.history.push('/tweets');
+            this.props.history.push('/channels');
         }
 
         // Set or clear errors
@@ -47,10 +48,11 @@ class LoginForm extends React.Component {
     // Render the session errors if there are any
     renderErrors() {
         return (
-            <ul>
+            <ul className="errors-list">
                 {Object.keys(this.state.errors).map((error, i) => (
                     <li key={`error-${i}`}>
-                        {this.state.errors[error]}
+                        <span>&#9888;</span>
+                        {`${this.state.errors[error]}.`}
                     </li>
                 ))}
             </ul>
@@ -58,26 +60,37 @@ class LoginForm extends React.Component {
     }
 
     render() {
+        let errorsClass = "";
+        if (Object.values(this.state.errors).length) errorsClass = "errors";
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <div>
-                        <input type="text"
-                            value={this.state.email}
-                            onChange={this.update('email')}
-                            placeholder="Email"
-                        />
-                        <br />
-                        <input type="password"
-                            value={this.state.password}
-                            onChange={this.update('password')}
-                            placeholder="Password"
-                        />
-                        <br />
-                        <input type="submit" value="Submit" />
-                        {this.renderErrors()}
+            <div className="login">
+                <nav className="login-nav"><Link to='/'>slack</Link></nav>
+                <div className="login-form-container">
+                    {this.renderErrors()}
+                    <div className="login-form">
+                        <form onSubmit={this.handleSubmit}>
+                            <div className="login-form-contents">
+                                <h2>Connect to your workspace.</h2>
+                                <p>Please enter your email and password.</p>
+                                <input type="text"
+                                    value={this.state.email}
+                                    onChange={this.update('email')}
+                                    placeholder="name@example.com"
+                                    className={`input ${errorsClass}`}
+                                />
+
+                                <input type="password"
+                                    value={this.state.password}
+                                    onChange={this.update('password')}
+                                    placeholder="Password"
+                                    className={`input ${errorsClass}`}
+                                />
+ 
+                                <input type="submit" value="Connect" />
+                            </div>
+                        </form>
                     </div>
-                </form>
+                </div>
             </div>
         );
     }

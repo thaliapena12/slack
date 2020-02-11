@@ -1,0 +1,71 @@
+.header {
+    background-color: white;
+    display: inline-flex;
+    width: 100%;
+    padding: 1rem;
+    
+}
+.signup-login{
+    display: inline-flex;
+    margin-left: 600px;
+    padding: 15px;
+}
+.sign-up{
+    background-color: #5c195e;
+    color: white;
+    padding: .75rem 1rem;;
+    margin-bottom: 5px;
+    border-radius: 3px;;
+    text-align: center;
+    height: 20px;
+    border-color: #5c195e;
+    font-size: 15px;
+    margin-left: 10px;
+    
+}
+
+.log-in{
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 3px;;
+    text-align: center;
+    height: 20px;  
+
+}
+.log-in > a{
+    color: black;
+}
+.sign-up > a{
+    color: #fff;
+    font-weight: 200;
+
+}
+.mainpage{
+    background: white;
+}
+.body{
+   font-family: "Helvetica Neue",Helvetica,"Segoe UI",Tahoma,Arial,sans-serif;
+   padding-top: 20px;
+}
+
+h2{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    font-weight: 30px;
+    text-align: center;
+}
+h3{
+    color: black;
+    text-align: center;
+    font-weight: 400;
+    line-height: 1.44444444;
+    letter-spacing: -.2px;
+}
+h4{
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    line-height: 1.44444444;
+    letter-spacing: -.2px;
+}
