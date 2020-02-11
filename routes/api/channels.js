@@ -38,7 +38,7 @@ router.get('/:id', (req, res) => {
 // POST
 
 router.post('/',
-    // passport.authenticate('jwt', { session: false }),
+    passport.authenticate('jwt', { session: false }),
     (req, res) => {
       const { errors, isValid } = validateChannelInput(req.body);
   
@@ -49,8 +49,7 @@ router.post('/',
       const newChannel = new Channel({
         name: req.body.name,
         accessType: req.body.accessType,
-        createdBy: req.body.createdBy
-        // user: req.user.id
+        createdBy: req.user.id
       });
   
       newChannel.save().then(channel => res.json(channel));
