@@ -4,6 +4,7 @@ const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 const bcrypt = require('bcryptjs');
 const User = require('../../models/User');
+const Channel = require('../../models/Channel');
 const jwt = require('jsonwebtoken');
 const keys = require('../../config/keys');
 const passport = require('passport');
@@ -91,6 +92,22 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
         username: req.user.username,
         email: req.user.email
     });
+})
+
+router.get('/user/channels', (req, res) => {
+    if (!req.user) return res.status(401).end()
+  
+    User.findOne(
+      { 'local.username': req.user },
+      { 'local.channels': 1, _id: 0 },
+      (err, channels) => {
+        if (err) {
+          return res.status(500).json({ error: true })
+        }
+  
+        res.json(channels)
+      }
+    )
 })
 
 module.exports = router;

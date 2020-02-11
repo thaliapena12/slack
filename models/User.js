@@ -17,7 +17,8 @@ const UserSchema = new Schema({
     sessionToken: {
         type: String,
         // required: true
-    }
+    },
+    channels: [{ type: Schema.Types.ObjectId, ref: 'Channel' }], 
 }, { timestamps: true })
 
 module.exports = User = mongoose.model('User', UserSchema);
