@@ -5,15 +5,17 @@ const MessageSchema = new Schema({
     type: Schema.Types.String,
     required: true,
   },
-  user: {
-    type: Schema.Types.String,
-    required: true,
+  authorBy: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
   },
   channel: {
-    type: Schema.Types.String,
+    type: Schema.Types.ObjectId,
+    ref: 'Channel',
     required: true,
   },
 }, { timestamps: true })
 
 
-module.exports = mongoose.model('Message', MessageSchema)
+module.exports = mongoose.model('Message', MessageSchema);
