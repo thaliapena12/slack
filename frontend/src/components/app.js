@@ -6,16 +6,17 @@ import MainPage from './main/main_page';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import './app.css';
-import ChannelsContainer from "./channels/channels_container"
+import ChannelsContainer from "./channels/channels_container";
+import Workspace from "./workspace/workspace";
 
 const App = () => (
     <div className="main-workspace">
-        <NavBarContainer />
+        {/* <NavBarContainer /> */}
         <Switch>
             <AuthRoute exact path="/" component={MainPage} />
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
-            <ProtectedRoute exact path="/channels" component={ChannelsContainer}/>
+            <ProtectedRoute exact path="/channels" component={Workspace}/>
         </Switch>
     </div>
 );
