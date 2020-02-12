@@ -13,7 +13,11 @@ const UserSchema = new Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    sessionToken: {
+        type: String
+    },
+    channels: [{ type: Schema.Types.ObjectId, ref: 'Channel' }], 
 }, { timestamps: true })
 
 module.exports = User = mongoose.model('User', UserSchema);
