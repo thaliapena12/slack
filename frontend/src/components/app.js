@@ -6,7 +6,7 @@ import MainPage from './main/main_page';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import './app.css';
-// const path = require('path')
+
 const App = () => (
     <div className="main-workspace">
         <NavBarContainer />
@@ -14,6 +14,7 @@ const App = () => (
             <AuthRoute exact path="/" component={MainPage} />
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
+            <ProtectedRoute exact path="/channels" component={ChannelsContainer}/>
         </Switch>
     </div>
 );
