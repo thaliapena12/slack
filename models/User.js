@@ -15,8 +15,7 @@ const UserSchema = new Schema({
         required: true
     },
     sessionToken: {
-        type: String,
-        // required: true
+        type: String
     },
     channels: [{ type: Schema.Types.ObjectId, ref: 'Channel' }], 
 }, { timestamps: true })
