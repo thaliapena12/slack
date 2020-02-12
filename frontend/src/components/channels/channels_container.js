@@ -4,7 +4,7 @@ import Channels from "./channels";
 
 const mapStateToProps = state => {
   return {
-    channels: Object.values(state.channels.all)
+    channels: state.channels
   };
 };
 

@@ -6,7 +6,7 @@ export const RECEIVE_NEW_CHANNEL = "RECEIVE_NEW_CHANNEL";
 export const REMOVE_CHANNEL = "REMOVE_CHANNEL";
 
 
-export const receiveChannels = channels => l({
+const receiveChannels = channels => ({
   type: RECEIVE_CHANNELS,
   channels
 });
@@ -16,20 +16,20 @@ export const receiveChannels = channels => l({
 //   channel
 // });
 
-export const receiveUserChannels = channels => ({
+const receiveUserChannels = channels => ({
   type: RECEIVE_USER_CHANNELS,
   channels
 });
 
-export const receiveNewChannel = channel => ({
+const receiveNewChannel = channel => ({
   type: RECEIVE_NEW_CHANNEL,
   channel
 });
 
-export const removeChannel = channelId => ({
+const removeChannel = channelId => ({
     type: REMOVE_CHANNEL,
     channelId  
-})
+});
 
 export const fetchChannels = () => dispatch =>
   getChannels()
@@ -46,12 +46,12 @@ export const fetchUserChannels = id => dispatch =>
     .then(channels => dispatch(receiveUserChannels(channels)))
     .catch(err => console.log(err));
 
-export const createChannel = data => dispatch =>
+export const generateChannel = data => dispatch =>
   createChannel(data)
     .then(channel => dispatch(receiveNewChannel(channel)))
     .catch(err => console.log(err));
 
-export const deleteChannel = channelId => dispatch =>
+export const obliterateChannel = channelId => dispatch =>
   deleteChannel(channelId)
-    .then(() => dispatch(deleteChannel(channelId)))
+    .then(() => dispatch(removeChannel(channelId)))
     .catch(err => console.log(err));

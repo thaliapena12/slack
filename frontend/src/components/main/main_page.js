@@ -49,7 +49,7 @@ class MainPage extends React.Component {
                 <div className="body2">
                     <h2>Break out of the inbox</h2>
                     <h3>Working in channels gives everyone on your team a shared view of progress and purpose.</h3>
-                    <video width="520" height="490" controls autoplay>
+                    <video width="520" height="490" controls autoPlay>
                         <source src={vid1} type="video/mp4"/>
                     </video>
                     <h5> See demo &rarr;</h5>
