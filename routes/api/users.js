@@ -98,8 +98,8 @@ router.get('/user/channels', (req, res) => {
     if (!req.user) return res.status(401).end()
   
     User.findOne(
-      { 'local.username': req.user },
-      { 'local.channels': 1, _id: 0 },
+      { 'username': req.user },
+      { 'channels': 1, _id: 0 },
       (err, channels) => {
         if (err) {
           return res.status(500).json({ error: true })
@@ -107,6 +107,20 @@ router.get('/user/channels', (req, res) => {
   
         res.json(channels)
       }
+    )
+})
+
+
+router.get('/username/:username', (req, res) => {
+    req.params.username = req.params.username.toLowerCase()
+    User.findOne(
+        { 'username': req.params.username },
+        (err, user) => {
+            if (err){
+                return res.status(500).json({ error: true})
+            }
+            return res.json({alreadyInUse: !! user})
+        }
     )
 })
 
