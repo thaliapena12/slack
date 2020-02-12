@@ -68,7 +68,7 @@ class SignupForm extends React.Component {
                         <form onSubmit={this.handleSubmit}>
                             <div className="signup-form-contents">
                                 <h2>Let's get started!</h2>
-                                <p>Please enter your email, username, and password.</p>
+                                <p>Please enter your email, display name, and password.</p>
                                     <input type="text"
                                         value={this.state.email}
                                         onChange={this.update('email')}
@@ -78,7 +78,7 @@ class SignupForm extends React.Component {
                                     <input type="text"
                                         value={this.state.handle}
                                         onChange={this.update('username')}
-                                        placeholder="Username"
+                                        placeholder="Display name"
                                         className={`input ${errorsClass}`}
                                     />
                                     <input type="password"

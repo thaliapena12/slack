@@ -1,13 +1,50 @@
+.mainpage{
+    background: white;
+    text-align:center;
+}
 .header {
     background-color: white;
     display: inline-flex;
     width: 100%;
     padding: 1rem;
+    justify-content: space-between;
     
+}
+.header-left{
+    display: inline-flex;
+}
+.header-left > h2{
+    display:inline-block;
+    font-size:15px;
+    justify-content: space-evenly;
+    padding: 13px;
+    margin-left: 12px;
+    font-weight:400;
+    font-family: Slack-Circular-Pro,"Helvetica Neue",Helvetica,"Segoe UI",Tahoma,Arial,sans-serif;
+    line-height: 1.28571429;
+    letter-spacing: normal;
+    margin-top: 18px;
+    
+}
+.header-left > h3{
+    display:inline-block;
+    font-size:15px;
+    justify-content: space-evenly;
+    padding: 13px;
+    margin-left: 12px;
+    font-weight:400;
+    font-family: Slack-Circular-Pro,"Helvetica Neue",Helvetica,"Segoe UI",Tahoma,Arial,sans-serif;
+    line-height: 1.28571429;
+    letter-spacing: normal;
+    margin-top: 18px;
+    
+}
+.header-left > h3:hover{
+    text-decoration: underline;
+    color:rgb(51, 141, 194);
 }
 .signup-login{
     display: inline-flex;
-    margin-left: 600px;
     padding: 15px;
 }
 .sign-up{
@@ -23,7 +60,6 @@
     margin-left: 10px;
     
 }
-
 .log-in{
     padding: 5px;
     margin-top: 5px;
@@ -33,22 +69,32 @@
     height: 20px;  
 
 }
+
 .log-in > a{
     color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
+.log-in >a:hover{
+    text-decoration: underline;
+    color:rgb(51, 141, 194);
 }
 .sign-up > a{
     color: #fff;
     font-weight: 200;
-
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
 }
-.mainpage{
-    background: white;
+.sign-up:hover{
+    background-color: rgb(80, 14, 80);
+}
+h1{
+   font-family: Arial; 
 }
 .body{
    font-family: "Helvetica Neue",Helvetica,"Segoe UI",Tahoma,Arial,sans-serif;
    padding-top: 20px;
 }
-
 h2{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 40px;
@@ -69,3 +115,61 @@ h4{
     line-height: 1.44444444;
     letter-spacing: -.2px;
 }
+h5{
+    color: rgb(51, 141, 194);
+    text-align: center;
+    font-weight: 400;
+    line-height: 1.44444444;
+    letter-spacing: -.2px;
+    font-size: 20px;
+    margin-bottom: 80px;
+}
+h4:hover{
+    text-decoration: underline;
+}
+
+img{
+    justify-content:space-between;
+    display: inline;
+    height: 400px;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.images{
+    text-align: center;
+    display: inline-flex;
+}
+img:hover{
+    align-items: flex-end;
+    /* background-position: top center; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: none;
+    display: inline-flex;
+    justify-content: center;
+    height: 425px;
+    width: 425px;
+    /* margin-bottom: 0; */
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    transition: .3s all linear,background-image 1ms;
+}
+video{
+    box-shadow: 0 0 1.5rem rgba(105,105,105,.5);
+    max-width: 870px;
+    width: 100%;
+    margin-top: 20px;
+}
+.body2{
+    margin-top: 150px;
+}
+footer{
+    border-top: 1px solid lightgray;
+}
+.img1{
+    position:relative;
+    text-align: center
+}
+

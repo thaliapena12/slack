@@ -1,3 +1,7 @@
+.login {
+    height: 100%;
+}
+
 .login-nav {
     background-color: white;
     height: 70px;
@@ -17,7 +21,7 @@
 
 .login-form-container {
     background-color: rgb(245, 245, 245);
-    height: 800px;
+    height: 100%;
     padding-top: 5px;
 }
 
