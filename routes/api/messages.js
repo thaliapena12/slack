@@ -32,6 +32,8 @@ router.get('/:id', (req, res) => {
 
 // POST
 
+
+
 router.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
 
     if (typeof req.body.channel !== 'undefined') {

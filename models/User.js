@@ -15,10 +15,10 @@ const UserSchema = new Schema({
         required: true
     },
     sessionToken: {
-        type: String,
-        // required: true
+        type: String
     },
     channels: [{ type: Schema.Types.ObjectId, ref: 'Channel' }], 
+    dmgroups: [{ type: Schema.Types.ObjectId, ref: 'Dmgroup' }],
 }, { timestamps: true })
 
 module.exports = User = mongoose.model('User', UserSchema);
