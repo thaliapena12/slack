@@ -23,10 +23,9 @@ router.get('/:id', (req, res) => {
 // create dmgroup under current user
 
 router.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
-    
+    console.log(req.body.members);
     const newDmgroup = new Dmgroup({
-      createdBy: req.user.id,
-      dmMembers: [req.user.id]
+        dmMembers: [req.body.members]
     });
 
     newDmgroup.save()
