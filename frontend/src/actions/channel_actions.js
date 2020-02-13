@@ -4,12 +4,26 @@ export const RECEIVE_CHANNELS = "RECEIVE_CHANNELS";
 export const RECEIVE_USER_CREATED_CHANNELS = "RECEIVE_USER_CREATED_CHANNELS";
 export const RECEIVE_NEW_CHANNEL = "RECEIVE_NEW_CHANNEL";
 export const REMOVE_CHANNEL = "REMOVE_CHANNEL";
+export const RECEIVE_CHANNEL_ERRORS = "RECEIVE_CHANNEL_ERRORS";
+export const REMOVE_ERRORS = "REMOVE_ERRORS";
+
 
 
 const receiveChannels = channels => ({
   type: RECEIVE_CHANNELS,
   channels
 });
+
+export const receiveErrors = errors => ({
+  type: RECEIVE_CHANNEL_ERRORS,
+  errors
+});
+
+export const removeErrors = () => {
+  return {
+    type: REMOVE_ERRORS
+  };
+};
 
 // export const receiveChannel = channel => ({
 //   type: RECEIVE_USER_CHANNEL,
@@ -42,19 +56,19 @@ export const fetchChannel = channelId => dispatch =>
     .catch(err => console.log(err));
 
 export const fetchUserCreatedChannels = id => dispatch =>
-  getUserCreatedChannels(id)
-    .then(channels => {
-        dispatch(receiveUserCreatedChannels(channels.data))
-    })
-    .catch(err => console.log(err));
+         getUserCreatedChannels(id)
+           .then(channels => {
+             dispatch(receiveUserCreatedChannels(channels.data));
+           })
+           .catch(err => dispatch(receiveErrors(err.response.data)));
     
 
 export const generateChannel = data => dispatch =>
   createChannel(data)
     .then(channel => dispatch(receiveNewChannel(channel)))
-    .catch(err => console.log(err));
+    .catch(err => (dispatch(receiveErrors(err.response.data))));
 
 export const obliterateChannel = channelId => dispatch =>
-  deleteChannel(channelId)
-    .then(() => dispatch(removeChannel(channelId)))
-    .catch(err => console.log(err));
+         deleteChannel(channelId)
+           .then(() => dispatch(removeChannel(channelId)))
+           .catch(err => dispatch(receiveErrors(err.response.data)));
