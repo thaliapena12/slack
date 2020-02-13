@@ -5,7 +5,7 @@ const MessageSchema = new Schema({
     type: Schema.Types.String,
     required: true,
   },
-  authorBy: {
+  authoredBy: {
     type: Schema.Types.ObjectId,
     ref: 'User',
     required: true
