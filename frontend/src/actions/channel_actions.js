@@ -1,7 +1,7 @@
-import { getChannels, getChannel, deleteChannel, getUserChannels, createChannel} from "../util/channel_api_util";
+import { getChannels, getChannel, deleteChannel, getUserCreatedChannels, createChannel} from "../util/channel_api_util";
 
 export const RECEIVE_CHANNELS = "RECEIVE_CHANNELS";
-export const RECEIVE_USER_CHANNELS = "RECEIVE_USER_CHANNELS";
+export const RECEIVE_USER_CREATED_CHANNELS = "RECEIVE_USER_CREATED_CHANNELS";
 export const RECEIVE_NEW_CHANNEL = "RECEIVE_NEW_CHANNEL";
 export const REMOVE_CHANNEL = "REMOVE_CHANNEL";
 
@@ -16,8 +16,8 @@ const receiveChannels = channels => ({
 //   channel
 // });
 
-const receiveUserChannels = channels => ({
-  type: RECEIVE_USER_CHANNELS,
+const receiveUserCreatedChannels = channels => ({
+  type: RECEIVE_USER_CREATED_CHANNELS,
   channels
 });
 
@@ -41,10 +41,13 @@ export const fetchChannel = channelId => dispatch =>
     .then(channel => dispatch(receiveNewChannel(channel)))
     .catch(err => console.log(err));
 
-export const fetchUserChannels = id => dispatch =>
-  getUserChannels(id)
-    .then(channels => dispatch(receiveUserChannels(channels)))
+export const fetchUserCreatedChannels = id => dispatch =>
+  getUserCreatedChannels(id)
+    .then(channels => {
+        dispatch(receiveUserCreatedChannels(channels.data))
+    })
     .catch(err => console.log(err));
+    
 
 export const generateChannel = data => dispatch =>
   createChannel(data)

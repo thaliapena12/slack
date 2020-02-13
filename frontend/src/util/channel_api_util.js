@@ -16,7 +16,7 @@ export const createChannel = (channelData) => {
   return axios.post("/api/channels/", channelData);
 };
 
-export const getUserChannels = userId => {
-  return axios.get(`api/channels/user/:${userId}`);
+export const getUserCreatedChannels = userId => {
+  return axios.get(`api/channels/user/${userId}`);
 };
 

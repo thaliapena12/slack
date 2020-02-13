@@ -93,21 +93,14 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
         email: req.user.email
     });
 })
-
-router.get('/user/channels', (req, res) => {
-    if (!req.user) return res.status(401).end()
-  
-    User.findOne(
-      { 'local.username': req.user },
-      { 'local.channels': 1, _id: 0 },
-      (err, channels) => {
-        if (err) {
-          return res.status(500).json({ error: true })
-        }
-  
-        res.json(channels)
-      }
-    )
-})
+// all channels user is in
+router.get("/:id/channels", (req, res) => {
+  User.findById(req.params.id)
+    .populate("channels")
+    .then(user => res.json(user.channels))
+    .catch(err =>
+      res.status(404).json({ notuserfound: "No channels found for this user" })
+    );
+});
 
 module.exports = router;

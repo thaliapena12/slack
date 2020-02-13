@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 
 // Channels for a specif user
 router.get('/user/:user_id', (req, res) => {
-    Channel.find({user: req.params.user_id})
+    Channel.find({createdBy: req.params.user_id})
         .then(channels => res.json(channels))
         .catch(err =>
             res.status(404).json({ nochannelsfound: 'No channels found for that user' }

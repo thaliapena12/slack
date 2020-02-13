@@ -1,12 +1,12 @@
 import {
   RECEIVE_CHANNELS,
-  RECEIVE_USER_CHANNELS,
+  RECEIVE_USER_CREATED_CHANNELS,
   RECEIVE_NEW_CHANNEL,
   REMOVE_CHANNEL
 } from "../actions/channel_actions";
 
 const ChannelsReducer = (
-  state = { all: {}, user: {}, new: undefined },
+  state = { all: {}, userCreatedChannels: {}, new: undefined },
   action
 ) => {
   Object.freeze(state);
@@ -15,14 +15,15 @@ const ChannelsReducer = (
     case RECEIVE_CHANNELS:
       newState.all = action.channels.data;
       return newState;
-    case RECEIVE_USER_CHANNELS:
-      newState.user = action.channels.data;
+    case RECEIVE_USER_CREATED_CHANNELS:
+      newState.userCreatedChannels = action.channels;
       return newState;
     case RECEIVE_NEW_CHANNEL:
       newState.new = action.channel.data;
       return newState;
     case REMOVE_CHANNEL:
-      delete newState[action.channelId];
+      delete newState.all[action.channelId];
+      delete newState.userCreatedChannels[action.channelId];
       return newState;
     default:
       return state;
