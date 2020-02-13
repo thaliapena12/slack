@@ -4,7 +4,12 @@ export const RECEIVE_CHANNELS = "RECEIVE_CHANNELS";
 export const RECEIVE_USER_CREATED_CHANNELS = "RECEIVE_USER_CREATED_CHANNELS";
 export const RECEIVE_NEW_CHANNEL = "RECEIVE_NEW_CHANNEL";
 export const REMOVE_CHANNEL = "REMOVE_CHANNEL";
+export const RECEIVE_CURRENT_CHANNEL = "RECEIVE_CURRENT_CHANNEL";
 
+export const receiveCurrentChannel = channel => ({
+  type: RECEIVE_CURRENT_CHANNEL,
+  channel
+});
 
 const receiveChannels = channels => ({
   type: RECEIVE_CHANNELS,
