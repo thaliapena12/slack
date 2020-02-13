@@ -8,22 +8,11 @@ class LoginForm extends React.Component {
 
         this.state = {
             email: '',
-            password: '',
-            errors: {}
+            password: ''
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
-    }
-
-    // Once the user has been authenticated, redirect to the Channels page
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.currentUser === true) {
-            this.props.history.push('/channels');
-        }
-
-        // Set or clear errors
-        this.setState({ errors: nextProps.errors })
     }
 
     // Handle field updates (called in the render method)
@@ -49,10 +38,10 @@ class LoginForm extends React.Component {
     renderErrors() {
         return (
             <ul className="errors-list">
-                {Object.keys(this.state.errors).map((error, i) => (
+                {Object.keys(this.props.errors).map((error, i) => (
                     <li key={`error-${i}`}>
                         <span>&#9888;</span>
-                        {`${this.state.errors[error]}.`}
+                        {`${this.props.errors[error]}.`}
                     </li>
                 ))}
             </ul>
@@ -61,7 +50,7 @@ class LoginForm extends React.Component {
 
     render() {
         let errorsClass = "";
-        if (Object.values(this.state.errors).length) errorsClass = "errors";
+        if (Object.values(this.props.errors).length) errorsClass = "errors";
         return (
             <div className="login">
                 <nav className="login-nav"><Link to='/'>slack</Link></nav>

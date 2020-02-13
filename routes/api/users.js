@@ -104,6 +104,16 @@ router.get('/:id/channels', (req, res) => {
         );
 })
 
+// all channels user is in
+router.get("/:id/channels", (req, res) => {
+  User.findById(req.params.id)
+    .populate("channels")
+    .then(user => res.json(user.channels))
+    .catch(err =>
+      res.status(404).json({ notuserfound: "No channels found for this user" })
+    );
+});
+
 // user's dm(direct messages) groups
 router.get('/:id/dmgroups', (req, res) => {
     User.findById(req.params.id)
@@ -113,7 +123,6 @@ router.get('/:id/dmgroups', (req, res) => {
             res.status(404).json({ notuserfound: 'No dm groups found for this user' })
         );
 })
-
 
 router.get('/username/:username', (req, res) => {
     req.params.username = req.params.username.toLowerCase()
