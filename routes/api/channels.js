@@ -8,7 +8,7 @@ const Message = require('../../models/Message');
 const validateChannelInput = require('../../validation/channels');
 
 // GET
-
+// all channels
 router.get('/', (req, res) => {
     Channel.find()
         .sort({ date: -1 })
@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
         .catch(err => res.status(404).json({ nochannelsfound: 'No channels found' }));
 });
 
-// Channels for a specif user
+// All channels created by a specif user
 router.get('/user/:user_id', (req, res) => {
     Channel.find({createdBy: req.params.user_id})
         .then(channels => res.json(channels))
@@ -64,7 +64,7 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
 );
 
 
-
+// DELETE
 // Right now is only deleting the channel, need to come back and delte messages too!
 
 router.delete('/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
