@@ -12,9 +12,12 @@ const MessageSchema = new Schema({
   },
   channel: {
     type: Schema.Types.ObjectId,
-    ref: 'Channel',
-    required: true,
+    ref: 'Channel'
   },
+  dmgroup: {
+    type: Schema.Types.ObjectId,
+    ref: 'Dmgroup'
+  }
 }, { timestamps: true })
 
 

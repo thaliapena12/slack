@@ -87,12 +87,23 @@ router.post("/login", (req, res) => {
 });
 
 router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
-    res.json({
-        id: req.user.id,
-        username: req.user.username,
-        email: req.user.email
-    });
+    User.findById(req.params.id)
+        .then(user => res.json(user))
+        .catch(err =>
+            res.status(404).json({ notuserfound: 'No information found for the current user' })
+        );
 })
+
+// user's channels
+router.get('/:id/channels', (req, res) => {
+    User.findById(req.params.id)
+        .populate("channels")
+        .then(user => res.json(user.channels))
+        .catch(err =>
+            res.status(404).json({ notuserfound: 'No channels found for this user' })
+        );
+})
+
 // all channels user is in
 router.get("/:id/channels", (req, res) => {
   User.findById(req.params.id)
@@ -102,5 +113,28 @@ router.get("/:id/channels", (req, res) => {
       res.status(404).json({ notuserfound: "No channels found for this user" })
     );
 });
+
+// user's dm(direct messages) groups
+router.get('/:id/dmgroups', (req, res) => {
+    User.findById(req.params.id)
+        .populate("dmgroups")
+        .then(user => res.json(user.dmgroups))
+        .catch(err =>
+            res.status(404).json({ notuserfound: 'No dm groups found for this user' })
+        );
+})
+
+router.get('/username/:username', (req, res) => {
+    req.params.username = req.params.username.toLowerCase()
+    User.findOne(
+        { 'username': req.params.username },
+        (err, user) => {
+            if (err){
+                return res.status(500).json({ error: true})
+            }
+            return res.json({alreadyInUse: !! user})
+        }
+    )
+})
 
 module.exports = router;
