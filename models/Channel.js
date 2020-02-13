@@ -33,9 +33,9 @@ ChannelSchema.methods.addUser = function (userId) {
        
 }
 
-ChannelSchema.methods.removeUser = function (userId) {
-    
-    Channel.find
+ChannelSchema.methods.addMessage = function (messageId) {
+    this.channelMessages.push(messageId);
+    this.save();
 }
 
 module.exports = Channel = mongoose.model('Channel', ChannelSchema);
