@@ -23,14 +23,21 @@ router.get('/:id', (req, res) => {
 // create dmgroup under current user
 
 router.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
-    
+    console.log(req.body.members);
     const newDmgroup = new Dmgroup({
-      createdBy: req.user.id,
-      dmMembers: [req.user.id]
+        dmMembers: req.body.members.concat(req.user.id)
     });
 
     newDmgroup.save()
-        .then(message => res.json(message))
+        .then(dmgroup => {
+            req.body.members.map( memberId => {
+                User.findById(memberId).then(user => {
+                    user.dmgroups.push(dmgroup.id);
+                    user.save(); 
+                });
+            });
+            res.json(dmgroup)
+        })
         .catch(error => console.log(error));
 
   }
