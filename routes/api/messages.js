@@ -32,18 +32,7 @@ router.get('/:id', (req, res) => {
 
 // POST
 
-router.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
-    const newMessage = new Message({
-      text: req.body.text,
-      authoredBy: req.user.id,
-      channel: req.body.channel
-    });
-    
-//     newMessage.save()
-//         .then(message => res.json(message))
-//         .catch(error => console.log(error));
-//   }
-// )
+
 
 router.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
 
