@@ -5,6 +5,7 @@ const db = require("./config/keys").mongoURI;
 const users = require("./routes/api/users");
 const channels = require("./routes/api/channels");
 const messages = require("./routes/api/messages");
+const dmgroups = require("./routes/api/dmgroups");
 const bodyParser = require('body-parser');
 const passport = require('passport');
 
@@ -28,3 +29,4 @@ require('./config/passport')(passport);
 app.use("/api/users", users);
 app.use("/api/channels", channels);
 app.use("/api/messages", messages);
+app.use("/api/dmgroups", dmgroups);

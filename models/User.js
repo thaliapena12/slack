@@ -18,6 +18,7 @@ const UserSchema = new Schema({
         type: String
     },
     channels: [{ type: Schema.Types.ObjectId, ref: 'Channel' }], 
+    dmgroups: [{ type: Schema.Types.ObjectId, ref: 'Dmgroup' }],
 }, { timestamps: true })
 
 module.exports = User = mongoose.model('User', UserSchema);

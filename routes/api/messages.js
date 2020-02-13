@@ -8,11 +8,18 @@ const Message = require('../../models/Message');
 const jwt = require("jsonwebtoken");
 
 // GET
-
+// messages under specific channel
 router.get('/channels/:id', (req, res) => {
     Message.find({ channel: req.params.id })
         .then(messages => res.json(messages))
-        .catch(error => console.log(error))
+        .catch(error => res.status(404).json({ noChannelMessage: 'No message found with matching channel id' }))
+})
+
+// messages under specific dmgroup
+router.get('/dmgroups/:id', (req, res) => {
+    Message.find({ dmgroup: req.params.id })
+        .then(messages => res.json(messages))
+        .catch(error => res.status(404).json({ noDmGroupMessage: 'No message found with matching dm group id' }))
 })
 
 // get an specific message
@@ -25,19 +32,15 @@ router.get('/:id', (req, res) => {
 // POST
 
 router.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
-    // const { errors, isValid } = validateChannelInput(req.body);
-
-    // if (!isValid) {
-    //   return res.status(400).json(errors);
-    // }
-    
     const newMessage = new Message({
       text: req.body.text,
       authorBy: req.user.id,
       channel: req.body.channel
     });
     
-    newMessage.save().then(message => res.json(message));
+    newMessage.save()
+        .then(message => res.json(message))
+        .catch(error => console.log(error));
   }
 )
 
@@ -60,28 +63,6 @@ router.delete('/:id', passport.authenticate('jwt', { session: false }), (req, re
         );  
 });
 
-
-// // messages under specifc channel
-// // messages under a user channel
-// router.get('/channels/:id/messages', (req, res) =>{
-//   if (!req.user) return res.status(401).end()
-
-//   User.findOne({
-//     'username': req.user,
-//     'channels': req.params.id,
-//   })
-//     .exec()
-//     .then(user => {
-//       if (user) {
-//         return Message.find({ channel: req.params.id }).exec()
-//       }
-//       throw 'Not joined to channel.'
-//     })
-//     .then(messages => res.json(messages))
-//     .then(null, error => {
-//       res.status(401).json({ error })
-//     })
-// })
 
 
 module.exports = router;
