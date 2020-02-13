@@ -57,7 +57,11 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
         if (resp) {
             res.status(400).json({ channelexists: "Channel already exist in database"});
         } else {
-            newChannel.save().then(channel => res.json(channel));
+            newChannel.save().then(channel => {
+                User.findByIdAndUpdate(channel.createdBy, {
+                  $push: { channels: channel._id }
+                }).then(() => res.json(channel));  
+            }) 
         }
     });
     }

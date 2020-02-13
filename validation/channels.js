@@ -17,9 +17,9 @@ module.exports = function validateChannelInput(data) {
         errors.name = 'Channel name field is required';
     }
         
-    if (!Validator.isLength(data.description, { min: 5, max: 140 })) {
-        errors.description = 'Channel description must be between 5 and 140 characters';
-    }
+    // if (!Validator.isLength(data.description, { min: 5, max: 140 })) {
+    //     errors.description = 'Channel description must be between 5 and 140 characters';
+    // }
 
     if (Validator.isEmpty(data.accessType)) {
         errors.accessType = 'Channel access type field is required';
