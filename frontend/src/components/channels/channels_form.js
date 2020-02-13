@@ -1,30 +1,24 @@
 import React from "react";
 import './modal_form.css'
 
-class BoardForm extends React.Component {
+class ChannelsForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.board;
-    // this.formType = this.props.formType;
+    this.state = this.props.channel;
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.handleFile = this.handleFile.bind(this);
+  
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    const board = Object.assign({}, this.state);
-    this.props.action(board).then(this.props.closeModal);
+    const channel = Object.assign({}, this.state);
+    this.props.action(channel).then(this.props.closeModal);
   }
 
   update(field) {
     return e => this.setState({ [field]: e.currentTarget.value });
   }
-
-  // handleFile(e){
-  //     debugger;
-  //     this.setState({ photoFile: e.currentTarget.files[0] })
-  // }
 
   render() {
     return (
@@ -48,20 +42,20 @@ class BoardForm extends React.Component {
               <br />
               <input
                 type="text"
-                value={this.state.title}
+                value={this.state.name}
                 placeholder="# e.g.plan-budget "
-                onChange={this.update("title")}
+                onChange={this.update("name")}
                 className="channel-input"
               />
             </label>
             <br />
             <label>
               <h2>Description(optional)</h2>
-              <br />
+              <br /> 
               <input
                 type="text"
-                value={this.state.title}
-                onChange={this.update("title")}
+                value={this.state.description}
+                onChange={this.update("description")}
                 className="channel-input"
               />
             </label>
@@ -70,15 +64,15 @@ class BoardForm extends React.Component {
               <small>What is the channel about?</small>
             </div>
             <br />
+            {/* <h2>Make private</h2> */}
             <label className="switch">
-              <h2>Make private</h2>
               <input
                 type="checkbox"
                 value={this.state.private}
                 onChange={this.update("private")}
                 // className="channel-input"
-                />
-              <span class="slider round"></span>
+              />
+              <span className="slider round"></span>
             </label>
             <br />
             <small>
@@ -100,4 +94,4 @@ class BoardForm extends React.Component {
   }
 }
 
-export default BoardForm;
+export default ChannelsForm;

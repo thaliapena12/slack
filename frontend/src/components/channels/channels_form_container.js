@@ -8,7 +8,7 @@ import {
 } from "../../actions/modal_form_actions";
 
 const mapStateToProps = state => ({
-  board: {
+  channel: {
     name: "",
     private: false,
     description: ""
