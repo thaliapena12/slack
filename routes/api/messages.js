@@ -34,7 +34,7 @@ router.get('/:id', (req, res) => {
 router.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
     const newMessage = new Message({
       text: req.body.text,
-      authorBy: req.user.id,
+      authoredBy: req.user.id,
       channel: req.body.channel
     });
     
@@ -50,7 +50,7 @@ router.delete('/:id', passport.authenticate('jwt', { session: false }), (req, re
 
     Message.findById(req.params.id)
         .then(message => {          
-            if (message.authorBy.toString() === req.user.id){
+            if (message.authoredBy.toString() === req.user.id){
                 message.delete().then(res.json("Your message was deleted"))
                 .catch(err => res.status(300).json({ erroroccurred: "Something went wrong while deleting message"}));                    
             } else {
