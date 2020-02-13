@@ -4,7 +4,7 @@ class Channels extends React.Component {
   render() {
     return (
       <div>
-        <h3>Success!</h3>
+        <h3></h3>
       </div>
     );
   }

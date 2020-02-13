@@ -9,11 +9,14 @@ import {
 
 const mapStateToProps = state => ({
   channel: {
+    channelMembers: [],
+    channelMessages:[],
     name: "",
-    private: false,
-    description: ""
+    description: "",
+    accessType: false,
+    createdBy: ""
   },
-
+  currentUser: state.session.user,
   formType: "New Channel"
 });
 
