@@ -12,25 +12,45 @@ class ChannelsForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     // const channel = Object.assign({}, this.state);
-    let accessType = this.state.accessType ? "private":"public"
-     let channel = {
-       name: this.state.name,
-       description: this.state.description,
-       accessType: accessType,
-       createdBy: this.props.currentUser.id
-     };
-  //  console.log(channel.accessType)
-    this.props.action(channel).then(this.props.closeModalForm);
-  }
+    let accessType = this.state.accessType ? "private" : "public";
+    let channel = {
+      name: this.state.name,
+      description: this.state.description,
+      accessType: accessType,
+      createdBy: this.props.currentUser.id
+    };
+    //  console.log(channel.accessType)
+
+    this.props.action(channel).then(()=> {
+      if (!this.props.errors.length) {
+        this.props.closeModalForm();
+      }    
+    })
+  };
 
   update(field) {
     return e => this.setState({ [field]: e.currentTarget.value });
   }
 
+  renderErrors() {
+    return (
+      <ul className="channels-form-errors">
+        <div className="error-container">
+          {this.props.errors.map((error, i) => (
+            <li className="p-error" key={`error-${i}`}>
+              {error}
+            </li>
+          ))}
+        </div>
+      </ul>
+    );
+  }
+  
   render() {
     return (
       <div className="channel-form-container">
         <form onSubmit={this.handleSubmit} className="channel-form-box">
+          {this.renderErrors()}
           <nav className="channel-form-header">
             <div className="newchannel-label">
               <h3>Create a channel</h3>
