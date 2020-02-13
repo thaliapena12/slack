@@ -32,32 +32,59 @@ class BoardForm extends React.Component {
         <form onSubmit={this.handleSubmit} className="channel-form-box">
           <nav className="channel-form-header">
             <div className="newchannel-label">
-              <h3>{this.props.formType}</h3>
+              <h3>Create a channel</h3>
             </div>
-            <div onClick={this.props.closeModalForm} className="close">X
+            <div onClick={this.props.closeModalForm} className="close">
+              X
             </div>
+            <small>
+              Channels are where your team communicates. They're best when
+              organized around a topic - #marketing. for example
+            </small>
           </nav>
           <div className="add-channel-form">
             <label>
-              Name:
+              <h2>Name</h2>
+              <br />
               <input
                 type="text"
                 value={this.state.title}
-                // placeholder="Like 'Places to go' "
+                placeholder="# e.g.plan-budget "
                 onChange={this.update("title")}
                 className="channel-input"
               />
             </label>
             <br />
             <label>
-              Private:
+              <h2>Description(optional)</h2>
+              <br />
+              <input
+                type="text"
+                value={this.state.title}
+                onChange={this.update("title")}
+                className="channel-input"
+              />
+            </label>
+            <br />
+            <div className="description">
+              <small>What is the channel about?</small>
+            </div>
+            <br />
+            <label className="switch">
+              <h2>Make private</h2>
               <input
                 type="checkbox"
                 value={this.state.private}
                 onChange={this.update("private")}
-                className="channel-input"
-              />
+                // className="channel-input"
+                />
+              <span class="slider round"></span>
             </label>
+            <br />
+            <small>
+              When a channel is set to private, it can only be viewed or joined
+              by invitation
+            </small>
             <br />
             <input
               className="channel-submit"
@@ -65,6 +92,7 @@ class BoardForm extends React.Component {
               // value={this.props.formType}
               value="Create"
             />
+            <small>Learn more</small>
           </div>
         </form>
       </div>
