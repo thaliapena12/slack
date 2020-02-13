@@ -74,7 +74,7 @@ class NavBar extends React.Component {
             </div>
             <ul className="navbar-channels-list">
               {this.props.userChannels.map(channel => (
-                <li>{`# ${channel.name}`}</li>
+                <li onClick={() => this.props.selectChannel(channel)}>{`# ${channel.name}`}</li>
               ))}
             </ul>
           </div>
