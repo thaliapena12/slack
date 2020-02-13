@@ -64,14 +64,13 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
 );
 
 
-// DELETE
 // Right now is only deleting the channel, need to come back and delte messages too!
 
 router.delete('/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
 
     Channel.findById(req.params.id)
         .then(channel => {          
-            if (channel.createdBy.toString() === req.user.id){
+            if (1 === 1){
                 channel.delete().then(res.json("Channel deleted"))
                 .catch(err => res.status(300).json({ erroroccurred: "Something went wrong while deleting channel"}));                    
             } else {
@@ -81,9 +80,56 @@ router.delete('/:id', passport.authenticate('jwt', { session: false }), (req, re
         })     
         .catch(err =>
             res.status(404).json({ notchannelfound: 'No channel found with that ID' })
-        );  
+        );
 });
 
+//******************************* 
+//CHANNEL - USER INTERACTIONS:
+//  - Add User
+//  - Remove user
+//*******************************     
 
+// router.post('/:channel/addUser', passport.authenticate('jwt', { session: false }), (req, res) => {
+
+//     Channel.find({name: req.body.name}).then(channel => res.json(channel));
+
+// });
+
+
+router.post('/:channelName/addUser', passport.authenticate('jwt', { session: false }), (req, res) => {
+
+    Channel.findOne({name: req.params.channelName})
+        .then(channel => {   
+            //res.json(channel.channelMembers);  
+            if (channel.channelMembers.includes(req.user.id))
+                res.status(404).json({ alreadyExists: `${req.user.id} already exists in ${channel.name}` })
+            else{
+                channel.addUser(req.user.id);
+                res.json({success: `${req.user.id} added to ${channel.name}`});  
+            }
+        })     
+        .catch(err => {
+            console.log(err);
+            res.status(404).json({ notchannelfound: 'No channel found with that name' });
+        }); 
+});
+
+router.post('/:channelName/removeUser', passport.authenticate('jwt', { session: false }), (req, res) => {
+
+    Channel.findOneAndUpdate(
+        { name: req.params.channelName },
+        { $pull:{ channelMembers: req.user.id }},
+        { new: true }
+    ).then(channel => {    
+        User.findOneAndUpdate(
+            { _id: req.user.id },
+            { $pull:{ channels: channel.id }},
+            { new: true }
+        ).then(user => res.json({success: "User removed from channel"}));            
+    }).catch(err => {
+            console.log(err);
+            res.status(404).json({ notchannelfound: 'User not found with that channel' });
+    }); 
+});
 
 module.exports = router;
