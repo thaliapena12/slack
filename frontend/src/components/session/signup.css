@@ -1,0 +1,118 @@
+.signup {
+    height: 100%;
+}
+
+.signup-nav {
+    background-color: white;
+    height: 70px;
+    border-bottom: 2px solid lightgray;
+}
+
+.signup-nav > a {
+    text-decoration: none;
+    color: black;
+    font-size: 28px;
+    font-family: arial;
+    font-weight: 900;
+    margin-top: 20px;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.signup-form-container {
+    background-color: rgb(245, 245, 245);
+    height: 100%;
+    padding-top: 5px;
+}
+
+.signup-form {
+    background-color: white;
+    width: 500px;
+    margin: auto;
+    border-radius: 5px;
+    height: 500px;
+    border: 1px solid lightgray;
+    box-shadow: 0 10px 25px #ddd;
+}
+
+.signup-form-contents {
+    width: 80%;
+    height: 50%;
+    margin: auto;
+    padding-top: 35px;
+}
+
+.signup-form-contents > h2 {
+    font-size: 30px;
+    text-align: start;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.signup-form-contents > p {
+    font-family: Arial, Helvetica, sans-serif;
+    color: darkgray;
+}
+
+.input {
+    outline-style:none;
+    box-shadow:none;
+    border-color:transparent;
+    border: 1px solid black;
+    width: 97%;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 17px;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+.input::placeholder {
+    font-size: 17px;
+}
+
+.signup-form-contents > input[type=submit] {
+    outline-style:none;
+    box-shadow:none;
+    border-color:transparent;
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 17px;
+    background-color: #007a5a;
+    color: white;
+    font-weight: 700;
+}
+
+.input.errors {
+    border: 1px solid red;
+    background-color: rgba(253, 190, 190, 0.5);
+}
+
+.errors-list {
+    width: 500px;
+    list-style-type: none;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+    margin: auto;
+}
+
+.errors-list > li {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    width: 94%;
+    height: 15px;
+    margin-bottom: 5px;
+    padding: 12px;
+    padding-bottom: 15px;
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    border-left: 5px solid rgb(211, 51, 91);
+}
+
+.errors-list li > span {
+    margin-right: 5px;
+    color: rgb(211, 51, 91);
+}

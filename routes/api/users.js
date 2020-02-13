@@ -59,18 +59,18 @@ router.post("/login", (req, res) => {
         return res.status(400).json(errors);
     }
 
-    const username = req.body.username;
+    const email = req.body.email;
     const password = req.body.password;
 
-    User.findOne({ username }).then(user => {
+    User.findOne({ email }).then(user => {
         if (!user) {
-            errors.username = "This user does not exist";
+            errors.email = "This user does not exist";
             return res.status(400).json(errors);
         }
 
         bcrypt.compare(password, user.password).then(isMatch => {
             if (isMatch) {
-                const payload = { id: user.id, username: user.username };
+                const payload = { id: user.id, email: user.email, username: user.username };
 
                 jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
                     res.json({
@@ -87,26 +87,53 @@ router.post("/login", (req, res) => {
 });
 
 router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
-    res.json({
-        id: req.user.id,
-        username: req.user.username,
-        email: req.user.email
-    });
+    User.findById(req.params.id)
+        .then(user => res.json(user))
+        .catch(err =>
+            res.status(404).json({ notuserfound: 'No information found for the current user' })
+        );
 })
 
-router.get('/user/channels', (req, res) => {
-    if (!req.user) return res.status(401).end()
-  
+// user's channels
+router.get('/:id/channels', (req, res) => {
+    User.findById(req.params.id)
+        .populate("channels")
+        .then(user => res.json(user.channels))
+        .catch(err =>
+            res.status(404).json({ notuserfound: 'No channels found for this user' })
+        );
+})
+
+// all channels user is in
+router.get("/:id/channels", (req, res) => {
+  User.findById(req.params.id)
+    .populate("channels")
+    .then(user => res.json(user.channels))
+    .catch(err =>
+      res.status(404).json({ notuserfound: "No channels found for this user" })
+    );
+});
+
+// user's dm(direct messages) groups
+router.get('/:id/dmgroups', (req, res) => {
+    User.findById(req.params.id)
+        .populate("dmgroups")
+        .then(user => res.json(user.dmgroups))
+        .catch(err =>
+            res.status(404).json({ notuserfound: 'No dm groups found for this user' })
+        );
+})
+
+router.get('/username/:username', (req, res) => {
+    req.params.username = req.params.username.toLowerCase()
     User.findOne(
-      { 'local.username': req.user },
-      { 'local.channels': 1, _id: 0 },
-      (err, channels) => {
-        if (err) {
-          return res.status(500).json({ error: true })
+        { 'username': req.params.username },
+        (err, user) => {
+            if (err){
+                return res.status(500).json({ error: true})
+            }
+            return res.json({alreadyInUse: !! user})
         }
-  
-        res.json(channels)
-      }
     )
 })
 

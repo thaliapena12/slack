@@ -8,7 +8,7 @@ const Message = require('../../models/Message');
 const validateChannelInput = require('../../validation/channels');
 
 // GET
-
+// all channels
 router.get('/', (req, res) => {
     Channel.find()
         .sort({ date: -1 })
@@ -16,12 +16,12 @@ router.get('/', (req, res) => {
         .catch(err => res.status(404).json({ nochannelsfound: 'No channels found' }));
 });
 
-// Channels for a specif user
+// All channels created by a specif user
 router.get('/user/:user_id', (req, res) => {
-    Channel.find({user: req.params.user_id})
+    Channel.find({createdBy: req.params.user_id})
         .then(channels => res.json(channels))
         .catch(err =>
-            res.status(404).json({ nochannelsfound: 'No channels found from that user' }
+            res.status(404).json({ nochannelsfound: 'No channels found for that user' }
         )
     );
 });
@@ -34,30 +34,6 @@ router.get('/:id', (req, res) => {
             res.status(404).json({ notchannelfound: 'No channel found with that ID' })
         );
 });
-
-// messages under a user channel
-// router.get('/channel/:name/messages', (req, res) =>{
-//     if (!req.user) return res.status(401).end()
-
-//   req.params.name = req.params.name.toLowerCase()
-
-//   User.findOne({
-//     'username': req.user,
-//     // 'channels': req.params.name,
-//   })
-//     .exec()
-//     .then(user => {
-//       if (user) {
-//         return Message.find({ channel: req.params.name }).exec()
-//       }
-//       throw 'Not joined to channel.'
-//     })
-//     .then(messages => res.json(messages))
-//     .then(null, error => {
-//       res.status(401).json({ error })
-//     })
-// })
-
 
 // POST
 // adds a channel under user ownership
@@ -86,6 +62,7 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
     });
     }
 );
+
 
 // Right now is only deleting the channel, need to come back and delte messages too!
 
