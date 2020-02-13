@@ -5,6 +5,7 @@ const passport = require('passport');
 const User = require('../../models/User');
 const Channel = require('../../models/Channel');
 const Message = require('../../models/Message');
+const Dmgroup = require('../../models/Dmgroup');
 const jwt = require("jsonwebtoken");
 
 // GET
@@ -31,16 +32,59 @@ router.get('/:id', (req, res) => {
 
 // POST
 
-router.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
-    const newMessage = new Message({
-      text: req.body.text,
-      authorBy: req.user.id,
-      channel: req.body.channel
-    });
+
+// router.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
+//     const newMessage = new Message({
+//       text: req.body.text,
+//       authorBy: req.user.id,
+//       channel: req.body.channel
+//     });
     
-    newMessage.save()
-        .then(message => res.json(message))
-        .catch(error => console.log(error));
+//     newMessage.save()
+//         .then(message => res.json(message))
+//         .catch(error => console.log(error));
+//   }
+// )
+
+router.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
+
+    if (typeof req.body.channel !== 'undefined') {
+        Channel.findById(req.body.channel)
+            .then(channel => {
+                const newMessage = new Message({
+                    text: req.body.text,
+                    authorBy: req.user.id,
+                    channel: channel.id
+            
+                });
+                newMessage.save()
+                    .then(message => {
+                        channel.addMessage(message.id);
+                        res.json({messageSuccess: 'The message was succesful added under the channel'}) 
+                    })
+                    .catch(error => console.log(error));
+
+        }).catch(err => res.status(404).json({ notchannelfound: 'No channel found with that ID' })); 
+        
+    } else {
+        Dmgroup.findById(req.body.dmgroup)
+            .then(dmgroup => {
+                const newMessage = new Message({
+                    text: req.body.text,
+                    authorBy: req.user.id,
+                    dmgroup: dmgroup.id
+            
+                });
+                newMessage.save()
+                    .then(message => {
+                        dmgroup.addMessage(message.id);
+                        res.json({messageSuccess: 'The message was succesful added under the dm group'}) 
+                    })
+                    .catch(error => console.log(error));
+
+        }).catch(err => res.status(404).json({ notdmgroupfound: 'No dm group found with that ID' })); 
+        
+    }   
   }
 )
 
