@@ -1,4 +1,5 @@
 import React from "react";
+import './modal_form.css'
 
 class BoardForm extends React.Component {
   constructor(props) {
@@ -27,42 +28,42 @@ class BoardForm extends React.Component {
 
   render() {
     return (
-      <div className="board-form-container">
-        <form onSubmit={this.handleSubmit} className="board-form-box">
-          <nav className="board-form-header">
-            <div className="newboard-label">
+      <div className="channel-form-container">
+        <form onSubmit={this.handleSubmit} className="channel-form-box">
+          <nav className="channel-form-header">
+            <div className="newchannel-label">
               <h3>{this.props.formType}</h3>
             </div>
-            <div onClick={this.props.closeModalForm} className="close">
-              <img src={window.cancelURL} />
+            <div onClick={this.props.closeModalForm} className="close">X
             </div>
           </nav>
-          <div className="board-form">
+          <div className="add-channel-form">
             <label>
               Name:
               <input
                 type="text"
                 value={this.state.title}
-                placeholder="Like 'Places to go' "
+                // placeholder="Like 'Places to go' "
                 onChange={this.update("title")}
-                className="board-input"
+                className="channel-input"
               />
             </label>
             <br />
             <label>
-              Visibility:
+              Private:
               <input
                 type="checkbox"
                 value={this.state.private}
                 onChange={this.update("private")}
-                className="board-input"
+                className="channel-input"
               />
             </label>
             <br />
             <input
-              className="board-submit"
+              className="channel-submit"
               type="submit"
-              value={this.props.formType}
+              // value={this.props.formType}
+              value="Create"
             />
           </div>
         </form>

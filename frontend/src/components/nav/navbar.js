@@ -4,6 +4,7 @@ import { Link, Redirect } from 'react-router-dom'
 import './navbar.css';
 
 
+
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
@@ -63,12 +64,18 @@ class NavBar extends React.Component {
             )}
           </div>
           <div className="navbar-channels">
-            <h2>Channels</h2>
-            <div className="navbar-add-channel">
-              <button onClick={() => this.props.openModalForm('new channel')}>New Channel</button>
+            <div className="navbar-channels-header">
+              <h2 className="navbar-channels-h2">Channels</h2>
+              <div className="navbar-add-channel">
+                <button onClick={() => this.props.openModalForm("new channel")}>
+                  &#8853;
+                </button>
+              </div>
             </div>
-            <ul>
-              {this.props.userChannels.map(channel => <li>{channel.name}</li>)}
+            <ul className="navbar-channels-list">
+              {this.props.userChannels.map(channel => (
+                <li>{`# ${channel.name}`}</li>
+              ))}
             </ul>
           </div>
         </nav>
