@@ -35,10 +35,10 @@ class SignupForm extends React.Component {
     renderErrors() {
         return (
             <ul className="errors-list">
-                {Object.keys(this.state.errors).map((error, i) => (
+                {Object.keys(this.props.errors).map((error, i) => (
                     <li key={`error-${i}`}>
                         <span>&#9888;</span>
-                        {`${this.state.errors[error]}.`}
+                        {`${this.props.errors[error]}.`}
                     </li>
                 ))}
             </ul>
@@ -47,7 +47,7 @@ class SignupForm extends React.Component {
 
     render() {
         let errorsClass = "";
-        if (Object.values(this.state.errors).length) errorsClass = "errors";
+        if (this.props.errors.length) errorsClass = "errors";
         return (
             <div className="signup">
                 <nav className="signup-nav"><Link to='/'>slack</Link></nav>
