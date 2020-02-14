@@ -31,7 +31,6 @@ class NavBar extends React.Component {
 
   render() {
     if (this.props.loggedIn) {
-
       const titleCase = (string) => {
         let words = string.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1))
         return words.join(' ');
@@ -72,10 +71,25 @@ class NavBar extends React.Component {
                   &#8853;
                 </button>
               </div>
+              <div className="navbar-delete-channel">
+                {/* <button
+                  onClick={() => this.props.openModalForm("delete channel")}
+                >
+                  &#8853;
+                </button> */}
+              </div>
             </div>
             <ul className="navbar-channels-list">
               {this.props.userChannels.map(channel => (
-                <li onClick={() => this.props.selectChannel(channel)}>{`# ${channel.name}`}</li>
+                <li onClick={() => this.props.selectChannel(channel)}>
+                  {`# ${channel.name}`}{" "}
+                  <button
+                    className="navbar-delete-button"
+                    onClick={() => this.props.openModalForm("delete channel")}
+                  >
+                    &times;{" "}
+                  </button>
+                </li>
               ))}
             </ul>
           </div>
@@ -89,10 +103,9 @@ class NavBar extends React.Component {
               </div>
             </div>
             <ul className="navbar-channels-list">
-              
-              { this.props.userDmgroups.map(dmgroup => (
+              {this.props.userDmgroups.map(dmgroup => (
                 <li>{`# ${dmgroup.dmMembers}`}</li>
-              ))} 
+              ))}
             </ul>
           </div>
         </nav>

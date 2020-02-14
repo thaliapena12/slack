@@ -35,7 +35,7 @@ class ChannelsForm extends React.Component {
   renderErrors() {
     return (
       <ul className="channels-form-errors">
-        <div className="error-list">
+        <div className="error-container">
           {this.props.errors.map((error, i) => (
             <li className="p-error" key={`error-${i}`}>
               {error}
@@ -56,7 +56,7 @@ class ChannelsForm extends React.Component {
               <h3>Create a channel</h3>
             </div>
             <div onClick={this.props.closeModalForm} className="close">
-              X
+              &times;
             </div>
             <small>
               Channels are where your team communicates. They're best when
