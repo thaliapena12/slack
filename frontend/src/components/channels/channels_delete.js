@@ -12,9 +12,9 @@ class ChannelsForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    debugger
     let currentChannel = this.props.currentChannel; 
     this.props.action(currentChannel._id).then(this.props.closeModalForm());
+    // this.props.push.history(channels);
   }
 
   update(field) {

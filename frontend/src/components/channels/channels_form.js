@@ -56,7 +56,7 @@ class ChannelsForm extends React.Component {
               <h3>Create a channel</h3>
             </div>
             <div onClick={this.props.closeModalForm} className="close">
-              X
+              &times;
             </div>
             <small>
               Channels are where your team communicates. They're best when
