@@ -81,6 +81,7 @@
     background-color: #007a5a;
     color: white;
     font-weight: 700;
+    cursor: pointer;
 }
 
 .input.errors {
