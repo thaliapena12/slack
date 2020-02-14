@@ -8,7 +8,7 @@ const MessagesReducer = (
     let newState = Object.assign({}, state);
     switch (action.type) {
         case RECEIVE_NEW_MESSAGE:
-            newState.messages[action.message.id] = action.message;
+            newState.messages[action.message._id] = action.message;
             return newState;
         default:
             return state;

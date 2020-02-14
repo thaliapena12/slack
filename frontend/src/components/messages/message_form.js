@@ -25,12 +25,24 @@ class MessageForm extends React.Component {
 
     handleSubmit (e) {
         e.preventDefault();
-        this.setState({
-            text: "",
-            authoredBy: this.props.currentUser.id,
-            channel: this.props.currentChannel.id
-        })
-        this.props.createMessage(this.state);
+        let currentChannelId;
+        let message = {
+            text: this.state.text,
+            authoredBy: "",
+            channel: ""
+        };
+        if (!this.props.currentChannel) {
+            currentChannelId = this.props.userChannels[0]._id;
+            message["channel"] = currentChannelId;
+            message["authoredBy"] = this.props.currentUser.id;
+            this.props.createMessage(message);
+        } else {
+            currentChannelId = this.props.currentChannel.id;
+            message["channel"] = currentChannelId;
+            message["authoredBy"] = this.props.currentUser.id;
+            this.props.createMessage(message);
+        }    
+        this.setState({text: ""});    
     }
 
     render () {
