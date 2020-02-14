@@ -1,4 +1,5 @@
-import { RECEIVE_CHANNEL_ERRORS, REMOVE_ERRORS } from '../actions/channel_actions';
+import { RECEIVE_CHANNEL_ERRORS, REMOVE_ERRORS, RECEIVE_NEW_CHANNEL } from '../actions/channel_actions';
+
 
 export default (state = [], action) => {
   Object.freeze(state);
@@ -9,9 +10,11 @@ export default (state = [], action) => {
       return action.errors;
     }
       break;
-    case REMOVE_ERRORS:
-      return [];
-    default:
+    // case REMOVE_ERRORS:
+    //   return [];
+    case RECEIVE_NEW_CHANNEL:
+        return [];
+    default:   
     return state;
   }
 };
