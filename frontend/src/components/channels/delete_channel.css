@@ -1,0 +1,15 @@
+.channel-delete-box{
+    background: darkred;
+    border-radius: 5px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.795);
+    position: relative;
+    z-index: 2;
+    min-height: 40px;   
+    /* min-width: 6px; */
+    text-align: center;
+    margin-top: 200px;
+    width: 20%;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 600px;
+}

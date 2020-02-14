@@ -176,3 +176,12 @@ i {
 .navbar-channels-list > li:hover {
     background-color: rgb(51, 12, 51);
 }
+.navbar-delete-button{
+    display: inline-flex;
+    border-radius: 50%;
+    background: rgba(139, 0, 0, 0);
+    color: white;
+    height: 20px;
+    font-weight: bolder;
+    border-width: 0.0cm;
+}
