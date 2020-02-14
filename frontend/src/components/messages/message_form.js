@@ -36,7 +36,6 @@ class MessageForm extends React.Component {
             currentChannelId = this.props.userChannels[0]._id;
         message["channel"] = currentChannelId;
         message["authoredBy"] = this.props.currentUser.id;
-        debugger
         this.props.createMessage(message);
 
         this.setState({text: ""});    
