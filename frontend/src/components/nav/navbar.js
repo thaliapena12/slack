@@ -26,6 +26,7 @@ class NavBar extends React.Component {
   componentDidMount () {
     this.props.fetchUserCreatedChannels(this.props.user.id);
     this.props.fetchUserChannels(this.props.user.id);
+    this.props.fetchUserDmgroups(this.props.user.id);
   }
 
   render() {
@@ -36,6 +37,7 @@ class NavBar extends React.Component {
         let words = string.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1))
         return words.join(' ');
       };
+      // debugger
       return (
         <nav className="slack-bar">
           <div className="slack-bar-header">
@@ -76,6 +78,22 @@ class NavBar extends React.Component {
               {this.props.userChannels.map(channel => (
                 <li onClick={() => this.props.selectChannel(channel)}>{`# ${channel.name}`}</li>
               ))}
+            </ul>
+          </div>
+          <div className="navbar-channels">
+            <div className="navbar-channels-header">
+              <h2 className="navbar-channels-h2">Direct Messages</h2>
+              <div className="navbar-add-channel">
+                <button onClick={() => this.props.openModalForm("new channel")}>
+                  &#8853;
+                </button>
+              </div>
+            </div>
+            <ul className="navbar-channels-list">
+              
+              { this.props.userDmgroups.map(dmgroup => (
+                <li>{`# ${dmgroup.dmMembers}`}</li>
+              ))} 
             </ul>
           </div>
         </nav>
