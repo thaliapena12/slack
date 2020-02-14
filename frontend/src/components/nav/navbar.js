@@ -71,10 +71,28 @@ class NavBar extends React.Component {
                   &#8853;
                 </button>
               </div>
+              <div className="navbar-delete-channel">
+                {/* <button
+                  onClick={() => this.props.openModalForm("delete channel")}
+                >
+                  &#8853;
+                </button> */}
+              </div>
             </div>
             <ul className="navbar-channels-list">
               {this.props.userChannels.map(channel => (
-                <li onClick={() => this.props.selectChannel(channel)}>{`# ${channel.name}`}</li>
+                <div>
+                  <li onClick={() => this.props.selectChannel(channel)}>
+                    {`# ${channel.name}`}{" "}
+                  </li>
+                  <li>
+                    <button className="navbar-delete-button"
+                      onClick={() => this.props.openModalForm("delete channel")}
+                    >
+                      &times;{" "}
+                    </button>
+                  </li>
+                </div>
               ))}
             </ul>
           </div>
