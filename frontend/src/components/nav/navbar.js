@@ -30,7 +30,6 @@ class NavBar extends React.Component {
   }
 
   render() {
-    // if (Object.values(this.props.userChannels).length === 0) return <h1>"fetching channels"</h1>;
     if (this.props.loggedIn) {
 
       const titleCase = (string) => {
