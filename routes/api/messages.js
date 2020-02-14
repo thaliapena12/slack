@@ -33,7 +33,6 @@ router.get('/:id', (req, res) => {
 // POST
 
 
-
 router.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
 
     if (typeof req.body.channel !== 'undefined') {
@@ -41,14 +40,14 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
             .then(channel => {
                 const newMessage = new Message({
                     text: req.body.text,
-                    authorBy: req.user.id,
+                    authoredBy: req.user.id,
                     channel: channel.id
             
                 });
                 newMessage.save()
                     .then(message => {
                         channel.addMessage(message.id);
-                        res.json({messageSuccess: 'The message was succesful added under the channel'}) 
+                        res.json(message) 
                     })
                     .catch(error => console.log(error));
 
@@ -59,7 +58,7 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
             .then(dmgroup => {
                 const newMessage = new Message({
                     text: req.body.text,
-                    authorBy: req.user.id,
+                    authoredBy: req.user.id,
                     dmgroup: dmgroup.id
             
                 });

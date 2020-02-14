@@ -7,7 +7,7 @@
     "start": "node app.js",
     "server": "nodemon app.js",
     "frontend": "npm start --prefix frontend",
-    "dev": "concurrently \"npm run server\" \"npm run frontend\""
+    "dev": "concurrently \"npm run server --inspect\" \"npm run frontend\""
   },
   "repository": {
     "type": "git",
