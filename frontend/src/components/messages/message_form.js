@@ -50,7 +50,7 @@ class MessageForm extends React.Component {
         if (this.props.currentChannel) {
             currentChannel = this.props.currentChannel;
         } else if (this.props.userChannels.length === 0) {
-            return <h1>fetching channel</h1>
+            return null;
         } else {
             currentChannel = this.props.userChannels[0];
         }
