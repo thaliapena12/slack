@@ -13,7 +13,7 @@
 .channel-form-container{
     background-color: red;
     position: relative;
-    top: 10px;
+    top: 20%;
     left: 50%;
     margin-left: -220px;
     width: 400px;
@@ -29,7 +29,7 @@
     background: white;
     position: relative;
     z-index: 2;
-    height: 390px;   
+    min-height: 440px;   
 }
 .channel-form {
     display: flex;
@@ -217,3 +217,34 @@ body{
 #button-1 .knobs, #button-1 .knobs:before, #button-1 .layer{
     transition: 0.3s ease all;
 }
+/* errors */
+.error-list {
+    width: 500px;
+    list-style-type: none;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+    margin: auto;
+}
+
+.error-list > li {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    color: rgb(211, 51, 91);
+    width: 67%;
+    min-height: 15px;
+    margin-top: -16px;
+    margin-left: -46px;
+    margin-bottom: 5px;
+    padding: 10px;
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    border-left: 5px solid rgb(211, 51, 91);
+}
+
+.error-list li > span {
+    margin-right: 5px;
+    color: rgb(211, 51, 91);
+} 
