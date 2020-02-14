@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './main_page.css'; 
+import img0 from './slack-img0.jpg';
 import img1 from './slack-img1.jpg';
 import img2 from './slack-img2.jpg';
 import img3 from './slack-img3.jpg';
@@ -13,12 +14,12 @@ class MainPage extends React.Component {
             <div className="mainpage">
                 <div className="header">
                     <div className="header-left">
-                    <h1>slack clone </h1>
-                    <h2>Why Slack? </h2>
-                    <h2>Solutions </h2>
-                    <h2>Resources </h2>
-                    <h3>Enterprise </h3>
-                    <h3>Pricing </h3>
+                        <img className="logo" src={img0}/>
+                        <h2>Why Slack? </h2>
+                        <h2>Solutions </h2>
+                        <h2>Resources </h2>
+                        <h3>Enterprise </h3>
+                        <h3>Pricing </h3>
                     </div>
                     <div className="signup-login">
                     <div className="log-in">

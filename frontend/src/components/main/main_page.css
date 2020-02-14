@@ -140,7 +140,19 @@ img{
     text-align: center;
     display: inline-flex;
 }
-img:hover{
+
+.logo {
+    background-position: 17px 0;
+    background-repeat: no-repeat;
+    background-size: 50px 16px;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    width: 90px;
+    height: 46px;
+    margin-top: 20px;
+}
+
+.img1:hover, .img2:hover, .img3:hover{
     align-items: flex-end;
     /* background-position: top center; */
     background-repeat: no-repeat;

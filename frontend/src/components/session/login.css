@@ -2,6 +2,15 @@
     height: 100%;
 }
 
+.logo-login {
+    background-position: 17px 0;
+    background-repeat: no-repeat;
+    background-size: 50px 16px;
+    flex-grow: 1;
+    width: 90px;
+    height: 46px;
+}
+
 .login-nav {
     background-color: white;
     height: 70px;

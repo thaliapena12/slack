@@ -12,11 +12,19 @@ const Message = require('../../models/Message');
 
 // individual dmgroup
 router.get('/:id', (req, res) => {
-    Dmgroups.findById(req.params.id)
+    Dmgroup.findById(req.params.id)
         .then(dmgroup => res.json(dmgroup))
         .catch(err =>
             res.status(404).json({ notdmfound: 'No dm group was found with that ID' })
         );
+});
+
+// all dmgroups
+router.get('/', (req, res) => {
+    Dmgroup.find()
+        .sort({ date: -1 })
+        .then(dmgroups => res.json(dmgroups))
+        .catch(err => res.status(404).json({ nodmgroupsfound: 'No dm groups found' }));
 });
 
 // POST
