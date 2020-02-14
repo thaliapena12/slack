@@ -5,11 +5,11 @@ export const getChannels = () => {
 };
 
 export const getChannel = (channelId) => {
-  return axios.get("/api/channels/${channelId}");
+  return axios.get(`/api/channels/${channelId}`);
 };
 
 export const deleteChannel = (channelId) => {
-  return axios.delete("/api/channels/${channelId}");
+  return axios.delete(`/api/channels/${channelId}`);
 };
 
 export const createChannel = (channelData) => {

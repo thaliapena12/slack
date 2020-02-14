@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import './login.css';
+import img0 from '../../components/main/slack-img0.jpg';
 
 class LoginForm extends React.Component {
     constructor(props) {
@@ -53,7 +54,7 @@ class LoginForm extends React.Component {
         if (Object.values(this.props.errors).length) errorsClass = "errors";
         return (
             <div className="login">
-                <nav className="login-nav"><Link to='/'>slack</Link></nav>
+                <nav className="login-nav"><Link to='/'><img className="logo-login" src={img0}/></Link></nav>
                 <div className="login-form-container">
                     {this.renderErrors()}
                     <div className="login-form">
