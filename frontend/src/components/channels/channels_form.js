@@ -35,7 +35,7 @@ class ChannelsForm extends React.Component {
   renderErrors() {
     return (
       <ul className="channels-form-errors">
-        <div className="error-container">
+        <div className="error-list">
           {this.props.errors.map((error, i) => (
             <li className="p-error" key={`error-${i}`}>
               {error}
