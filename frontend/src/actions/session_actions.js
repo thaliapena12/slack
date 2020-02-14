@@ -1,5 +1,6 @@
 import * as APIUtil from '../util/session_api_util';
 import jwt_decode from 'jwt-decode';
+import { generateChannel } from './channel_actions';
 
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
@@ -35,7 +36,15 @@ export const signup = user => dispatch => (
         localStorage.setItem('jwtToken', token); //localStorage.getItem('jwtToken')
         APIUtil.setAuthToken(token);
         const decoded = jwt_decode(token);
-        dispatch(receiveCurrentUser(decoded))
+        const firstChannel = {
+            name: `${decoded.username}`,
+            description: "your first channel",
+            accessType: "public",
+            createdBy: decoded.id,
+            channelMembers: [decoded.id]
+        }
+        dispatch(generateChannel(firstChannel));
+        dispatch(receiveCurrentUser(decoded));
     }).catch(err => {
             dispatch(receiveErrors(err.response.data));
         })
