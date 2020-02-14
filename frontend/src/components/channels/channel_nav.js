@@ -14,7 +14,7 @@ class ChannelNav extends React.Component {
     if (this.props.currentChannel) {
       currentChannel = this.props.currentChannel;
     } else if (this.props.userChannels.length === 0){
-      return <h1>fetching channel</h1>
+      return <h1>No channels yet. Go ahead and create one.</h1>
     } else {
       currentChannel = this.props.userChannels[0];
     }
