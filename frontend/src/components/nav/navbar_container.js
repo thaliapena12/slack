@@ -1,7 +1,8 @@
 
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
-import { fetchUserCreatedChannels, receiveCurrentChannel, obliterateChannel } from "../../actions/channel_actions"
+import { fetchUserCreatedChannels, receiveCurrentChannel, obliterateChannel } from "../../actions/channel_actions";
+import { obliterateDmgroup, receiveCurrentDmgroup } from "../../actions/dmgroup_actions";
 import { fetchUserChannels } from '../../actions/user_actions';
 import { fetchUserDmgroups } from '../../actions/user_actions';
 import NavBar from './navbar';
@@ -24,7 +25,9 @@ const mapDispatchToProps = dispatch => ({
   openModalForm: formType => dispatch(openModalForm(formType)),
   closeModalForm: formType => dispatch(closeModalForm(formType)),
   selectChannel: channel => dispatch(receiveCurrentChannel(channel)),
-  obliterateChannel: channelId => dispatch(obliterateChannel(channelId))
+  selectDmgroup: dmgroup => dispatch(receiveCurrentDmgroup(dmgroup)),
+  obliterateChannel: channelId => dispatch(obliterateChannel(channelId)),
+  obliterateDmgroup: dmgroupId => dispatch(obliterateDmgroup(dmgroupId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

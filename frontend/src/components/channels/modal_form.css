@@ -65,6 +65,7 @@
     margin-left: 310px;
     position: relative;
     margin-top: -80px;
+    cursor: pointer
  }
 .close {
     position: absolute;

@@ -3,11 +3,20 @@
     text-align:center;
 }
 .header {
-    background-color: white;
+    /* background-color: white;
     display: inline-flex;
     width: 100%;
     padding: 1rem;
+    justify-content: space-between; */
+    
+    display: flex;
+    background-color: white;
+    border-bottom: 1px solid lightgray;
+    width: auto;
     justify-content: space-between;
+    min-height: 70px;
+    align-items: center;
+  
     
 }
 .header-left{
@@ -136,10 +145,6 @@ img{
     margin-left: auto;
     margin-right: auto;
 }
-.images{
-    text-align: center;
-    display: inline-flex;
-}
 
 .logo {
     background-position: 17px 0;
@@ -147,33 +152,136 @@ img{
     background-size: 50px 16px;
     -webkit-box-flex: 1;
     flex-grow: 1;
-    width: 90px;
+    width: 100px;
     height: 46px;
     margin-top: 20px;
 }
 
-.img1:hover, .img2:hover, .img3:hover{
-    align-items: flex-end;
-    /* background-position: top center; */
-    background-repeat: no-repeat;
-    background-size: cover;
-    border: none;
-    display: inline-flex;
-    justify-content: center;
-    height: 425px;
-    width: 425px;
-    /* margin-bottom: 0; */
-    overflow: hidden;
-    position: relative;
-    text-decoration: none;
-    transition: .3s all linear,background-image 1ms;
-}
-video{
-    box-shadow: 0 0 1.5rem rgba(105,105,105,.5);
-    max-width: 870px;
+#rollingball {
     width: 100%;
-    margin-top: 20px;
+    max-height: 500px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    margin-top: 70px;
 }
+
+video {
+    object-fit: contain;
+}
+
+.home-page-whole-div {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font: inherit;
+    color: inherit;
+    text-align: inherit;
+    text-decoration: inherit;
+    vertical-align: inherit;
+    box-sizing: inherit;
+    background: transparent;
+}
+
+.homepage-first-div {
+    background-color: #E5E1DC;
+    min-height: 400px;
+    padding-left: 8%;
+    padding-top: 100px;
+    background-image: url(https://a.slack-edge.com/085e3/marketing/img/homepage/video/brand-campaign_hero-video.mp4);
+}
+
+.homepage-main-text {
+    min-height: 100px;
+    max-width: 600px;
+    font-size: 54px;
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 10px;
+}
+
+.homepage-p-text {
+    min-height: 50px;
+    max-width: 380px;
+    font-size: 16px;
+    position: relative;
+    z-index: 2;
+    font-weight: 500;
+}
+
+.homepage-link {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.try-c-link {
+    background-color: #611f69;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 19px 40px 20px;
+    border-radius: 4px;
+    margin-right: 5px;
+    color: white;
+    border: 1px solid #611f69;
+    position: relative;
+    z-index: 2;
+}
+
+.try-demo-link {
+    background-color: #E5E1DC;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 19px 40px 20px;
+    border-radius: 4px;
+    margin-right: 5px;
+    color: #611f69;
+    border: 1px solid #611f69;
+    position: relative;
+    z-index: 2;
+}
+
+.already-signup-text {
+    font-size: 13px;
+    font-weight: 500;
+    position: relative;
+    z-index: 2;
+}
+
+.already-signup {
+    border-bottom: 1px solid #1264a3;
+    color: #1264a3;
+}
+
+.homepage-2-div {
+    text-align: center;
+    min-height: 550px;
+    padding-top: 100px;
+}
+
+
+.homepage-3-div {
+    display: flex;
+    justify-content: center;
+    margin: 30px 150px;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    line-height: 25px;
+}
+
+.shape-img, .news-img, .hand-img {
+    width: 45px;
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+
+
 .body2{
     margin-top: 150px;
 }
@@ -185,3 +293,19 @@ footer{
     text-align: center
 }
 
+.o-hero__background {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.o-hero__background--video {
+    margin: auto;
+    max-width: 100vw;
+    object-fit: cover;
+}

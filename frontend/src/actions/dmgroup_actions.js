@@ -2,6 +2,7 @@ import { getDmgroups, getDmgroup, createDmgroup, deleteDmgroup} from "../util/dm
 export const REMOVE_DMGROUP = "REMOVE_DMGROUP";
 export const RECEIVE_DMGROUP = "RECEIVE_DMGROUP";
 export const RECEIVE_DMGROUPS = "RECEIVE_DMGROUPS";
+export const RECEIVE_CURRENT_DMGROUP = "RECEIVE_CURRENT_DMGROUP";
 export const RECEIVE_DMGROUP_ERRORS = "RECEIVE_DMGROUP_ERRORS";
 export const REMOVE_ERRORS = "REMOVE_ERRORS";
 
@@ -15,6 +16,11 @@ export const removeErrors = () => {
     type: REMOVE_ERRORS
   };
 };
+
+export const receiveCurrentDmgroup = dmgroup => ({
+  type: RECEIVE_CURRENT_DMGROUP,
+  dmgroup
+});
 
 const receiveDmgroups = dmgroups => ({
   type: RECEIVE_DMGROUPS,
