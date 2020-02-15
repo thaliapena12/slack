@@ -97,14 +97,19 @@ class NavBar extends React.Component {
             <div className="navbar-channels-header">
               <h2 className="navbar-channels-h2">Direct Messages</h2>
               <div className="navbar-add-channel">
-                <button onClick={() => this.props.openModalForm("new channel")}>
+                <button onClick={() => this.props.openModalForm("new dmgroup")}>
                   &#8853;
                 </button>
               </div>
             </div>
             <ul className="navbar-channels-list">
               {this.props.userDmgroups.map(dmgroup => (
-                <li>{`# ${dmgroup.dmMembers}`}</li>
+                <li onClick={() => this.props.selectDmgroup(dmgroup)}>
+                  {`# ${dmgroup.dmMembers}`}{" "}
+                  <button className="navbar-delete-button" onClick={() => this.props.openModalForm("delete dmgroup")}>
+                    &times;{" "}
+                  </button>
+                </li>
               ))}
             </ul>
           </div>
