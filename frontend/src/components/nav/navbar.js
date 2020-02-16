@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom'
+import { //Link, 
+         Redirect } from 'react-router-dom'
 import './navbar.css';
 
 
@@ -53,7 +54,7 @@ class NavBar extends React.Component {
               </div>
             </div>
             <div className="slack-bar-notifications">
-              <span>&#x1f514;</span>
+              <span role="img" aria-label="">&#x1f514;</span>
             </div>
             {this.state.dropdown && (
               <ul className="slack-bar-dropdown">
@@ -74,8 +75,8 @@ class NavBar extends React.Component {
               </div>
             </div>
             <ul className="navbar-channels-list">
-              {this.props.userChannels.map(channel => (
-                <li onClick={() => this.props.selectChannel(channel)}>{`# ${channel.name}`}</li>
+              {this.props.userChannels.map( (channel, key) => (
+                <li key={key} onClick={() => this.props.selectChannel(channel)}>{`# ${channel.name}`}</li>
               ))}
             </ul>
           </div>

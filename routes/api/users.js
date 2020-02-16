@@ -9,7 +9,7 @@ const jwt = require('jsonwebtoken');
 const keys = require('../../config/keys');
 const passport = require('passport');
 
-router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
+router.get("/test", (req, res) => res.json({ msg: "Test" }));
 
 router.post("/register", (req, res) => {
     const { errors, isValid } = validateRegisterInput(req.body);
@@ -94,6 +94,21 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
         );
 })
 
+// Lists of the users and their info in a request array. If no array present, lists all users
+router.post('/userlist', (req, res) => {
+    if (req.body.userArray)
+        User.find({'_id': { $in: req.body.userArray }},
+                          { password: 0,
+                            channels: 0,
+                            dmgroups: 0,
+                            updatedAt: 0,
+                            __v: 0 }).then(users => res.json(users));
+    else
+        User.find({},{ password: 0,
+                       updatedAt: 0,
+                       __v: 0 }).then(users => res.json(users));    
+});
+
 // user's channels
 router.get('/:id/channels', (req, res) => {
     User.findById(req.params.id)
@@ -102,7 +117,7 @@ router.get('/:id/channels', (req, res) => {
         .catch(err =>
             res.status(404).json({ notuserfound: 'No channels found for this user' })
         );
-})
+});
 
 // all channels user is in
 router.get("/:id/channels", (req, res) => {

@@ -14,7 +14,7 @@ class MainPage extends React.Component {
             <div className="mainpage">
                 <div className="header">
                     <div className="header-left">
-                        <img className="logo" src={img0}/>
+                        <img className="logo" src={img0} alt="Slack Logo"/>
                         <h2>Why Slack? </h2>
                         <h2>Solutions </h2>
                         <h2>Resources </h2>
@@ -36,14 +36,14 @@ class MainPage extends React.Component {
                     <h4>See how Slack can help your team:</h4>
                     <div className="images">
                         <div className="img1"> 
-                            <img src={img1}/>
+                            <img src={img1} alt=""/>
                             {/* <div classname="text1">TEXT ! </div> */}
                         </div>
                         <div className="img2">
-                        <img src={img3}/>
+                        <img src={img3} alt=""/>
                         </div>
                         <div className="img3">
-                        <img src={img2} />
+                        <img src={img2} alt=""/>
                         </div>
                     </div>
                 </div>

@@ -12,6 +12,7 @@ const jwt = require("jsonwebtoken");
 // messages under specific channel
 router.get('/channels/:id', (req, res) => {
     Message.find({ channel: req.params.id })
+        .populate("authoredBy", "username email createdAt")
         .then(messages => res.json(messages))
         .catch(error => res.status(404).json({ noChannelMessage: 'No message found with matching channel id' }))
 })
@@ -19,6 +20,7 @@ router.get('/channels/:id', (req, res) => {
 // messages under specific dmgroup
 router.get('/dmgroups/:id', (req, res) => {
     Message.find({ dmgroup: req.params.id })
+        .populate("authoredBy", "username email createdAt")
         .then(messages => res.json(messages))
         .catch(error => res.status(404).json({ noDmGroupMessage: 'No message found with matching dm group id' }))
 })
@@ -26,13 +28,12 @@ router.get('/dmgroups/:id', (req, res) => {
 // get an specific message
 router.get('/:id', (req, res) => {
     Message.findById(req.params.id)
+        .populate("authoredBy", "username email createdAt")
         .then(message => res.json(message))
         .catch(error => console.log(error)) 
 })
 
 // POST
-
-
 router.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
 
     if (typeof req.body.channel !== 'undefined') {
@@ -76,7 +77,6 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
 )
 
 // DELETE
-
 router.delete('/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
 
     Message.findById(req.params.id)
