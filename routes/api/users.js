@@ -112,27 +112,21 @@ router.post('/userlist', (req, res) => {
 // user's channels
 router.get('/:id/channels', (req, res) => {
     User.findById(req.params.id)
-        .populate("channels")
+        .populate({path: "channels" , 
+                   select: "name description accessType createdAt channelMessages channelMembers", 
+                   populate: {path: "channelMessages", select: "text authoredBy createdAt",
+                   populate: {path: "authoredBy", select: "username email createdAt"}}})
         .then(user => res.json(user.channels))
         .catch(err =>
             res.status(404).json({ notuserfound: 'No channels found for this user' })
         );
 });
 
-// all channels user is in
-router.get("/:id/channels", (req, res) => {
-  User.findById(req.params.id)
-    .populate("channels")
-    .then(user => res.json(user.channels))
-    .catch(err =>
-      res.status(404).json({ notuserfound: "No channels found for this user" })
-    );
-});
-
 // user's dm(direct messages) groups
 router.get('/:id/dmgroups', (req, res) => {
     User.findById(req.params.id)
-        .populate("dmgroups")
+        .populate({path: "dmgroups", select: "dmMessages createdAt", populate: {path: "dmMessages", select: "text authoredBy createdAt", populate:{path: "authoredBy", select: "username email createdAt"}}}) 
+        .populate({path: "dmgroups", select: "dmMembers createdAt", populate: {path: "dmMembers", select: "username email createdAt"}})
         .then(user => res.json(user.dmgroups))
         .catch(err =>
             res.status(404).json({ notuserfound: 'No dm groups found for this user' })
