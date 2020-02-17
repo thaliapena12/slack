@@ -35,7 +35,7 @@ class NavBar extends React.Component {
         let words = string.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1))
         return words.join(' ');
       };
-      // debugger
+      
       return (
         <nav className="slack-bar">
           <div className="slack-bar-header">
@@ -83,12 +83,15 @@ class NavBar extends React.Component {
               {this.props.userChannels.map(channel => (
                 <li onClick={() => this.props.selectChannel(channel)}>
                   {`# ${channel.name}`}{" "}
-                  <button
-                    className="navbar-delete-button"
-                    onClick={() => this.props.openModalForm("delete channel")}
-                  >
-                    &times;{" "}
-                  </button>
+                  {
+                    channel.createdBy === this.props.user.id &&
+                    <button
+                      className="navbar-delete-button"
+                      onClick={() => this.props.openModalForm("delete channel")}
+                    >
+                      &times;{" "}
+                    </button>
+                  }
                 </li>
               ))}
             </ul>
