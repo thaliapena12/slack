@@ -6,12 +6,27 @@ import img1 from './slack-img1.jpg';
 import img2 from './slack-img2.jpg';
 import img3 from './slack-img3.jpg';
 import vid1 from './slack-video.mp4';
+import brandposter from './brand-campaign_hero-poster.jpg';
+import brandvideo from './brand-campaign_hero-video.mp4';
 
 class MainPage extends React.Component {
+    constructor(props) {
+        super(props);
 
+        // this.handleDemoUser = this.handleDemoUser.bind(this);
+    }
+
+    handleDemoUser(e) {
+        e.preventDefault();
+        this.props.demoLogin();
+    }
+    
+    componentDidMount(){
+        document.getElementById("rollingball").play()
+    }
     render() {
         return (
-            <div className="mainpage">
+            <div>
                 <div className="header">
                     <div className="header-left">
                         <img className="logo" src={img0} alt="Slack Logo"/>
@@ -26,42 +41,53 @@ class MainPage extends React.Component {
                         <Link to={'/login'}>Sign In</Link>
                     </div>
                     <div className="sign-up" >
-                        <Link to={'/signup'}>GET STARTED</Link>
+                        <Link to={'/signup'}>Get Started</Link>
                     </div>
                     </div>
                 </div>
-                <div className="body">
-                    <h2>Slack replaces email inside your company</h2>
-                    <h3>Discuss, collaborate, share — work is better without the inbox.</h3>
-                    <h4>See how Slack can help your team:</h4>
-                    <div className="images">
-                        <div className="img1"> 
-                            <img src={img1} alt=""/>
-                            {/* <div classname="text1">TEXT ! </div> */}
-                        </div>
-                        <div className="img2">
-                        <img src={img3} alt=""/>
-                        </div>
-                        <div className="img3">
-                        <img src={img2} alt=""/>
-                        </div>
+                <div className="homepage-whole-div">
+                    <div className="homepage-first-div" >  
+                        <video
+                            autoPlay
+                            loop
+                            src="https://a.slack-edge.com/085e3/marketing/img/homepage/video/brand-campaign_hero-video.mp4" type="video/mp4" 
+                            id="rollingball" 
+                            muted
+                        />
+
+                        <h1 className="homepage-main-text">
+                        Slack replaces email inside your company
+                        </h1>
+                        <p className="homepage-p-text">
+                        Keep conversations organized in Slack, the smart alternative to email
+                        </p>
+                        <ul className="homepage-link">
+                        <Link className="try-c-link" to={'/signup'}>TRY SLACK</Link>
+                        
+                        <a className="try-demo-link" >TRY DEMO</a>
+                        </ul>
+                        <p className="already-signup-text">
+                        
+                        Already using Slack? <Link className="already-signup" to={'/login'}>Sign In</Link>
+                        </p>
                     </div>
                 </div>
-                <div className="body2">
-                    <h2>Break out of the inbox</h2>
-                    <h3>Working in channels gives everyone on your team a shared view of progress and purpose.</h3>
-                    <video width="520" height="490" controls autoPlay>
-                        <source src={vid1} type="video/mp4"/>
-                    </video>
-                    <h5> See demo &rarr;</h5>
-                </div>
+  
+                <footer>
+                    <center>Copyright &copy; 2020 </center>
                     
-                    <footer>
-                        Copyright &copy; 2020 
-                    </footer>
+                </footer>
             </div>
         );
     }
 }
+
+// const mapDispatchToProps = dispatch => {
+//     return {
+//         processForm: user => dispatch(login(user)), demoLogin: () => dispatch(demoLogin())
+//     };
+// };
+
+// export default connect(null, mapDispatchToProps)(MainPage);
 
 export default MainPage;

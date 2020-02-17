@@ -32,12 +32,11 @@ class NavBar extends React.Component {
 
   render() {
     if (this.props.loggedIn) {
-
       const titleCase = (string) => {
         let words = string.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1))
         return words.join(' ');
       };
-      // debugger
+      
       return (
         <nav className="slack-bar">
           <div className="slack-bar-header">
@@ -73,10 +72,31 @@ class NavBar extends React.Component {
                   &#8853;
                 </button>
               </div>
+              <div className="navbar-delete-channel">
+                {/* <button
+                  onClick={() => this.props.openModalForm("delete channel")}
+                >
+                  &#8853;
+                </button> */}
+              </div>
             </div>
             <ul className="navbar-channels-list">
-              {this.props.userChannels.map( (channel, key) => (
-                <li key={key} onClick={() => this.props.selectChannel(channel)}>{`# ${channel.name}`}</li>
+
+             
+              {this.props.userChannels.map((channel, key) => (
+                <li key={key} onClick={() => this.props.selectChannel(channel)}>
+                  {`# ${channel.name}`}{" "}
+                  {
+                    channel.createdBy === this.props.user.id &&
+                    <button
+                      className="navbar-delete-button"
+                      onClick={() => this.props.openModalForm("delete channel")}
+                    >
+                      &times;{" "}
+                    </button>
+                  }
+                </li>
+
               ))}
             </ul>
           </div>
@@ -84,16 +104,20 @@ class NavBar extends React.Component {
             <div className="navbar-channels-header">
               <h2 className="navbar-channels-h2">Direct Messages</h2>
               <div className="navbar-add-channel">
-                <button onClick={() => this.props.openModalForm("new channel")}>
+                <button onClick={() => this.props.openModalForm("new dmgroup")}>
                   &#8853;
                 </button>
               </div>
             </div>
             <ul className="navbar-channels-list">
-              
-              { this.props.userDmgroups.map(dmgroup => (
-                <li>{`# ${dmgroup.dmMembers}`}</li>
-              ))} 
+              {this.props.userDmgroups.map(dmgroup => (
+                <li onClick={() => this.props.selectDmgroup(dmgroup)}>
+                  {`# ${dmgroup.dmMembers}`}{" "}
+                  <button className="navbar-delete-button" onClick={() => this.props.openModalForm("delete dmgroup")}>
+                    &times;{" "}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
         </nav>

@@ -2,7 +2,9 @@ import React from "react";
 import { closeModalForm } from "../../actions/modal_form_actions";
 import { connect } from "react-redux";
 import ChannelsForm from "../channels/channels_form_container";
-
+import ChannelsDelete from "../channels/channels_delete_container";
+import DmgroupsForm from "../dmgroups/dmgroups_form_container";
+import DmgroupsDelete from "../dmgroups/dmgroups_delete_container";
 
 function ModalForm({ modalform, closeModalForm }) {
   if (!modalform) {
@@ -10,8 +12,17 @@ function ModalForm({ modalform, closeModalForm }) {
   }
   let component;
   switch (modalform) {
-    case 'new channel':
+    case "new channel":
       component = <ChannelsForm />;
+      break;
+    case "delete channel":
+      component = <ChannelsDelete />;
+      break;
+    case "new dmgroup":
+      component = <DmgroupsForm />;
+      break;
+    case "delete dmgroup":
+      component = <DmgroupsDelete />;
       break;
     default:
       return null;
