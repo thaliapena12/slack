@@ -4,7 +4,10 @@ import './workspace.css';
 import ModalForm from '../nav/modal_form'
 import Channel from "../channels/channel";
 
-const Workspace = () => {
+class Workspace extends React.Component {
+    
+  render() {
+    //debugger;
     return (
       <div className="workspace">
         <NavBarContainer />
@@ -12,6 +15,7 @@ const Workspace = () => {
         <Channel />
       </div>
     );
+  };
     
 }
 

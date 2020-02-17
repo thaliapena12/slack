@@ -1,4 +1,6 @@
-import { RECEIVE_CHANNEL_ERRORS, REMOVE_ERRORS, RECEIVE_NEW_CHANNEL } from '../actions/channel_actions';
+import { RECEIVE_CHANNEL_ERRORS, 
+         //REMOVE_ERRORS, 
+         RECEIVE_NEW_CHANNEL } from '../actions/channel_actions';
 
 
 export default (state = [], action) => {

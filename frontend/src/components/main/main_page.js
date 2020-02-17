@@ -29,7 +29,7 @@ class MainPage extends React.Component {
             <div>
                 <div className="header">
                     <div className="header-left">
-                        <img className="logo" src={img0}/>
+                        <img className="logo" src={img0} alt="Slack Logo"/>
                         <h2>Why Slack? </h2>
                         <h2>Solutions </h2>
                         <h2>Resources </h2>

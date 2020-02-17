@@ -40,7 +40,7 @@ class ChannelNav extends React.Component {
           <li>@</li>
           <li>&#9734;</li>
           <li><div className="three-dots"><span>.</span><span>.</span><span>.</span></div></li>
-          <li>&#127873;</li>
+          <li><span role="img" aria-label="">&#127873;</span></li>
         </ul>
         
       </nav>

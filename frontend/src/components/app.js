@@ -5,7 +5,7 @@ import MainPage from './main/main_page';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import './app.css';
-import Workspace from "./workspace/workspace";
+import WorkspaceContainer from "./workspace/workspace_container";
 
 const App = () => (
     <div className="main-workspace">
@@ -14,7 +14,7 @@ const App = () => (
             <AuthRoute exact path="/" component={MainPage} />
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
-            <ProtectedRoute exact path="/channels" component={Workspace}/>
+            <ProtectedRoute exact path="/channels" component={WorkspaceContainer}/>
         </Switch>
     </div>
 );

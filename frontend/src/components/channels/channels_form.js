@@ -1,6 +1,6 @@
 import React from "react";
 import './modal_form.css';
-import { generateChannel } from "../../actions/channel_actions";
+//import { generateChannel } from "../../actions/channel_actions";
 
 class ChannelsForm extends React.Component {
   constructor(props) {

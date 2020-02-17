@@ -54,7 +54,7 @@ class LoginForm extends React.Component {
         if (Object.values(this.props.errors).length) errorsClass = "errors";
         return (
             <div className="login">
-                <nav className="login-nav"><Link to='/'><img className="logo-login" src={img0}/></Link></nav>
+                <nav className="login-nav"><Link to='/'><img className="logo-login" src={img0} alt="Logo"/></Link></nav>
                 <div className="login-form-container">
                     {this.renderErrors()}
                     <div className="login-form">
