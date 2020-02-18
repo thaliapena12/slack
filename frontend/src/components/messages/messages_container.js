@@ -6,7 +6,7 @@ const mapStateToProps = state => {
     return {
 
         currentChannel: state.ui.currentChannel, 
-        messages: Object.values(state.entities.messages)
+        messages: Object.values(state.entities.messages),
         currentDmgroup : state.ui.currentDmgroup
 
     };

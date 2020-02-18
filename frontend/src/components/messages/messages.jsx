@@ -31,9 +31,7 @@ class Messages extends React.Component {
                 </div>
             ); 
 
-        }else{
-
-        } else if(this.props.currentDmgroup){
+        } else if(this.props.currentDmgroup) {
             const messages  = this.props.currentDmgroup.dmMessages;
             return (
                 <div className="messages-container">
