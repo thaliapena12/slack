@@ -3,8 +3,8 @@ import React from 'react';
 import { //Link, 
          Redirect } from 'react-router-dom'
 import './navbar.css';
-
-
+import { FaRegBell } from "react-icons/fa";
+import { IconContext } from "react-icons";
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -38,6 +38,7 @@ class NavBar extends React.Component {
       };
       
       return (
+        <IconContext.Provider value={{ color: "white", className: "global-class-name" }}>
         <nav className="slack-bar">
           <div className="slack-bar-header">
             <div
@@ -53,7 +54,8 @@ class NavBar extends React.Component {
               </div>
             </div>
             <div className="slack-bar-notifications">
-              <span role="img" aria-label="">&#x1f514;</span>
+              {/* <span role="img" aria-label="">&#x1f514;</span> */}
+              <FaRegBell />
             </div>
             {this.state.dropdown && (
               <ul className="slack-bar-dropdown">
@@ -121,6 +123,7 @@ class NavBar extends React.Component {
             </ul>
           </div>
         </nav>
+        </IconContext.Provider>
       );
     } else {
       return <Redirect to='/' />;

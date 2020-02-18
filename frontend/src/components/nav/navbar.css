@@ -39,9 +39,13 @@
 }
 
 .slack-bar-notifications {
-    margin-top: 6px;
+    margin-top: 10px;
     margin-right: 10px;
     font-size: 20px;
+}
+
+.bell {
+    background-color: white;
 }
 
 .slack-bar-dropdown {

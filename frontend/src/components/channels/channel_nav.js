@@ -1,5 +1,18 @@
 import React from "react";
 import './channel_nav.css';
+import { IconContext } from "react-icons";
+import { 
+      FaRegStar, 
+      FaUserCircle,  
+      FaPhoneSquare,
+      FaInfoCircle,
+      FaCog,
+      FaSearch,
+      FaBars,
+      FaGift,
+      FaThumbtack
+} from 'react-icons/fa';
+
 
 class ChannelNav extends React.Component {
 
@@ -19,31 +32,33 @@ class ChannelNav extends React.Component {
       currentChannel = this.props.userChannels[0];
     }
     return (
+      <IconContext.Provider value={{ color: "grey", className: "global-class-name" }}>
       <nav className="channel-navbar">
         <div className="channel-info">
           <h1 className="channel-navbar-name">
             #{currentChannel.name}
           </h1>
           <ul className="channel-navbar-details">
-            <li>&#9734;</li>
-            <li><span>&#x263A;</span>{currentChannel.channelMembers.length}</li>
-            <li>&#x26B2;</li>
+            <li><FaRegStar /></li>
+              <li><span><FaUserCircle /></span>{currentChannel.channelMembers.length}</li>
+              <li><FaThumbtack /></li>
             <li>{currentChannel.description}</li>
           </ul>
         </div>
 
         <ul className="channel-navbar-list">
-          <li>&#x260F;</li>
-          <li><div className="info-circle">i</div></li>
-          <li>&#9881;</li>
-          <li><input className="search-bar" type="text" placeholder="Search" /></li>
+          <li><FaPhoneSquare /></li>
+          <li><FaInfoCircle /></li>
+          <li><FaCog /></li>
+          <li><FaSearch /><input className="search-bar" type="text" placeholder='Search' /></li>
           <li>@</li>
-          <li>&#9734;</li>
-          <li><div className="three-dots"><span>.</span><span>.</span><span>.</span></div></li>
-          <li><span role="img" aria-label="">&#127873;</span></li>
+          <li><FaRegStar /></li>
+          <li><FaBars /></li>
+          <li><FaGift /></li>
         </ul>
         
       </nav>
+      </IconContext.Provider >
     );
   }
 }

@@ -22,6 +22,11 @@
   "homepage": "https://github.com/thaliapena12/slack#readme",
   "keywords": [],
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.27",
+    "@fortawesome/free-brands-svg-icons": "^5.12.1",
+    "@fortawesome/free-regular-svg-icons": "^5.12.1",
+    "@fortawesome/free-solid-svg-icons": "^5.12.1",
+    "@fortawesome/react-fontawesome": "^0.1.8",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "concurrently": "^5.1.0",
@@ -30,6 +35,7 @@
     "mongoose": "^5.9.0",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
+    "react-icons": "^3.9.0",
     "validator": "^12.2.0"
   },
   "devDependencies": {

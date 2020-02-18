@@ -1,5 +1,18 @@
 import React from 'react';
 import './message_form.css';
+import { 
+    FaPaperclip, 
+    FaBold, 
+    FaItalic, 
+    FaStrikethrough, 
+    FaCode, 
+    FaListOl,
+    FaListUl,
+    FaFont,
+    FaRegLaugh
+} from "react-icons/fa";
+import { IoIosAt } from "react-icons/io";
+import { IconContext } from "react-icons";
 
 class MessageForm extends React.Component {
     constructor (props) {
@@ -51,27 +64,35 @@ class MessageForm extends React.Component {
             currentChannel = this.props.userChannels[0];
         }
         return (
+            <IconContext.Provider value={{ color: "grey", className: "global-class-name" }}>
             <div className="message-form-container">
                 <div className="message-form">
                     <form onSubmit={this.handleSubmit}>
                         <input type="text"
                             value={this.state.text}
                             onChange={this.update('text')}
-                            placeholder={`Message ${ currentChannel.name }`}
+                            placeholder={`Message #${ currentChannel.name }`}
                         />  
                     </form>
-                    <nav>
-                        <ul>
-
+                    <nav className="message-form-nav">
+                        <ul className="message-form-list-one">
+                            <li><FaPaperclip /></li>
+                            <li><FaBold /></li>
+                            <li><FaItalic /></li>
+                            <li><FaStrikethrough /></li>
+                            <li><FaCode /></li>
+                            <li><FaListOl /></li>
+                            <li><FaListUl /></li>
                         </ul>
-
-                        <ul>
-
+                        <ul className="message-form-list-two">
+                            <li><FaFont /></li>
+                            <li>@</li>
+                            <li><FaRegLaugh /></li>
                         </ul>
                     </nav>
                 </div>
             </div>
-            
+            </IconContext.Provider>
         )
     }
 }
