@@ -5,6 +5,7 @@ import { createMessage } from '../../actions/message_actions';
 
 const mapStateToProps = state => ({
     currentChannel: state.ui.currentChannel,
+    currentDmgroup: state.ui.currentDmgroup,
     currentUser: state.session.user,
     userChannels: state.entities.users.userChannels
 });

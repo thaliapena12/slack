@@ -52,8 +52,9 @@ class MessageForm extends React.Component {
             message["dmgroup"] = currentDmgroupId;
 
         } 
-        
+
         message["authoredBy"] = this.props.currentUser.id;
+
         this.props.createMessage(message);
         this.setState({text: ""});    
     }

@@ -18,7 +18,12 @@ export default function currentChannelReducer(state = null, action) {
             return action.channel.data;
         case RECEIVE_NEW_MESSAGE:
             const newState = Object.assign({}, state);
-            newState.channelMessages.push(action.message);            
+            if (Object.values(newState).length) {
+                newState.channelMessages.push(action.message);  
+                return newState;
+            } else {
+                return null
+            }        
         default:
             return state;
     }
