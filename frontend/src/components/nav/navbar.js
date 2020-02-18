@@ -98,7 +98,11 @@ class NavBar extends React.Component {
 
              
               {this.props.userChannels.map((channel, key) => (
-                <li key={key} onClick={() => this.props.selectChannel(channel)}>
+                <li 
+                key={key} 
+                onClick={() => this.props.selectChannel(channel)}
+                id={`${channel.name === currentChannel.name ? "selected" : ""}`}
+                >
                   {`# ${channel.name}`}{" "}
                   {
                     channel.createdBy === this.props.user.id &&
@@ -125,7 +129,9 @@ class NavBar extends React.Component {
             </div>
             <ul className="navbar-channels-list">
               {this.props.userDmgroups.map(dmgroup => (
-                <li onClick={() => this.props.selectDmgroup(dmgroup)}>
+                <li 
+                onClick={() => this.props.selectDmgroup(dmgroup)}
+                id={`${dmgroup._id === currentDmgroup._id ? "selected" : ""}`}>
                   {this.displayNames(dmgroup.dmMembers)}
                   
                   <button className="navbar-delete-button" onClick={() => this.props.openModalForm("delete dmgroup")}>
