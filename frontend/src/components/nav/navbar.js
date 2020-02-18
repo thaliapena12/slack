@@ -3,7 +3,7 @@ import React from 'react';
 import { //Link, 
          Redirect } from 'react-router-dom'
 import './navbar.css';
-
+import userPlaceHolder from './user_placeholder.png';
 
 
 class NavBar extends React.Component {
@@ -69,7 +69,10 @@ class NavBar extends React.Component {
             </div>
             {this.state.dropdown && (
               <ul className="slack-bar-dropdown">
-                <li>{titleCase(this.props.user.username)}</li>
+                <li>
+                  <img src={userPlaceHolder} alt="User Image" />
+                  {titleCase(this.props.user.username)}
+                </li>
                 <li>
                   <button onClick={this.logoutUser}>Logout</button>
                 </li>
