@@ -1,6 +1,6 @@
 # Slack Clone
 
-This project is a clone of the popular app Slack. The app makes it really simple to follow different conversations and to keep all the communication regarding a project on the same place. This Slack clone incorporates user authentication and login, interaction with different channels and direct messages.
+This project is a clone of the popular app, Slack. The app makes it really simple to follow different conversations and to keep all the communication regarding a project on the same place. This Slack clone incorporates user authentication and login, interaction with different channels and direct messages.
 
 ## Quick Links
 
