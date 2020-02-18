@@ -1,5 +1,17 @@
 import React from "react";
 import './channel_nav.css';
+import { IconContext } from "react-icons";
+import {
+  FaRegStar,
+  FaUserCircle,
+  FaPhoneSquare,
+  FaInfoCircle,
+  FaCog,
+  FaSearch,
+  FaBars,
+  FaGift,
+  FaThumbtack
+} from 'react-icons/fa';
 
 class ChannelNav extends React.Component {
   constructor(props) {
@@ -18,20 +30,22 @@ class ChannelNav extends React.Component {
   renderChannels(){
     let currentChannel = this.props.currentChannel; ;
     return (
+      <IconContext.Provider value={{ color: "grey", className: "global-class-name" }}>
       <nav className="channel-navbar">
         <div className="channel-info">
           <h1 className="channel-navbar-name">
             #{currentChannel.name}
           </h1>
           <ul className="channel-navbar-details">
-            <li><span className="icon">&#9734;</span>  |  </li>
-            <li><span className="icon">&#x263A;</span>{currentChannel.channelMembers.length}  |   </li>
-            <li><span className="icon">&#x26B2;</span>  |    </li>
+            <li><FaRegStar /></li>
+            <li><FaUserCircle /> {currentChannel.channelMembers.length}</li>
+            <li><FaThumbtack /></li>
             <li>{currentChannel.description}</li>
           </ul>
         </div>
         {this.renderNavSearch()}
         </nav>
+      </IconContext.Provider>
     )
 
   }
@@ -50,34 +64,38 @@ class ChannelNav extends React.Component {
   renderDmgroups(){
     let currentDmgroup = this.props.currentDmgroup;
     return(
+      <IconContext.Provider value={{ color: "grey", className: "global-class-name" }}>
       <nav className="channel-navbar">
       <div className="channel-info">
         <h1 className="channel-navbar-name">
             {this.displayNames(currentDmgroup.dmMembers)}
         </h1>
         <ul className="channel-navbar-details">
-          <li>&#9734;</li>
-          <li><span>&#x263A;</span>{currentDmgroup.dmMembers.length}</li>
-          <li>&#x26B2;</li>
+          <li><FaRegStar /></li>
+          <li><FaUserCircle />{currentDmgroup.dmMembers.length}</li>
+          <li><FaThumbtack /></li>
         </ul>
       </div>
       {this.renderNavSearch()}
       </nav>
+      </IconContext.Provider>
     )
   }
 
   renderNavSearch(){
     return(
-      <ul className="channel-navbar-list">
-        <li>&#x260F;</li>
-        <li><div className="info-circle">i</div></li>
-        <li>&#9881;</li>
-        <li><input className="search-bar" type="text" placeholder="Search" /></li>
-        <li>@</li>
-        <li>&#9734;</li>
-        <li><div className="three-dots"><span>.</span><span>.</span><span>.</span></div></li>
-        <li><span role="img" aria-label="">&#127873;</span></li>
-      </ul>
+      <IconContext.Provider value={{ color: "grey", className: "global-class-name" }}>
+        <ul className="channel-navbar-list">
+          <li><FaPhoneSquare /></li>
+          <li><FaInfoCircle /></li>
+          <li><FaCog /></li>
+          <li><div className="search"><input type="text" placeholder='Search' /></div></li>
+          <li><div className="at">@</div></li>
+          <li><FaRegStar /></li>
+          <li><FaBars /></li>
+          <li><FaGift /></li>
+        </ul>
+      </IconContext.Provider>
     )
 
   }
