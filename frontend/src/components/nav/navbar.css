@@ -190,3 +190,13 @@ i {
     font-weight: bolder;
     border-width: 0.0cm;
 }
+
+#selected {
+    background-color: rgb(58, 101, 168);
+    color: white;
+}
+
+#selected:hover {
+    background-color: rgb(58, 101, 168);
+    color: white;
+}
