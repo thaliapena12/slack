@@ -12,6 +12,7 @@ class NavBar extends React.Component {
     this.logoutUser = this.logoutUser.bind(this);
     this.state = { dropdown: false };
     this.handleDropdown = this.handleDropdown.bind(this);
+    this.displayNames = this.displayNames.bind(this);
   }
 
   logoutUser(e) {
@@ -28,6 +29,17 @@ class NavBar extends React.Component {
     this.props.fetchUserCreatedChannels(this.props.user.id);
     this.props.fetchUserChannels(this.props.user.id);
     this.props.fetchUserDmgroups(this.props.user.id);
+  }
+
+  displayNames(members){
+    let string = "";
+    let array = [];
+    for (let i = 0; i < members.length; i++) {
+      array.push(members[i].username) 
+    }
+    string = array.join(', ');
+
+    return string
   }
 
   render() {
@@ -112,13 +124,24 @@ class NavBar extends React.Component {
             <ul className="navbar-channels-list">
               {this.props.userDmgroups.map(dmgroup => (
                 <li onClick={() => this.props.selectDmgroup(dmgroup)}>
-                  {`# ${dmgroup.dmMembers}`}{" "}
+                  {this.displayNames(dmgroup.dmMembers)}
+                  
                   <button className="navbar-delete-button" onClick={() => this.props.openModalForm("delete dmgroup")}>
                     &times;{" "}
                   </button>
                 </li>
               ))}
             </ul>
+            {/* <ul className="navbar-channels-list">
+              {this.props.userDmgroups.map((dmgroup, key) => (
+                  <li key={key} onClick={() => this.props.selectDmgroup(dmgroup)}>
+                    {`# ${dmgroup.dmMembers}`}{" "}
+                      <button className="navbar-delete-button" onClick={() => this.props.openModalForm("delete dmgroup")}>
+                        &times;{" "}
+                      </button> 
+                  </li>
+                ))}
+            </ul> */}
           </div>
         </nav>
       );

@@ -4,7 +4,8 @@ import Messages from "./messages";
 const mapStateToProps = state => {
 
     return {
-        currentChannel : state.ui.currentChannel
+        currentChannel : state.ui.currentChannel,
+        currentDmgroup : state.ui.currentDmgroup
     };
 
 };

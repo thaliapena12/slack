@@ -24,3 +24,8 @@ export const requestAllChannelMessages = (channelId) => dispatch => {
         .then(receivedMessages => dispatch(receiveAllMessages(receivedMessages.data)));
 };
 
+export const requestAllDmgroupMessages = (dmgroupId) => dispatch => {
+    return MessageAPIUtil.getAllDmgroupMessages(dmgroupId)
+        .then(receivedMessages => dispatch(receiveAllMessages(receivedMessages.data)));
+};
+

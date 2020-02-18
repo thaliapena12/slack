@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import MessageForm from './message_form';
-import { fetchUserChannels } from '../../actions/user_actions';
+import { fetchUserChannels, fetchUserDmgroups } from '../../actions/user_actions';
 import { createMessage } from '../../actions/message_actions';
 
 const mapStateToProps = state => ({
@@ -11,6 +11,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     fetchUserChannels: userId => dispatch(fetchUserChannels(userId)),
+    fetchUserDmgroups: userId => dispatch(fetchUserDmgroups(userId)),
     createMessage: message => dispatch(createMessage(message))
 })
 
