@@ -66,9 +66,18 @@
 }
 
 .slack-bar-dropdown > li:first-child {
+    display: flex;
+    flex-direction: row;
+    text-align: left;
     font-weight: 700;
     margin-top: 20px;
     padding-bottom: 5px;
+}
+
+.slack-bar-dropdown > li img{
+    width: 14px;
+    height: 14px;
+    margin: 0 5px 0 0;
 }
 
 .slack-bar-dropdown > li:last-child {

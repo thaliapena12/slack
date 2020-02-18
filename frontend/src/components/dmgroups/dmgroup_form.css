@@ -1,0 +1,75 @@
+.channel-form-container{
+    margin-top: -90px;
+    max-height: 90%;
+}
+
+.newdm{
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+    /* background-color: darkorange; */
+}
+
+    .newdm-header{}
+
+        .newdm-header h3{
+            font-weight: bold;
+            text-align: left;
+            font-size: 25px;
+            margin-bottom: 0;
+        }
+
+    .newdm-selected{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 50px;
+    }
+
+        .newdm-input-area{
+            border: 1px solid grey;
+            border-radius: 6px;
+            width: 80%;
+        }
+
+        .newdm-selected > button{
+            width: 15%;
+            background-color: lightgray;
+            border: none;
+            border-radius: 6px;
+            color: black;
+        }
+    
+    .newdm-users-list{
+        height: 400px;
+        overflow-y: scroll;
+        margin: 20px 0;
+    }
+
+        .newdm-users-list ul{
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+        }
+
+            .newdm-users-list ul li{
+                
+            }
+            
+            .newdm-users-list ul li:hover{
+                background-color: #e9ecece8;
+                transform: translateZ(50px);
+            }             
+
+            .newdm-users-list ul li .user-item{
+                display: flex;
+                flex-direction: row;
+                padding: 5px 0;
+                border-top: 1px solid lightgray;
+            }
+
+                .newdm-users-list ul li .user-item img{
+                    width: 36px;
+                    height: 36px;
+                }
