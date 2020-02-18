@@ -36,7 +36,7 @@ router.get('/:id', (req, res) => {
 // POST
 router.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
 
-    if (typeof req.body.channel !== 'undefined') {
+    if (req.body.channel !== '') {
         Channel.findById(req.body.channel)
             .then(channel => {
                 const newMessage = new Message({
@@ -72,7 +72,16 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
                 newMessage.save()
                     .then(message => {
                         dmgroup.addMessage(message.id);
-                        res.json({messageSuccess: 'The message was succesful added under the dm group'}) 
+                        User.findById(message.authoredBy)
+                            .then(user => {
+                                const resMessage = new Object({
+                                    text: req.body.text,
+                                    authoredBy: { username: user.username },
+                                    createdAt: new Date()
+                                })
+                                res.json(resMessage)
+                            })
+                        // res.json({messageSuccess: 'The message was succesful added under the dm group'}) 
                     })
                     .catch(error => console.log(error));
 
