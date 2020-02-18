@@ -1,7 +1,7 @@
 .slack-bar {
     background: #3F0F3F;
     height: 100%;
-    width: 17%;
+    width: 220px;
     max-width: 220px;
     overflow-y: auto;
     overflow-x: hidden;
@@ -49,7 +49,7 @@
 
 .slack-bar-dropdown {
     position: absolute;
-    width: 220px;
+    width: 155px;
     left: 10px;
     top: 50px;
     background-color: rgb(243, 243, 243);
