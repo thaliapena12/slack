@@ -25,9 +25,9 @@ class ChannelNav extends React.Component {
             #{currentChannel.name}
           </h1>
           <ul className="channel-navbar-details">
-            <li>&#9734;</li>
-            <li><span>&#x263A;</span>{currentChannel.channelMembers.length}</li>
-            <li>&#x26B2;</li>
+            <li><span className="icon">&#9734;</span>  |  </li>
+            <li><span className="icon">&#x263A;</span>{currentChannel.channelMembers.length}  |   </li>
+            <li><span className="icon">&#x26B2;</span>  |    </li>
             <li>{currentChannel.description}</li>
           </ul>
         </div>

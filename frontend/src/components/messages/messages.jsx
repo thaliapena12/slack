@@ -1,13 +1,24 @@
 import React from "react";
+import ReactDOM from 'react-dom';
 import "./messages.css";
 import MessageItem from "./message_item";
 
 class Messages extends React.Component {
 
+    componentWillUpdate() {
+        const node = ReactDOM.findDOMNode(this);
+        this.shouldScrollToBottom = node.scrollTop + node.clientHeight + 100 >= node.scrollHeight;
+    }
+
+    componentDidUpdate() {
+        if (this.shouldScrollToBottom){
+            const node = ReactDOM.findDOMNode(this);
+            node.scrollTop = node.scrollHeight;
+        }
+    }
 
     render() {
         if(this.props.currentChannel){
-            console.log(this.props.currentChannel);
             const messages  = this.props.currentChannel.channelMessages;
             
             console.log(messages);
@@ -21,7 +32,6 @@ class Messages extends React.Component {
                 </div>
             ); 
         }else{
-            //this.updateState.bind(this);
             return (
                 <div className="messages-container">
                     Loading...
