@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { //Link, 
          Redirect } from 'react-router-dom'
@@ -36,7 +35,15 @@ class NavBar extends React.Component {
         let words = string.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1))
         return words.join(' ');
       };
-      
+      let currentChannel;
+      let currentDmgroup = { _id: "" };
+      if (this.props.currentChannel) {
+        currentChannel = this.props.currentChannel;
+      } else if (this.props.currentDmgroup){
+        currentDmgroup = this.props.currentDmgroup;
+      } else {
+        currentChannel = this.props.userChannels[0];
+      }
       return (
         <IconContext.Provider value={{ color: "white", className: "global-class-name" }}>
         <nav className="slack-bar">
@@ -86,7 +93,11 @@ class NavBar extends React.Component {
 
              
               {this.props.userChannels.map((channel, key) => (
-                <li key={key} onClick={() => this.props.selectChannel(channel)}>
+                <li 
+                key={key} 
+                onClick={() => this.props.selectChannel(channel)}
+                id={`${channel.name === currentChannel.name ? "selected" : ""}`}
+                >
                   {`# ${channel.name}`}{" "}
                   {
                     channel.createdBy === this.props.user.id &&
@@ -113,7 +124,9 @@ class NavBar extends React.Component {
             </div>
             <ul className="navbar-channels-list">
               {this.props.userDmgroups.map(dmgroup => (
-                <li onClick={() => this.props.selectDmgroup(dmgroup)}>
+                <li 
+                onClick={() => this.props.selectDmgroup(dmgroup)} 
+                id={`${dmgroup._id === currentDmgroup._id ? "selected" : ""}`}>
                   {`# ${dmgroup.dmMembers}`}{" "}
                   <button className="navbar-delete-button" onClick={() => this.props.openModalForm("delete dmgroup")}>
                     &times;{" "}

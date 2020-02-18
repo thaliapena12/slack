@@ -62,6 +62,7 @@
     padding-inline-start: 0px;
     border-radius: 5px;
     font-family: Arial, Helvetica, sans-serif;
+    z-index: 1;
 }
 
 .slack-bar-dropdown > li:first-child {
@@ -188,4 +189,14 @@ i {
     height: 20px;
     font-weight: bolder;
     border-width: 0.0cm;
+}
+
+#selected {
+    background-color: rgb(58, 101, 168);
+    color: white;
+}
+
+#selected:hover {
+    background-color: rgb(58, 101, 168);
+    color: white;
 }

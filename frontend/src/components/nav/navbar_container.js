@@ -13,7 +13,9 @@ const mapStateToProps = state => ({
   user: state.session.user,
   userCreatedChannels: state.entities.channels,
   userChannels: state.entities.users.userChannels,
-  userDmgroups: state.entities.users.userDmgroups
+  userDmgroups: state.entities.users.userDmgroups,
+  currentChannel: state.ui.currentChannel,
+  currentDmgroup: state.ui.currentDmgroup
 });
 
 const mapDispatchToProps = dispatch => ({
