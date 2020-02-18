@@ -48,7 +48,15 @@ class NavBar extends React.Component {
         let words = string.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1))
         return words.join(' ');
       };
-      
+      let currentChannel = { name: "" };
+      let currentDmgroup = { _id: "" };
+      if (this.props.currentChannel) {
+        currentChannel = this.props.currentChannel;
+      } else if (this.props.currentDmgroup) {
+        currentDmgroup = this.props.currentDmgroup;
+      } else {
+        currentChannel = this.props.userChannels[0];
+      }
       return (
         <IconContext.Provider value={{ color: "white", className: "global-class-name" }}>
         <nav className="slack-bar">
