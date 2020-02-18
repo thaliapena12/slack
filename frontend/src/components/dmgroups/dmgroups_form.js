@@ -13,7 +13,6 @@ class DmgroupsForm extends React.Component {
   componentDidMount(){
     getUserList().then(users =>{
       this.setState({usersList: users.data})
-      window.users = this.state.usersList;
     });
   }
   
@@ -66,39 +65,6 @@ class DmgroupsForm extends React.Component {
         </div>
       )     
     }
-
-    // return (
-    //   <div className="channel-form-container">
-    //     <form onSubmit={this.handleSubmit} className="channel-form-box">
-    //       {this.renderErrors()}
-    //       <nav className="channel-form-header">
-    //         <div className="newchannel-label">
-    //           <h3> Direct Messages</h3>
-    //         </div>
-    //         <div onClick={this.props.closeModalForm} className="close">
-    //           &times;
-    //         </div>
-    //       </nav>
-    //       <div className="add-channel-form">
-    //         <label>
-    //           <input
-    //             type="text"
-    //             placeholder="Find or start a conversation"
-    //             className="channel-input"
-    //           />
-    //         </label>           
-    //         <div className="bottom">
-    //           <small>Learn more</small>
-    //         </div>
-    //         <input
-    //           className="channel-submit"
-    //           type="submit"
-    //           value="Create"
-    //         />
-    //       </div>
-    //     </form>
-    //   </div>
-    // );
   }
 }
 

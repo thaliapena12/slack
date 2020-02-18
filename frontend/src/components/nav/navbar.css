@@ -1,7 +1,7 @@
 .slack-bar {
     background: #3F0F3F;
     height: 100%;
-    width: 17%;
+    width: 220px;
     max-width: 220px;
     overflow-y: auto;
     overflow-x: hidden;
@@ -42,14 +42,14 @@
 }
 
 .slack-bar-notifications {
-    margin-top: 6px;
+    margin-top: 9px;
     margin-right: 10px;
     font-size: 20px;
 }
 
 .slack-bar-dropdown {
     position: absolute;
-    width: 220px;
+    width: 155px;
     left: 10px;
     top: 50px;
     background-color: rgb(243, 243, 243);
@@ -198,4 +198,14 @@ i {
     height: 20px;
     font-weight: bolder;
     border-width: 0.0cm;
+}
+
+#selected {
+    background-color: rgb(58, 101, 168);
+    color: white;
+}
+
+#selected:hover {
+    background-color: rgb(58, 101, 168);
+    color: white;
 }

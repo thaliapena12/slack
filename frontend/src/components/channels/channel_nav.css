@@ -8,7 +8,7 @@
 }
 
 .channel-info {
-    width: 20%;
+    width: 50%;
     margin-left: 25px;
 }
 
@@ -20,7 +20,7 @@
 }
 
 .channel-navbar-details {
-    height: 50%;
+    height: 40%;
     display: flex;
     list-style-type: none;
     margin-block-start: 1em;
@@ -29,18 +29,26 @@
     margin-inline-end: 0px;
     padding-inline-start: 0px;
     margin: 0;
-    margin-top: -15px;
+    margin-top: -10px;
     color: darkgrey;
     font-weight: 400;
 }
 
 .channel-navbar-details > li {
     line-height: 2;
+    margin-right: 5px;
+    border-right: 1px solid lightgrey;
+    padding-right: 5px;
+    padding-left: 5px;
 }
 
-.icon{
-    font-size: 20px;
+.channel-navbar-details > li:hover {
+    background-color: lightgray;
+    cursor: pointer;
 }
+/* .icon{
+    font-size: 20px;
+} */
 
 .channel-navbar-list {
     display: flex;
@@ -54,59 +62,19 @@
     justify-content: space-evenly;
     font-size: 20px;
     width: 40%;
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
-.channel-navbar-list > li {
-    
+.at {
+    color: grey;
 }
 
-.channel-navbar-list > li:nth-child(1) {
-    font-size: 30px;
-    margin-top: -3px;
-}
-
-.channel-navbar-list > li:nth-child(2) {
-    margin-top: 3px;
-}
-
-.channel-navbar-list > li:nth-child(3) {
-    font-size: 23px;
-}
-
-.channel-navbar-list > li:nth-child(6) {
-    margin-top: -2px;
-}
-
-.channel-navbar-list > li:nth-child(7) {
-    margin-top: -12px;
-}
-
-.channel-navbar-list > li > input {
-    height: 95%;
+.search > input {
     border-radius: 5px;
-    border: 1px solid darkgray;
     outline: none;
 }
 
-.info-circle {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 1px solid darkgrey;
-    display: inline-block;
-    text-align: center;
-}
-
-.search-bar {
-
-}
-
-.three-dots {
-    display: flex;
-    flex-direction: column;
-}
-
-.three-dots > span {
-    margin-bottom: -16px;
+.channel-navbar-list > li:hover {
+    background-color: lightgray;
+    cursor: pointer;
 }
