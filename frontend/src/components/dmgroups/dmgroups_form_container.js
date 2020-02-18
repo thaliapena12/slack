@@ -7,7 +7,7 @@ import { openModalForm, closeModalForm } from "../../actions/modal_form_actions"
 
 const mapStateToProps = state => ({
   dmgroup: {
-    dmMembers: [],
+    members: [],
     dmMessages: []
   },
   

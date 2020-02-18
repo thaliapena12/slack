@@ -10,7 +10,7 @@ class DmgroupsForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let dmgroup = this.props.dmgroup;
-    this.props.action(dmgroup).then(()=> {
+    this.props.generateDmgroup(dmgroup).then(()=> {
       if (!this.props.errors.length) {
         this.props.closeModalForm();
       }    
