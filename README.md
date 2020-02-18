@@ -1,5 +1,7 @@
 # Slack Clone
 
+A solution based on Slack famous app, used for makes it simple to follow conversations or find important information in an easily searchable archive. This Slack clone will allow for user authentication and login, and interaction with channels, direct messages through messages.
+
 ## Quick Links
 
 [Demo](#demo)
