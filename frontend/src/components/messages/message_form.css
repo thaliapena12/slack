@@ -1,12 +1,16 @@
 .message-form-container {
+    width: 100%;
     height: 20%;
+    position: relative;
+    display: flex;
+    bottom: 0;
 }
 
 .message-form {
     background-color: rgb(245, 245, 245);
     border: 1px solid black;
     border-radius: 5px;
-    width: 95%;
+    width: 97%;
     height: 85%;
     margin: auto;
 }
@@ -17,9 +21,9 @@
     border: none;
     outline: none;
     box-sizing: border-box;
-    padding-left: 40px;
     border-radius: 5px;
     font-size: 16px;
+    padding: 0 20px;
 }
 
 .message-form input::placeholder {

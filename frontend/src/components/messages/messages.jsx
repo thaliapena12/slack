@@ -1,16 +1,26 @@
 import React from "react";
+import ReactDOM from 'react-dom';
 import "./messages.css";
 import MessageItem from "./message_item";
 
 class Messages extends React.Component {
 
+    componentWillUpdate() {
+        const node = ReactDOM.findDOMNode(this);
+        this.shouldScrollToBottom = node.scrollTop + node.clientHeight + 100 >= node.scrollHeight;
+    }
+
+    componentDidUpdate() {
+        if (this.shouldScrollToBottom){
+            const node = ReactDOM.findDOMNode(this);
+            node.scrollTop = node.scrollHeight;
+        }
+    }
 
     render() {
         if(this.props.currentChannel){
-            console.log(this.props.currentChannel);
-            let messages  = this.props.currentChannel.channelMessages;
+            const messages  = this.props.currentChannel.channelMessages;
             
-            console.log(messages);
             return (
                 <div className="messages-container">
                     {messages[0] === undefined ?
@@ -20,11 +30,11 @@ class Messages extends React.Component {
                     ))}               
                 </div>
             ); 
+
+        }else{
+
         } else if(this.props.currentDmgroup){
-            console.log(this.props.currentDmgroup);
-            let messages  = this.props.currentDmgroup.dmMessages;
-            
-            console.log(messages);
+            const messages  = this.props.currentDmgroup.dmMessages;
             return (
                 <div className="messages-container">
                     {messages[0] === undefined ?
@@ -34,8 +44,8 @@ class Messages extends React.Component {
                     ))}               
                 </div>
             ); 
-        } else{
-            //this.updateState.bind(this);
+        } else{          
+
             return (
                 <div className="messages-container">
                     Loading...

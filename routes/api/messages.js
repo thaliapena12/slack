@@ -43,15 +43,21 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
                     text: req.body.text,
                     authoredBy: req.user.id,
                     channel: channel.id
-            
-                });
+                });              
+
                 newMessage.save()
                     .then(message => {
                         channel.addMessage(message.id);
-                        res.json(message) 
-                    })
-                    .catch(error => console.log(error));
-
+                        User.findById(message.authoredBy)
+                            .then(user => {
+                                const resMessage = new Object({
+                                    text: req.body.text,
+                                    authoredBy: {username: user.username},
+                                    createdAt: new Date()
+                                })
+                                res.json(resMessage)
+                            })                         
+                }).catch(error => console.log(error));
         }).catch(err => res.status(404).json({ notchannelfound: 'No channel found with that ID' })); 
         
     } else {

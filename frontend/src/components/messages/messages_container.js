@@ -4,8 +4,11 @@ import Messages from "./messages";
 const mapStateToProps = state => {
 
     return {
-        currentChannel : state.ui.currentChannel,
+
+        currentChannel: state.ui.currentChannel, 
+        messages: Object.values(state.entities.messages)
         currentDmgroup : state.ui.currentDmgroup
+
     };
 
 };

@@ -1,10 +1,12 @@
 .messages-container{
     display: flex;
     flex-direction: column;
-    width: 95%;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    width: 97%;
     margin: auto;
-    height: 100%;
-    //background-color: aqua;
+    max-height: 80%;
+    /* background-color: aqua; */
 }
 
     .message-item{
