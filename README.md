@@ -1,6 +1,6 @@
 # Slack Clone
 
-A solution based on Slack famous app, used for makes it simple to follow conversations or find important information in an easily searchable archive. This Slack clone will allow for user authentication and login, and interaction with channels, direct messages through messages.
+This project is a clone of the popular app Slack. The app makes it really simple to follow different conversations and to keep all the communication regarding a project on the same place. This Slack clone incorporates user authentication and login, interaction with different channels and direct messages.
 
 ## Quick Links
 
@@ -25,7 +25,7 @@ A solution based on Slack famous app, used for makes it simple to follow convers
 - [Client Production Deployment](#client-production-deployment)
 
 
-[License](#liscense)
+[License](#license)
 
 ---
 
@@ -39,51 +39,51 @@ A solution based on Slack famous app, used for makes it simple to follow convers
 
 ## Objectives
 
-- single page application with JS, MongoDB and its ecosystem
-- Flexbox and CSS Grid for UI layout
-- User authentications
-- Real time messaging
+- Single page application with MongoDB, Express, React, and Node.js
+- Flexbox and CSS Grid for UI layout.
+- User authentication.
+- Real time messaging.
 
 ### User Stories
 
-- users can register and log in to their account, JWT for authentications
-- users can create channel
-- channels can be public or private for invited members only
-- channels description can be edited by channel members
-- users can create direct message or group message with other team members
-- users can send messages within channels or direct message
+- Users can register and log in to their account, JWT for authentications.
+- Users can create a channel.
+- Channels can be public or private for invited members only.
+- Channels description can be edited by channel members.
+- Users can create direct messages or group messages with other team members.
+- Users can send messages within channels or direct messages.
 
 ### Future Expansions
 
-- Implements more features in WebSocket instead of REST, similiar to Slack's implementation
-- Implements workspace
-- Implements more test coverage
-- Optimization
-  - More advanced webpack config
-  - Prerendering
+- Implements more features in WebSocket instead of REST, similiar to Slack's implementation.
+- Implements workspace.
+- Implements more test coverage.
+- Optimization:
+  - More advanced webpack config.
+  - Prerendering.
 
 ---
 
 ## Tech Stack
-MERN Stack (MongoDB, JS, Express, React, and NodeJS).
-- Express (the main framework)
-- React
-  - component based single page application
-- Redux
-  - client side data management
+MERN Stack (MongoDB, Express, React, and NodeJS).
+- Express.
+- React.
+  - Component based single page application.
+- Redux.
+  - Client side data management.
 - Node.js
-  - web server & services in service oriented architecure
-- MongoDB
-  - no relational database
-  - Mongoose (to connect and interact with MongoDB)
-  - Validator (for database validations)
-  - Body-parser (to parse data from requests)
-- ES6 JavaScript
-- Authentication
-  - Passport (for authentication)
-  - Passport-jwt (for JSON web tokens)
-  - Jsonwebtoken (to generate the tokens)
-  - Bcryptjs (Bcrypting password)
+  - Web server & services in service oriented architecure.
+- MongoDB.
+  - Non-relational database.
+  - Mongoose (to connect and interact with MongoDB).
+  - Validator (for database validations).
+  - Body-parser (to parse data from requests).
+- ES6 JavaScript.
+- Authentication.
+  - Passport (for authentication).
+  - Passport-jwt (for JSON web tokens).
+  - Jsonwebtoken (to generate the tokens).
+  - Bcryptjs (Bcrypting password).
 
 ---
 
@@ -91,8 +91,8 @@ MERN Stack (MongoDB, JS, Express, React, and NodeJS).
 
 #### Client Development Environment
 
-- install dependencies & start application in client  
-  application will be running on [http://localhost:3000]
+- Install dependencies & start application in client.  
+  Application will be running on [http://localhost:3000]
 
   ```
   cd slack/frontend
@@ -116,8 +116,8 @@ MERN Stack (MongoDB, JS, Express, React, and NodeJS).
 
 ### Server Production Deployment
 
-- install dependencies & output production build in server  
-  production build directory will be output to ./slack
+- Install dependencies & output production build in server.  
+  Production build directory will be output to ./slack
 
   ```
   cd ./slack
@@ -125,22 +125,22 @@ MERN Stack (MongoDB, JS, Express, React, and NodeJS).
   npm run dev
   ```
 
-#### Option A. Serve Application on Local Machine
+#### Option A. Run application on Local Machine
 
-- start server application with production build locally  
-  server will be listening to [http://localhost:3000] by default
+- Start server application with production build locally.  
+  Server will be listening to [http://localhost:3000] by default.
 
   ```npm ./slack
   npm run frontend
   ```
 
-- **!important**: client API url's port is set to **3000** by default
+- **!important**: client API url's port is set to **3000** by default.
 
 
 ### Client Production Deployment
 
-- install dependencies & output production build in client  
-  production build directory will be output to ./slack
+- Install dependencies & output production build in client.  
+  Production build directory will be output to ./slack
 
   ```
   cd ./slack
@@ -148,8 +148,8 @@ MERN Stack (MongoDB, JS, Express, React, and NodeJS).
   npm update
   ```
 
-- serve client application with static server locally  
-  static server will be running on [http://localhost:5000] by default
+- Start client application with static server locally.  
+  Static server will be running on [http://localhost:5000] by default
 
   ```npm ./slack
   npm run dev
@@ -158,36 +158,36 @@ MERN Stack (MongoDB, JS, Express, React, and NodeJS).
 ## Group Members and Work Breakdown
 
 - Feb 10
-  - Frontend auth 
-  - Style landing page
-  - Setting up the mongodb configuration 
+  - Frontend auth.
+  - Style landing page.
+  - Setting up the mongodb configuration. 
 - Feb 11
-  - Style landing page
-  - Implement channels
+  - Style landing page.
+  - Implement channels.
 - Feb 12
-  - Implement direct messages groups
-  - Implement messages
+  - Implement direct messages groups.
+  - Implement messages.
 - Feb 13
-  - Debug and style on direct messages and channels
-  - Implement users info show under direct messages and channels
+  - Debug and style on direct messages and channels.
+  - Implement users info to show under direct messages and channels.
 - Feb 14
-  - Implement messages on channels
-  - Implement messages on direct messages groups
+  - Implement messages on channels.
+  - Implement messages on direct messages groups.
 - Feb 17
-  - Finish styling and debugging
-  - Deploy to Heroku
+  - Finish styling and debugging.
+  - Deploy to Heroku.
 - Feb 18
-  - Debug and refactor style on Messages
+  - Debug and refactor, style on messages.
 
 
 ## Author
 
-- Javier, David, Thalia and Yenisbel
+- David Odio, Javier Ortiz, Thalia Pena, and Yenisbel Valle.
 
 ---
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 ---
