@@ -7,13 +7,15 @@ class MessageForm extends React.Component {
         this.state = { 
             text: "",
             authoredBy: "",
-            channel: ""
+            channel: "",
+            dmgroup: ""
         }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount() {
         this.props.fetchUserChannels(this.props.currentUser.id);
+        this.props.fetchUserDmgroups(this.props.currentUser.id);
     }
     
     update (field) {
@@ -28,28 +30,36 @@ class MessageForm extends React.Component {
         let message = {
             text: this.state.text,
             authoredBy: "",
-            channel: ""
+            channel: "",
+            dmgroup: ""
         };
         let currentChannelId;
-        this.props.currentChannel ? 
-            currentChannelId = this.props.currentChannel._id :
-            currentChannelId = this.props.userChannels[0]._id;
-        message["channel"] = currentChannelId;
+        let currentDmgroupId;
+        
+        if (this.props.currentChannel) {
+            if (this.props.currentChannel._id) {
+                currentChannelId = this.props.currentChannel._id;
+            }else{
+                currentChannelId = this.props.userChannels[0]._id;
+            };            
+            message["channel"] = currentChannelId
+        } else if (this.props.currentDmgroup) {
+            if (this.props.currentDmgroup._id){
+                currentDmgroupId = this.props.currentDmgroup._id;
+            }else {
+                currentDmgroupId = this.props.userDmgroups[0]._id;
+            };           
+            message["dmgroup"] = currentDmgroupId;
+
+        } 
+        
         message["authoredBy"] = this.props.currentUser.id;
         this.props.createMessage(message);
-
         this.setState({text: ""});    
     }
 
     render () {
-        let currentChannel;
-        if (this.props.currentChannel) {
-            currentChannel = this.props.currentChannel;
-        } else if (this.props.userChannels.length === 0) {
-            return null;
-        } else {
-            currentChannel = this.props.userChannels[0];
-        }
+
         return (
             <div className="message-form-container">
                 <div className="message-form">
@@ -57,7 +67,7 @@ class MessageForm extends React.Component {
                         <input type="text"
                             value={this.state.text}
                             onChange={this.update('text')}
-                            placeholder={`Message ${ currentChannel.name }`}
+                            placeholder={`Message enter here`}
                         />  
                     </form>
                     <nav>

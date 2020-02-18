@@ -164,7 +164,7 @@ img{
     top: 0;
     left: 0;
     z-index: 1;
-    margin-top: 70px;
+    margin-top: 80px;
 }
 
 video {
@@ -243,6 +243,7 @@ video {
     border: 1px solid #611f69;
     position: relative;
     z-index: 2;
+    cursor: pointer;
 }
 
 .already-signup-text {

@@ -1,24 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import './main_page.css'; 
 import img0 from './slack-img0.jpg';
-import img1 from './slack-img1.jpg';
-import img2 from './slack-img2.jpg';
-import img3 from './slack-img3.jpg';
-import vid1 from './slack-video.mp4';
-import brandposter from './brand-campaign_hero-poster.jpg';
-import brandvideo from './brand-campaign_hero-video.mp4';
+import { login } from "../../actions/session_actions";
+import { openModalForm, closeModalForm } from "../../actions/modal_form_actions";
 
 class MainPage extends React.Component {
     constructor(props) {
         super(props);
-
-        // this.handleDemoUser = this.handleDemoUser.bind(this);
+        this.handleDemoUser = this.handleDemoUser.bind(this);
     }
 
     handleDemoUser(e) {
         e.preventDefault();
-        this.props.demoLogin();
+        const user = { email: "demo@abc.com", password: "password" }
+        this.props.processForm(user).then((res) => {
+          this.props.closeModalForm();
+          this.props.history.push(`/channels`);
+        });
     }
     
     componentDidMount(){
@@ -62,9 +63,9 @@ class MainPage extends React.Component {
                         Keep conversations organized in Slack, the smart alternative to email
                         </p>
                         <ul className="homepage-link">
-                        <Link className="try-c-link" to={'/signup'}>TRY SLACK</Link>
-                        
-                        <a className="try-demo-link" >TRY DEMO</a>
+                            <Link className="try-c-link" to={'/signup'}>TRY SLACK</Link>
+                            
+                            <a className="try-demo-link" onClick={this.handleDemoUser}>TRY DEMO</a>
                         </ul>
                         <p className="already-signup-text">
                         
@@ -82,12 +83,13 @@ class MainPage extends React.Component {
     }
 }
 
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         processForm: user => dispatch(login(user)), demoLogin: () => dispatch(demoLogin())
-//     };
-// };
+const mapDispatchToProps = dispatch => {
+    return {
+        processForm: user => dispatch(login(user)),
+        closeModalForm: () => dispatch(closeModalForm()),
+    };
+};
 
-// export default connect(null, mapDispatchToProps)(MainPage);
+export default connect(null, mapDispatchToProps)(MainPage);
 
-export default MainPage;
+// export default MainPage;

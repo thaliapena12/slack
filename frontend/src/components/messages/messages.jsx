@@ -21,7 +21,6 @@ class Messages extends React.Component {
         if(this.props.currentChannel){
             const messages  = this.props.currentChannel.channelMessages;
             
-            console.log(messages);
             return (
                 <div className="messages-container">
                     {messages[0] === undefined ?
@@ -31,7 +30,22 @@ class Messages extends React.Component {
                     ))}               
                 </div>
             ); 
+
         }else{
+
+        } else if(this.props.currentDmgroup){
+            const messages  = this.props.currentDmgroup.dmMessages;
+            return (
+                <div className="messages-container">
+                    {messages[0] === undefined ?
+                        "No messages here" :
+                        messages.map(message => (
+                        <MessageItem key={message._id} message={message} />
+                    ))}               
+                </div>
+            ); 
+        } else{          
+
             return (
                 <div className="messages-container">
                     Loading...

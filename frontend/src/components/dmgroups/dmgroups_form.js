@@ -1,6 +1,5 @@
 import React from "react";
 import '../../components/channels/modal_form.css';
-
 class DmgroupsForm extends React.Component {
   constructor(props) {
     super(props);

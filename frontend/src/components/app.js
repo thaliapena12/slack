@@ -7,6 +7,7 @@ import SignupFormContainer from './session/signup_form_container';
 import './app.css';
 import WorkspaceContainer from "./workspace/workspace_container";
 
+
 const App = () => (
     <div className="main-workspace">
         {/* <NavBarContainer /> */}
