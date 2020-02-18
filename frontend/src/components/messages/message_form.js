@@ -73,7 +73,15 @@ class MessageForm extends React.Component {
     }
 
     render () {
-
+        let channelName = ""
+        if (this.props.currentChannel) {
+            channelName = `# ${this.props.currentChannel.name}`;
+        } else if (this.props.currentDmgroup) {
+            let usernames = this.props.currentDmgroup.dmMembers.map(member => {
+                return member.username;
+            });
+            channelName = usernames.join(", ");
+        }
         return (
             <IconContext.Provider value={{ color: "grey", className: "global-class-name" }}>
             <div className="message-form-container">
@@ -82,7 +90,7 @@ class MessageForm extends React.Component {
                         <input type="text"
                             value={this.state.text}
                             onChange={this.update('text')}
-                            placeholder={`Message enter here`}
+                            placeholder={`Message ${channelName}`}
                         />  
                     </form>
                         <nav className="message-form-nav">
