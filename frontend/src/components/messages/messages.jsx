@@ -8,7 +8,7 @@ class Messages extends React.Component {
     render() {
         if(this.props.currentChannel){
             console.log(this.props.currentChannel);
-            const messages  = this.props.currentChannel.channelMessages;
+            let messages  = this.props.currentChannel.channelMessages;
             
             console.log(messages);
             return (
@@ -20,7 +20,21 @@ class Messages extends React.Component {
                     ))}               
                 </div>
             ); 
-        }else{
+        } else if(this.props.currentDmgroup){
+            console.log(this.props.currentDmgroup);
+            let messages  = this.props.currentDmgroup.dmMessages;
+            
+            console.log(messages);
+            return (
+                <div className="messages-container">
+                    {messages[0] === undefined ?
+                        "No messages here" :
+                        messages.map(message => (
+                        <MessageItem key={message._id} message={message} />
+                    ))}               
+                </div>
+            ); 
+        } else{
             //this.updateState.bind(this);
             return (
                 <div className="messages-container">

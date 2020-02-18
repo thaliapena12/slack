@@ -8,4 +8,16 @@ export const selectChannelUsers = (state, currentChannel) => {
   return currentChannel ? currentChannel.channelMembers.map(id =>
     state.entities.users[id]) : [];
 };
+
+
+export const selectDmgroupMessages= (state, currentDmgroup) => {
+  return currentDmgroup ? currentDmgroup.dmMessages.map(id => state.entities.messages[id]) : [];
+  };
+
+export const selectDmgroupUsers = (state, currentDmgroup) => {
+  console.log(`${currentDmgroup} at selector level`);
+  return currentDmgroup ? currentDmgroup.dmMembers.map(id =>
+    state.entities.users[id]) : [];
+};
+  
   

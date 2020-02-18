@@ -7,3 +7,7 @@ export const createMessage = message => {
 export const getAllChannelMessages = channelId => {
     return axios.get(`/api/messages/channels/${channelId}`);
 };
+
+export const getAllDmgroupMessages = dmgroupId => {
+    return axios.get(`/api/messages/dmgroups/${dmgroupId}`);
+};
