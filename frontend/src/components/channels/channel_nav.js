@@ -93,7 +93,9 @@ class ChannelNav extends React.Component {
           <li><div className="at">@</div></li>
           <li><FaRegStar /></li>
           <li><FaBars /></li>
+          <IconContext.Provider value={{ color: "#E01E5A", className: "global-class-name" }}>
           <li><FaGift /></li>
+          </IconContext.Provider>
         </ul>
       </IconContext.Provider>
     )
