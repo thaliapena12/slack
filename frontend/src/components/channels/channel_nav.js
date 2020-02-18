@@ -34,7 +34,7 @@ class ChannelNav extends React.Component {
       <nav className="channel-navbar">
         <div className="channel-info">
           <h1 className="channel-navbar-name">
-            #{currentChannel.name}
+            # {currentChannel.name}
           </h1>
           <ul className="channel-navbar-details">
             <li><FaRegStar /></li>
@@ -107,7 +107,10 @@ class ChannelNav extends React.Component {
     } else if(this.props.currentDmgroup) {
       return this.renderDmgroups()
     }else{
-      return <h1>Loading..</h1>
+      this.props.fetchUserChannels(this.props.currentUser.id);
+      return (
+        <h1>Loading...</h1>
+      );
     }
 
   }
