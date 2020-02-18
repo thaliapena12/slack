@@ -34,7 +34,8 @@
     display: flex;
     justify-content: space-between;
     color: grey;
-    padding-top: 2px;
+    padding-top: 0px;
+    background: rgb(230, 230, 230);
 }
 
 .message-form-list-one {
