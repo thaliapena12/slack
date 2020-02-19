@@ -26,9 +26,10 @@ ChannelSchema.methods.addUser = function (userId) {
     this.channelMembers.push(userId);
     this.save();
 
-    User.findById(userId).then(user => {
+    return User.findById(userId).then(user => {
         user.channels.push(this.id);
         user.save(); 
+        return this;
     });
        
 }

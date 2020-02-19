@@ -1,0 +1,123 @@
+.channel-form-container{
+    margin-top: -90px;
+    max-height: 90%;
+}
+
+.newdm{
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+    /* background-color: darkorange; */
+}
+
+    .newdm-header{}
+
+        .newdm-header h3{
+            font-weight: bold;
+            text-align: left;
+            font-size: 25px;
+            margin-bottom: 0;
+        }
+
+    .newdm-selected{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 50px;
+    }
+
+        .newdm-input-area{
+            border: 1px solid grey;
+            border-radius: 6px;
+            width: 80%;
+        }
+
+        .newdm-selected > button{
+            width: 15%;
+            background-color: lightgray;
+            border: none;
+            border-radius: 6px;
+            color: black;
+            cursor: pointer;
+        }
+    
+    .newdm-users-list{
+        height: 400px;
+        overflow-y: scroll;
+        margin: 20px 0;
+    }
+
+        .newdm-users-list ul{
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+        }
+
+            .newdm-users-list ul li{
+                
+            }
+            
+            .newdm-users-list ul li:hover{
+                background-color: #e9ecece8;
+                transform: translateZ(50px);
+            }             
+
+            .newdm-users-list ul li .user-item{
+                display: flex;
+                flex-direction: row;
+                padding: 5px 0;
+                border-top: 1px solid lightgray;
+            }
+
+                .newdm-users-list ul li .user-item img{
+                    width: 36px;
+                    height: 36px;
+                }
+
+.selected-list {
+    list-style-type: none;
+    display: flex;
+    padding-inline-start: 10px;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.selected-list > li {
+    display: flex;
+    height: 30px;
+    background-color: rgba(176, 237, 255, 0.459);
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.selected-list > li > img {
+    width: 30px;
+    height: 30px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.selected-list-username {
+    padding: 5px;
+    font-size: 18px;
+}
+
+.selected-list > li > button {
+    border: none;
+    background-color: transparent;
+    font-size: 18px;
+    padding-bottom: 3px;
+    cursor: pointer;
+}
+
+.selected-list > li > button:hover {
+    background-color: lightgray;
+}
+.user-item {
+    cursor: pointer;
+}
+
+.newdm-input {
+    margin-top: -3px;
+}
