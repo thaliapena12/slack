@@ -19,12 +19,19 @@ class ChannelNav extends React.Component {
     this.displayNames = this.displayNames.bind(this);
     this.renderNavSearch = this.renderNavSearch.bind(this);
     this.renderChannels = this.renderChannels.bind(this);
-    this.renderDmgroups = this.renderDmgroups.bind(this)
+    this.renderDmgroups = this.renderDmgroups.bind(this);
+    this.state = { openDropdown: false };
+    this.openDropdown = this.openDropdown.bind(this);
   }
 
   componentDidMount () {
     this.props.fetchUserChannels(this.props.currentUser.id);
     this.props.fetchUserDmgroups(this.props.currentUser.id);
+  }
+
+  openDropdown (e) {
+    e.preventDefault();
+    this.setState({ openDropdown: !this.state.openDropdown });
   }
 
   renderChannels(){
@@ -88,7 +95,7 @@ class ChannelNav extends React.Component {
         <ul className="channel-navbar-list">
           <li><FaPhoneSquare /></li>
           <li><FaInfoCircle /></li>
-          <li><FaCog /></li>
+          <li onClick={this.openDropdown}><FaCog /></li>
           <li><div className="search"><input type="text" placeholder='Search' /></div></li>
           <li><div className="at">@</div></li>
           <li><FaRegStar /></li>
@@ -96,6 +103,13 @@ class ChannelNav extends React.Component {
           <IconContext.Provider value={{ color: "#E01E5A", className: "global-class-name" }}>
           <li><FaGift /></li>
           </IconContext.Provider>
+          {
+            this.state.openDropdown &&
+            <ul className="gear-dropdown">
+              <li onClick={() => this.props.openModalForm("add people to channel")}>Add people to channel</li>
+            </ul>
+          }
+          
         </ul>
       </IconContext.Provider>
     )

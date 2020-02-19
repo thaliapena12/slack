@@ -63,6 +63,7 @@
     font-size: 20px;
     width: 40%;
     margin-top: 20px;
+    position: relative;
 }
 
 .at {
@@ -77,4 +78,30 @@
 .channel-navbar-list > li:hover {
     background-color: lightgray;
     cursor: pointer;
+}
+
+.gear-dropdown {
+    list-style: none;
+    position: absolute;
+    top: 25px;
+    left: -35px;
+    background: rgb(243, 243, 243);
+    border-radius: 5px;
+    padding-inline-start: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px solid lightgray;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); 
+}
+
+.gear-dropdown > li {
+    font-size: 15px;
+    color: black;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.gear-dropdown > li:hover {
+    color: white;
+    background-color: rgb(66, 112, 172);
 }

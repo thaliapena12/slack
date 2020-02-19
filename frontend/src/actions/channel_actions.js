@@ -1,4 +1,11 @@
-import { getChannels, getChannel, deleteChannel, getUserCreatedChannels, createChannel} from "../util/channel_api_util";
+import { 
+  getChannels, 
+  getChannel, 
+  deleteChannel, 
+  getUserCreatedChannels, 
+  createChannel,
+  addUserToChannel
+} from "../util/channel_api_util";
 
 export const RECEIVE_CHANNELS = "RECEIVE_CHANNELS";
 export const RECEIVE_USER_CREATED_CHANNELS = "RECEIVE_USER_CREATED_CHANNELS";
@@ -68,12 +75,19 @@ export const fetchUserCreatedChannels = id => dispatch =>
            .catch(err => dispatch(receiveErrors(err.response.data)));
     
 
-export const generateChannel = data => dispatch =>
+export const generateChannel = data => dispatch => (
   createChannel(data)
     .then(channel => dispatch(receiveNewChannel(channel)))
-    .catch(err => (dispatch(receiveErrors(err.response.data))));
+    .catch(err => (dispatch(receiveErrors(err.response.data))))
+);
 
-export const obliterateChannel = channelId => dispatch =>
+export const obliterateChannel = channelId => dispatch => (
          deleteChannel(channelId)
            .then(() => dispatch(removeChannel(channelId)))
-           .catch(err => dispatch(receiveErrors(err.response.data)));
+           .catch(err => dispatch(receiveErrors(err.response.data)))
+);
+
+export const userToChannel = data => dispatch => {
+  return addUserToChannel(data)
+    .then(receivedChannel => dispatch(receiveCurrentChannel(receivedChannel.data)))
+};
