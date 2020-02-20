@@ -104,17 +104,15 @@ router.post('/:channelId/addUser', passport.authenticate('jwt', { session: false
 
     Channel.findById(req.params.channelId)
         .then(channel => {   
-            //res.json(channel.channelMembers);  
-            if (channel.channelMembers.includes(req.body.user._id)) {
-                console.log(req.body.user.id);
-                res.status(404).json({ alreadyExists: `${req.body.user._id} already exists in ${channel.name}` })
-            } else {
-                channel.addUser(req.body.user._id)
-                .then(channel => {
-                    console.log(channel);
-                    res.json(channel)
-                });
-            }
+            
+            req.body.users.forEach(user => {
+                if (channel.channelMembers.includes(user._id)) {
+                    res.status(404).json({ alreadyExists: `${req.body.user._id} already exists in ${channel.name}` })
+                } else {
+                    channel.addUser(user._id);
+                }
+            });
+            res.json(channel);
         })     
         .catch(err => {
             console.log(err);

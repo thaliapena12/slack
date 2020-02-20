@@ -38,11 +38,11 @@ class PeopleToChannel extends React.Component {
     }
 
     addPeople (e) {
+        let data = { channelId: this.props.currentChannel._id, users: [] };
         this.state.selectedUsers.forEach(user => {
-            let data = {channelId: this.props.currentChannel._id }
-            data["user"] = user;
-            this.props.addUserToChannel(data);
+            data["users"].push(user);
         });
+        this.props.addUserToChannel(data);
         this.props.closeModalForm();
     }
 
