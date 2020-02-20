@@ -1,4 +1,9 @@
-import { RECEIVE_CURRENT_CHANNEL, RECEIVE_NEW_CHANNEL, REMOVE_CHANNEL } from '../actions/channel_actions';
+import { 
+    RECEIVE_CURRENT_CHANNEL, 
+    RECEIVE_NEW_CHANNEL, 
+    REMOVE_CHANNEL,
+    RECEIVE_CHANNEL 
+} from '../actions/channel_actions';
 import { RECEIVE_USER_CHANNELS } from "../actions/user_actions";
 import { RECEIVE_USER_LOGOUT } from '../actions/session_actions';
 import { RECEIVE_NEW_MESSAGE } from '../actions/message_actions';
@@ -25,7 +30,9 @@ export default function currentChannelReducer(state = null, action) {
                 return null
             }     
         case REMOVE_CHANNEL:
-            return null;   
+            return null;  
+        case RECEIVE_CHANNEL:
+            return action.channel.data
         default:
             return state;
     }

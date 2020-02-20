@@ -14,7 +14,7 @@ export const REMOVE_CHANNEL = "REMOVE_CHANNEL";
 export const RECEIVE_CURRENT_CHANNEL = "RECEIVE_CURRENT_CHANNEL";
 export const RECEIVE_CHANNEL_ERRORS = "RECEIVE_CHANNEL_ERRORS";
 export const REMOVE_ERRORS = "REMOVE_ERRORS";
-
+export const RECEIVE_CHANNEL = "RECEIVE_CHANNEL";
 
 export const receiveCurrentChannel = channel => ({
   type: RECEIVE_CURRENT_CHANNEL,
@@ -37,10 +37,10 @@ export const removeErrors = () => {
   };
 };
 
-// export const receiveChannel = channel => ({
-//   type: RECEIVE_USER_CHANNEL,
-//   channel
-// });
+const receiveChannel = channel => ({
+  type: RECEIVE_CHANNEL,
+  channel
+});
 
 const receiveUserCreatedChannels = channels => ({
   type: RECEIVE_USER_CREATED_CHANNELS,
@@ -89,5 +89,5 @@ export const obliterateChannel = channelId => dispatch => (
 
 export const userToChannel = data => dispatch => {
   return addUserToChannel(data)
-    .then(receivedChannel => dispatch(receiveCurrentChannel(receivedChannel.data)))
+    .then(receivedChannel => dispatch(receiveChannel(receivedChannel)))
 };

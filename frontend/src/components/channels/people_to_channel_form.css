@@ -41,6 +41,10 @@
             cursor: pointer;
         }
     
+        .newdm-selected > button:hover {
+            background-color: gray;
+        }
+
     .newdm-users-list{
         height: 400px;
         overflow-y: scroll;
@@ -120,4 +124,50 @@
 
 .newdm-input {
     margin-top: -3px;
+}
+
+.people-to-channel-errors {
+    list-style-type: none;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+    margin-top: 20px;
+    margin-bottom: -10px;
+}
+
+.people-to-channel-errors > li {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    border-left: 5px solid rgb(211, 51, 91);
+    padding: 5px;
+    position: relative;
+}
+
+.people-to-channel-errors > li > span {
+    margin-right: 5px;
+    color: rgb(211, 51, 91);
+}
+
+#disabled {
+    cursor: auto;
+    background-color: grey;
+}
+
+.people-to-channel-errors > li > button {
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background: transparent;
+}
+
+.people-to-channel-errors > li > button:hover {
+    background-color: lightgray;
+    border-top-right-radius: 5px;
 }

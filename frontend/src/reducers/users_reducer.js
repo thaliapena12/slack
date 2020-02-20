@@ -1,6 +1,6 @@
 import { RECEIVE_USER_LOGOUT } from "../actions/session_actions";
 import { RECEIVE_USER_CHANNELS, RECEIVE_USERS, RECEIVE_USER_DMGROUPS } from "../actions/user_actions";
-import { RECEIVE_NEW_CHANNEL, REMOVE_CHANNEL } from "../actions/channel_actions";
+import { RECEIVE_NEW_CHANNEL, REMOVE_CHANNEL, RECEIVE_CHANNEL } from "../actions/channel_actions";
 import { RECEIVE_DMGROUP, REMOVE_DMGROUP } from "../actions/dmgroup_actions";
 
 
@@ -18,6 +18,13 @@ const UsersReducer = (
     case RECEIVE_USER_DMGROUPS:
         newState.userDmgroups = action.dmgroups;
         return newState;
+    case RECEIVE_CHANNEL:
+      newState.userChannels = newState.userChannels
+        .filter(channel => {
+          return channel._id !== action.channel.data._id;
+        });
+      newState.userChannels.push(action.channel.data);
+      return newState;
     case RECEIVE_NEW_CHANNEL:
       newState.userChannels.push(action.channel.data);
       return newState;
