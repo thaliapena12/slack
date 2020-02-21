@@ -34,14 +34,14 @@ class NavBar extends React.Component {
   }
 
   displayNames(members){
-    let string = "";
     let array = [];
-    for (let i = 0; i < members.length; i++) {
-      array.push(members[i].username) 
-    }
-    string = array.join(', ');
+    
+    for (let i = 0; i < members.length; i++)
+      if (members[i].username !== this.props.user.username)
+        array.push(members[i].username) 
+  
+    return array.join(', ');
 
-    return string
   }
 
   render() {

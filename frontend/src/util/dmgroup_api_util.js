@@ -9,7 +9,7 @@ export const deleteDmgroup = (dmgroupId) => {
 };
 
 export const createDmgroup = (dmgroupData) => {
-  return axios.post("/api/dmgroups/", dmgroupData);
+  return axios.post("/api/dmgroups/", {members: dmgroupData});
 };
 
 export const getDmgroups = () => {

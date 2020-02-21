@@ -1,6 +1,7 @@
 .channel-form-container{
     margin-top: -90px;
     max-height: 90%;
+    width: 500px
 }
 
 .newdm{
@@ -23,14 +24,58 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        height: 50px;
+        min-height: 50px;
     }
 
         .newdm-input-area{
+            display: flex;
+            flex-wrap: wrap;
             border: 1px solid grey;
             border-radius: 6px;
-            width: 80%;
+            width: 350px;
+            padding-bottom: 3px;;
         }
+
+            .newdm-input{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                margin: 0;
+                overflow: visible;
+                /* background-color: lightgreen; */
+            }
+
+            .newdm-input ul{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            .newdm-input ul li .user-tag{
+                display: flex;
+                flex-direction: row;
+                margin: 3px 1.5px 0 1.5px;
+                padding: 3px;
+                font-weight: 600;
+                border-radius: 3px;
+                white-space: nowrap;
+                background-color: lightcyan;
+
+            }
+
+            .newdm-input ul li .user-tag .avatar img{
+                width: 15px;
+                height: 15px;
+                margin-right: 5px;
+            }
+
+            .newdm-input ul li .user-tag .close-tag{
+                margin-left: 5px;
+                height: 100%;
+            }
 
         .newdm-selected > button{
             width: 15%;
@@ -42,7 +87,7 @@
     
     .newdm-users-list{
         height: 400px;
-        overflow-y: scroll;
+        overflow-y: auto;
         margin: 20px 0;
     }
 
