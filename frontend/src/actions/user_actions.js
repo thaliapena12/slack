@@ -31,8 +31,8 @@ export const fetchUserChannels = userData => dispatch =>
     .catch(err => console.log(err));
 
 
-export const fetchUserDmgroups = userData => dispatch =>
-  getUserDmgroups(userData)
+export const fetchUserDmgroups = userId => dispatch =>
+  getUserDmgroups(userId)
     .then(dmgroups => {
       dispatch(receiveUserDmgroups(dmgroups.data));
     })

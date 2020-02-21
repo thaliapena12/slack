@@ -2,13 +2,21 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { getUserList } from "../../util/user_api_util";
 import DmgroupsForm from "./dmgroups_form";
-import { generateDmgroup, removeErrors } from "../../actions/dmgroup_actions";
+import { generateDmgroup, removeErrors, receiveCurrentDmgroup } from "../../actions/dmgroup_actions";
 import { openModalForm, closeModalForm } from "../../actions/modal_form_actions";
 
+const mapPropsToState = state => ({
+
+  currentUser: state.session.user,
+  dmgroups: state.entities.users.userDmgroups
+
+});
+
 const mapDispatchToProps = dispatch => ({
-  generateDmgroup: dmgroup => dispatch(generateDmgroup(dmgroup)),
+  generateDmgroup: usersIds => dispatch(generateDmgroup(usersIds)),
+  selectDmgroup: dmgroup => dispatch(receiveCurrentDmgroup(dmgroup)),
   closeModalForm: () => dispatch(closeModalForm()),
   removeErrors: () => dispatch(removeErrors()),
 });
 
-export default connect(null, mapDispatchToProps)(DmgroupsForm);
+export default connect(mapPropsToState, mapDispatchToProps)(DmgroupsForm);

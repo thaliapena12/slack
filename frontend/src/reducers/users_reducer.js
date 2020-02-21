@@ -26,6 +26,7 @@ const UsersReducer = (
       return newState;
     case RECEIVE_DMGROUP:
         newState.userDmgroups.push(action.dmgroup.data);
+        console.log(newState.userDmgroups);
         return newState;
 
     case RECEIVE_USERS:
