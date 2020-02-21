@@ -43,11 +43,11 @@ class DmgroupsForm extends React.Component {
     this.state.selectedUsers.forEach(user => {
       //console.log(user);
       userIdArray.push(user[0]._id);
-      //onsole.log(userIdArray);
+      //console.log(userIdArray);
     })
 
-    this.props.generateDmgroup(userIdArray)
-      .then(() => this.props.selectDmgroup(this.props.dmgroups[-1]).bind(this));
+    this.props.generateDmgroup(userIdArray);
+    this.props.closeModalForm();
 
     
 
