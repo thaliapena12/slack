@@ -1,0 +1,31 @@
+version: '3.3'
+services:
+  web:
+    build: .
+    image: slackduplicate
+    ports:
+      - 5000:5000
+    networks:
+      - slackduplicate
+    env_file:
+      - .env
+    environment:
+      - MONGO_URI=mongodb://mongo_db/slackduplicate
+      - secretOrKey=$SECRET_OR_KEY
+      - MONGO_USERNAME=$MONGO_USERNAME
+      - MONGO_PASSWORD=$MONGO_PASSWORD
+      - MONGO_PORT=$MONGO_PORT
+      - MONGO_DB=$MONGO_DB
+  db:
+    image: mongo:4.2
+    volumes:
+      - mongo-db:/data/db
+    networks:
+      slackduplicate:
+        aliases:
+          - 'mongo_db'
+networks:
+  slackduplicate:
+    driver: bridge
+volumes:
+  mongo-db:
