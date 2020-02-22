@@ -10,7 +10,7 @@ services:
     env_file:
       - .env
     environment:
-      - MONGO_URI=mongodb://mongo_db/slackduplicate
+      - MONGO_URI=$MONGO_URI
       - secretOrKey=$SECRET_OR_KEY
       - MONGO_USERNAME=$MONGO_USERNAME
       - MONGO_PASSWORD=$MONGO_PASSWORD
