@@ -31,11 +31,11 @@ class MainPage extends React.Component {
                 <div className="header">
                     <div className="header-left">
                         <img className="logo" src={img0} alt="Slack Logo"/>
-                        <h2>Why Slack? </h2>
-                        <h2>Solutions </h2>
-                        <h2>Resources </h2>
-                        <h3>Enterprise </h3>
-                        <h3>Pricing </h3>
+                        <h2><a href="https://slack.com/features" target="_blank">Why Slack?</a></h2>
+                        <h2><a href="https://slack.com/solutions/project-management" target="_blank">Solutions</a></h2>
+                        <h2><a href="https://slack.com/help" target="_blank"> Resources</a></h2>
+                        <h2><a href="https://slack.com/enterprise" target="_blank">Enterprise</a></h2>
+                        <h2><a href="https://slack.com/pricing" target="_blank">Pricing</a></h2>
                     </div>
                     <div className="signup-login">
                     <div className="log-in">
@@ -74,10 +74,55 @@ class MainPage extends React.Component {
                     </div>
                 </div>
   
-                <footer>
-                    <center>Copyright &copy; 2020 </center>
-                    
+                <footer className="container">
+                    <div className="inner-container">
+                        <div className="footer-links">
+                            <h3>David Odio</h3>
+                            <div className="github-img">
+                            <i className="fab fa-github"></i>
+                            <a href="https://github.com/nordov" target="_blank"> Github</a>
+                            </div>
+                            <div className="linkedin-img">
+                            <i className="fab fa-linkedin"></i>
+                            <a href="https://www.linkedin.com/in/nordov/" target="_blank"> LinkedIn</a>
+                            </div>
+                        </div>
+                        <div className="footer-links">
+                            <h3>Javier Ortiz</h3>
+                            <div className="github-img">
+                            <i className="fab fa-github"></i>
+                            <a href="https://github.com/javiermortiz" target="_blank"> Github</a>
+                            </div>
+                            <div className="linkedin-img">
+                            <i className="fab fa-linkedin"></i>
+                            <a href="https://www.linkedin.com/in/javiermortiz/" target="_blank"> LinkedIn</a>
+                            </div>
+                        </div>
+                        <div className="footer-links">
+                            <h3>Thalia Pena</h3>
+                            <div className="github-img">
+                            <i className="fab fa-github"></i>
+                            <a href="https://github.com/thaliapena12" target="_blank"> Github</a>
+                            </div>
+                            <div className="linkedin-img">
+                            <i className="fab fa-linkedin"></i>
+                            <a href="#"> LinkedIn</a>
+                            </div>
+                        </div>
+                        <div className="footer-links">
+                            <h3>Yenisbel Valle</h3>
+                            <div className="github-img">
+                            <i className="fab fa-github"></i>
+                            <a href="https://github.com/yenisbel" target="_blank"> Github</a>
+                            </div>
+                            <div className="linkedin-img">
+                            <i className="fab fa-linkedin"></i>
+                            <a href="https://www.linkedin.com/in/yenisbelv/" target="_blank"> LinkedIn</a>
+                            </div>
+                        </div>
+                    </div>     
                 </footer>
+                <div><center>Copyright &copy; 2020 </center> </div> 
             </div>
         );
     }
