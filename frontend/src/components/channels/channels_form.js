@@ -35,7 +35,7 @@ class ChannelsForm extends React.Component {
   renderErrors() {
     return (
       <ul className="channels-form-errors">
-        <div className="error-container">
+        <div className="error-list">
           {this.props.errors.map((error, i) => (
             <li className="p-error" key={`error-${i}`}>
               {error}
@@ -125,7 +125,7 @@ class ChannelsForm extends React.Component {
             <br />
             <br />
             <div className="bottom">
-              <small>Learn more</small>
+              <a href="https://slack.com/help/articles/360017938993-What-is-a-channel?utm_medium=in-prod&utm_source=in-prod&utm_campaign=cd_in-prod_in-prod_all_en_sharedchannels-betterinvites_cr-create-channel_ym-201911"><small>Learn more</small></a>
             </div>
             <input
               className="channel-submit"
