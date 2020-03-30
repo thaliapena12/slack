@@ -10,14 +10,15 @@ class ChatServerClient {
         this.socket = socketIOClient(endpoint);
     }
 
-    dispatchReceiveMessage(message) {
+    dispatchReceiveMessage(messageChannel, message, authorId) {
         // fetch the conversation in order to get its participants
-        Channel.findOne(message.channel).exec((err, channel) => {
+        Channel.findOne(messageChannel).exec((err, channel) => {
             if (err) throw err;
             // tell the chat server what message was sent between which people
             let payload = {
                 participants: channel.channelMembers,
                 message,
+                authorId
             }
             this.socket.emit('broadcast_message', payload);
         })

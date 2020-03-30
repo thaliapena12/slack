@@ -57,7 +57,7 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
                                     createdAt: new Date()
                                 })
                                 const chat = new ChatServerClient();
-                                chat.dispatchReceiveMessage(newMessage);
+                                chat.dispatchReceiveMessage(newMessage.channel, resMessage, newMessage.authoredBy);
                                 res.json(resMessage)
                             })                         
                 }).catch(error => console.log(error));

@@ -15,9 +15,9 @@ const configureChat = (io) => {
 
         // when the api receives a new message, it notifies the chat server
         socket.on("broadcast_message", payload => {
-            let { participants, message } = payload;
+            let { participants, message, authorId } = payload;
             // notify all participants but the author
-            otherParticipants = participants.filter(p => p !== message.authoredBy)
+            otherParticipants = participants.filter(p => p !== authorId)
             otherParticipants.forEach(participant => {
                 if (userLookup[participant]) {
                     userLookup[participant].emit('receive_message', message);
