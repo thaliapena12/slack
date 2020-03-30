@@ -171,3 +171,8 @@
     background-color: lightgray;
     border-top-right-radius: 5px;
 }
+
+.loading{
+    text-align: center;
+    margin-bottom: 25px;
+}

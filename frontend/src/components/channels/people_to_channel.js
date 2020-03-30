@@ -123,14 +123,16 @@ class PeopleToChannel extends React.Component {
                     <div className="newdm">
                         <div className="newdm-header">
                             <div onClick={this.props.closeModalForm} className="close">&times;</div>
-                            <h3> Direct Messages</h3>
+                            <h3>Loading users to add...</h3>
                         </div>
                         <div className="newdm-selected">
                             <div className="newdm-input-box"></div>
                         </div>
-                        <div className="newdm-users-list">
-                            Loading...
-            </div>
+                        <div className="loading">
+                            <div class="fa-3x">
+                                <i class="fas fa-cog fa-spin"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
             )
