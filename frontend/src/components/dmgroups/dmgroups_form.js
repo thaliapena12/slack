@@ -46,7 +46,12 @@ class DmgroupsForm extends React.Component {
       //console.log(userIdArray);
     })
 
-    this.props.generateDmgroup(userIdArray);
+    console.log(this.props.dmgroups);
+
+    this.props.generateDmgroup(userIdArray)
+    .then(() => {
+      console.log(`New group: ${this.props.dmgroups[-1]}`);
+    });
     this.props.closeModalForm();
 
     

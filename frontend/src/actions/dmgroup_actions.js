@@ -46,7 +46,7 @@ export const fetchDmgroup = dmgroupId => dispatch =>
 export const generateDmgroup = data => dispatch =>
   createDmgroup(data)
     .then(dmgroup => {
-      console.log(dmgroup);
+      //console.log(dmgroup);
       dispatch(receiveDmgroup(dmgroup))})
     .catch(err => (dispatch(receiveErrors(err.response.data))));
 
