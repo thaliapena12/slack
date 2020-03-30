@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import Messages from "./messages";
+import { receiveNewMessage } from '../../actions/message_actions';
 
 const mapStateToProps = state => {
 
@@ -7,10 +8,14 @@ const mapStateToProps = state => {
 
         currentChannel: state.ui.currentChannel, 
         messages: Object.values(state.entities.messages),
-        currentDmgroup : state.ui.currentDmgroup
-
+        currentDmgroup : state.ui.currentDmgroup,
+        currentUser: state.session.user
     };
 
 };
 
-export default connect(mapStateToProps)(Messages);
+const mapDispatchToProps = dispatch => ({
+    receiveMessage: message => dispatch(receiveNewMessage(message))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Messages);

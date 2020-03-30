@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from 'react-dom';
 import "./messages.css";
 import MessageItem from "./message_item";
+import socketIOClient from 'socket.io-client';
 
 class Messages extends React.Component {
 
@@ -15,6 +16,18 @@ class Messages extends React.Component {
             const node = ReactDOM.findDOMNode(this);
             node.scrollTop = node.scrollHeight;
         }
+
+        // set up chat
+        const { currentUser } = this.props;
+        this.socket = socketIOClient();
+
+        // tell chat server which user this is
+        this.socket.emit('identify_user', currentUser);
+
+        // how to handle a new message from the server
+        this.socket.on('receive_message', message => {
+            this.props.receiveMessage(message);
+        });
     }
 
     render() {
