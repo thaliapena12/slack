@@ -102,6 +102,19 @@ MERN Stack (MongoDB, Express, React, and NodeJS).
 
 ---
 
+#### Docker Environment
+
+- Needed .env file similar to .env_sample. The .env is included on the .gitignore
+
+  ```
+  cp .env_sample .env
+  ```
+- Docker run
+```
+docker-compose up build
+```
+---
+
 ## Production Deployment
 
 ### Prerequisites
