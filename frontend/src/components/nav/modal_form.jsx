@@ -5,6 +5,7 @@ import ChannelsForm from "../channels/channels_form_container";
 import ChannelsDelete from "../channels/channels_delete_container";
 import DmgroupsForm from "../dmgroups/dmgroups_form_container";
 import DmgroupsDelete from "../dmgroups/dmgroups_delete_container";
+import PeopleToChannel from "../channels/people_to_channel_container";
 
 function ModalForm({ modalform, closeModalForm }) {
   if (!modalform) {
@@ -23,6 +24,9 @@ function ModalForm({ modalform, closeModalForm }) {
       break;
     case "delete dmgroup":
       component = <DmgroupsDelete />;
+      break;
+    case "add people to channel":
+      component = <PeopleToChannel />;
       break;
     default:
       return null;

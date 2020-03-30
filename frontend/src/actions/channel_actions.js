@@ -1,4 +1,11 @@
-import { getChannels, getChannel, deleteChannel, getUserCreatedChannels, createChannel} from "../util/channel_api_util";
+import { 
+  getChannels, 
+  getChannel, 
+  deleteChannel, 
+  getUserCreatedChannels, 
+  createChannel,
+  addUserToChannel
+} from "../util/channel_api_util";
 
 export const RECEIVE_CHANNELS = "RECEIVE_CHANNELS";
 export const RECEIVE_USER_CREATED_CHANNELS = "RECEIVE_USER_CREATED_CHANNELS";
@@ -7,7 +14,7 @@ export const REMOVE_CHANNEL = "REMOVE_CHANNEL";
 export const RECEIVE_CURRENT_CHANNEL = "RECEIVE_CURRENT_CHANNEL";
 export const RECEIVE_CHANNEL_ERRORS = "RECEIVE_CHANNEL_ERRORS";
 export const REMOVE_ERRORS = "REMOVE_ERRORS";
-
+export const RECEIVE_CHANNEL = "RECEIVE_CHANNEL";
 
 export const receiveCurrentChannel = channel => ({
   type: RECEIVE_CURRENT_CHANNEL,
@@ -30,10 +37,10 @@ export const removeErrors = () => {
   };
 };
 
-// export const receiveChannel = channel => ({
-//   type: RECEIVE_USER_CHANNEL,
-//   channel
-// });
+const receiveChannel = channel => ({
+  type: RECEIVE_CHANNEL,
+  channel
+});
 
 const receiveUserCreatedChannels = channels => ({
   type: RECEIVE_USER_CREATED_CHANNELS,
@@ -68,12 +75,19 @@ export const fetchUserCreatedChannels = id => dispatch =>
            .catch(err => dispatch(receiveErrors(err.response.data)));
     
 
-export const generateChannel = data => dispatch =>
+export const generateChannel = data => dispatch => (
   createChannel(data)
     .then(channel => dispatch(receiveNewChannel(channel)))
-    .catch(err => (dispatch(receiveErrors(err.response.data))));
+    .catch(err => (dispatch(receiveErrors(err.response.data))))
+);
 
-export const obliterateChannel = channelId => dispatch =>
+export const obliterateChannel = channelId => dispatch => (
          deleteChannel(channelId)
            .then(() => dispatch(removeChannel(channelId)))
-           .catch(err => dispatch(receiveErrors(err.response.data)));
+           .catch(err => dispatch(receiveErrors(err.response.data)))
+);
+
+export const userToChannel = data => dispatch => {
+  return addUserToChannel(data)
+    .then(receivedChannel => dispatch(receiveChannel(receivedChannel)))
+};
