@@ -15,7 +15,6 @@ class ChatServerClient {
         Channel.findOne(message.channel).exec((err, channel) => {
             if (err) throw err;
             // tell the chat server what message was sent between which people
-            console.log(channel);
             let payload = {
                 participants: channel.channelMembers,
                 message,
