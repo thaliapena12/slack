@@ -9,7 +9,7 @@ const jwt = require('jsonwebtoken');
 const keys = require('../../config/keys');
 const passport = require('passport');
 
-router.get("/test", (req, res) => res.json({ msg: "Test" }));
+router.get("/test", (req, res) => res.json({ msg: "This is a Test" }));
 
 router.post("/register", (req, res) => {
     const { errors, isValid } = validateRegisterInput(req.body);
