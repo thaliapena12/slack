@@ -194,10 +194,11 @@ i {
     display: inline-flex;
     border-radius: 50%;
     background: rgba(139, 0, 0, 0);
-    color: white;
+    color: rgba(255, 255, 255, 0.76);
     height: 20px;
     font-weight: bolder;
     border-width: 0.0cm;
+    cursor: pointer;
 }
 
 #selected {

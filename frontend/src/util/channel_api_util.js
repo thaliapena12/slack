@@ -20,3 +20,6 @@ export const getUserCreatedChannels = userId => {
   return axios.get(`api/channels/user/${userId}`);
 };
 
+export const addUserToChannel = data => {
+  return axios.post(`api/channels/${data.channelId}/addUser`, data);
+}

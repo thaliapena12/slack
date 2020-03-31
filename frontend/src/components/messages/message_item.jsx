@@ -7,7 +7,8 @@ const getMessageTime = (timestamp) => {
 };
 
 
-const MessageItem = ({message}) => (
+const MessageItem = ({message}) => {
+    return (
     <div className="message-item">
         <div className="message-avatar">
             <img src={userPlaceholder} alt="User Avatar" />
@@ -33,6 +34,7 @@ const MessageItem = ({message}) => (
             <div className="message-text">{message.text}</div>
         </div>
     </div>
-);
+)
+};
 
 export default MessageItem;
