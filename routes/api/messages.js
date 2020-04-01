@@ -7,7 +7,6 @@ const Channel = require('../../models/Channel');
 const Message = require('../../models/Message');
 const Dmgroup = require('../../models/Dmgroup');
 const jwt = require("jsonwebtoken");
-const ChatServerClient = require('../../util/chat_server_client');
 
 // GET
 // messages under specific channel
@@ -56,8 +55,6 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
                                     authoredBy: {username: user.username},
                                     createdAt: new Date()
                                 })
-                                const chat = new ChatServerClient();
-                                chat.dispatchReceiveMessage(newMessage.channel, resMessage, newMessage.authoredBy);
                                 res.json(resMessage)
                             })                         
                 }).catch(error => console.log(error));
