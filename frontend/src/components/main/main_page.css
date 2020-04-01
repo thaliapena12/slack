@@ -323,11 +323,14 @@ footer{
     justify-content: space-between;
     margin: 0 12.5%;
 }
+.footer-links{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
   
 .footer-links > h3 {
-    margin-top: 40px;
-    font-weight: 600;
-    font-size: 12px;
+    font-weight: 400;
+    font-size: 16px;
     color: whitesmoke;
 }
   
@@ -345,6 +348,9 @@ footer{
   
 .github-img > a:hover, .linkedin-img > a:hover {
     text-decoration: underline;
+}
+.fa-github, .fa-linkedin{
+    border: none;
 }
   
 @media (max-width: 900px) {
