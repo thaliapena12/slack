@@ -45,6 +45,7 @@
 .channel-navbar-details > li:hover {
     background-color: lightgray;
     cursor: pointer;
+    border-radius: 3px;
 }
 /* .icon{
     font-size: 20px;
@@ -54,16 +55,26 @@
     display: flex;
     list-style-type: none;
     margin-block-start: 0em;
-    margin-block-end: em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     padding-inline-start: 0px;
     color: darkgrey;
     justify-content: space-evenly;
     font-size: 20px;
-    width: 40%;
-    margin-top: 20px;
+    width: 10%;
     position: relative;
+    margin-right: 5px;
+    margin-block-end: 0em;
+    align-items: center;
+}
+
+.channel-navbar-list > li {
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
 }
 
 .at {
@@ -83,15 +94,16 @@
 .gear-dropdown {
     list-style: none;
     position: absolute;
-    top: 25px;
-    left: -35px;
+    top: 45px;
+    right: 33px;
     background: rgb(243, 243, 243);
-    border-radius: 5px;
+    border-radius: 3px;
     padding-inline-start: 0px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
     border: 1px solid lightgray;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); 
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    width: 150px;
 }
 
 .gear-dropdown > li {

@@ -24,7 +24,7 @@
     cursor: pointer;
     margin-top: 10px;
     margin-left: 15px;
-    width: 120px;
+    width: 100%;
 }
 
 .slack-bar-workspace {

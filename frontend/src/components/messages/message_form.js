@@ -93,7 +93,7 @@ class MessageForm extends React.Component {
                             placeholder={`Message ${channelName}`}
                         />  
                     </form>
-                        <nav className="message-form-nav">
+                        {/* <nav className="message-form-nav">
                             <ul className="message-form-list-one">
                                 <li><FaPaperclip /></li>
                                 <li><FaBold /></li>
@@ -108,7 +108,7 @@ class MessageForm extends React.Component {
                                 <li>@</li>
                                 <li><FaRegLaugh /></li>
                             </ul>
-                        </nav>
+                        </nav> */}
                 </div>
             </div>
             </IconContext.Provider >
