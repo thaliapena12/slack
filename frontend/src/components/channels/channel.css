@@ -4,3 +4,13 @@
     flex-direction: column;
     background-color: white;
 }
+
+.workspace-contents {
+    height: 92.3%;
+    display: flex;
+}
+
+.workspace-messages {
+    height: 100%;
+    width: 100%;
+}

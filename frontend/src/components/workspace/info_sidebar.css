@@ -1,0 +1,94 @@
+.info-sidebar {
+    width: 450px;
+    border-left: 1px solid lightgray;
+}
+
+.info-sidebar-header {
+    display: flex;
+    border-bottom: 1px solid lightgrey;
+    background-color: rgb(247, 247, 247);
+    padding: 15px 18px;
+    height: 30px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info-sidebar-header > h1{
+    font-size: 22px;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
+.info-sidebar-header > button {
+    height: 35px;
+    width: 35px;
+    font-size: 22px;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.info-sidebar-header > button:hover {
+    background: rgb(230, 230, 230);
+    border-radius: 3px;
+}
+
+.info-sidebar-contents {
+    padding: 15px 18px;
+}
+
+.info-sidebar-contents-header {
+    display: flex;
+    font-size: 20px;
+}
+
+.info-sidebar-contents-header > h2 {
+    margin-left: 8px;
+    font-size: 20px;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    font-weight: inherit;
+}
+
+.info-sidebar-list {
+    list-style-type: none;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    padding-inline-start: 0px;
+    margin: 15px 0;
+    font-size: 16px;
+}
+
+.info-sidebar-list > li {
+    margin-bottom: 12px;
+    margin-left: 1px;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 80px;
+}
+
+.info-sidebar-list > li img {
+    height: 18px;
+    width: 18px;
+    border-radius: 3px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.info-sidebar-list > li span {
+    margin-left: 8px;
+}
+
+.sidebar-icons {
+    margin-top: 4px;
+}
+
+.sidebar-icons a {
+    color: rgb(58, 101, 168);
+    text-decoration: none;
+}
+
+.info-sidebar-technologies {
+    padding: 15px 18px;
+    border-top: 1px solid lightgray;
+}

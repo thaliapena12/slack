@@ -2,7 +2,6 @@ import React from "react";
 import './channel_nav.css';
 import { IconContext } from "react-icons";
 import {
-  FaRegStar,
   FaUserCircle,
   FaPhoneSquare,
   FaInfoCircle,
@@ -10,7 +9,6 @@ import {
   FaSearch,
   FaBars,
   FaGift,
-  FaThumbtack
 } from 'react-icons/fa';
 
 class ChannelNav extends React.Component {
@@ -44,9 +42,7 @@ class ChannelNav extends React.Component {
             # {currentChannel.name}
           </h1>
           <ul className="channel-navbar-details">
-            <li><FaRegStar /></li>
             <li><FaUserCircle /> {currentChannel.channelMembers.length}</li>
-            <li><FaThumbtack /></li>
             <li>{currentChannel.description}</li>
           </ul>
         </div>
@@ -78,9 +74,7 @@ class ChannelNav extends React.Component {
             {this.displayNames(currentDmgroup.dmMembers)}
         </h1>
         <ul className="channel-navbar-details">
-          <li><FaRegStar /></li>
           <li><FaUserCircle />{currentDmgroup.dmMembers.length}</li>
-          <li><FaThumbtack /></li>
         </ul>
       </div>
       {this.renderNavSearch()}
@@ -93,16 +87,8 @@ class ChannelNav extends React.Component {
     return(
       <IconContext.Provider value={{ color: "grey", className: "global-class-name" }}>
         <ul className="channel-navbar-list">
-          <li><FaPhoneSquare /></li>
-          <li><FaInfoCircle /></li>
+          <li onClick={this.props.handleSidebar}><FaInfoCircle /></li>
           <li onClick={this.openDropdown}><FaCog /></li>
-          <li><div className="search"><input type="text" placeholder='Search' /></div></li>
-          <li><div className="at">@</div></li>
-          <li><FaRegStar /></li>
-          <li><FaBars /></li>
-          <IconContext.Provider value={{ color: "#E01E5A", className: "global-class-name" }}>
-          <li><FaGift /></li>
-          </IconContext.Provider>
           {
             this.state.openDropdown &&
             <ul className="gear-dropdown">
