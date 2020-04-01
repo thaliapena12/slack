@@ -75,10 +75,10 @@ class NavBar extends React.Component {
                 <span>{titleCase(this.props.user.username)}</span>
               </div>
             </div>
-            <div className="slack-bar-notifications">
-              {/* <span role="img" aria-label="">&#x1f514;</span> */}
+            {/* <div className="slack-bar-notifications">
+              <span role="img" aria-label="">&#x1f514;</span>
               <FaRegBell />
-            </div>
+            </div> */}
             {this.state.dropdown && (
               <ul className="slack-bar-dropdown">
                 <li>
