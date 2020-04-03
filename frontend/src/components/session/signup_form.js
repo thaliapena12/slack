@@ -34,6 +34,9 @@ class SignupForm extends React.Component {
     }
 
     renderErrors() {
+        if (Object.keys(this.props.errors).length) {
+            setTimeout(this.props.resetSessionErrors, 5000);
+        }
         return (
             <ul className="errors-list">
                 {Object.keys(this.props.errors).map((error, i) => (

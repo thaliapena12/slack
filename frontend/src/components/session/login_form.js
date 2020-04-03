@@ -37,6 +37,9 @@ class LoginForm extends React.Component {
 
     // Render the session errors if there are any
     renderErrors() {
+        if (Object.keys(this.props.errors).length) {
+            setTimeout(this.props.resetSessionErrors, 5000);
+        }
         return (
             <ul className="errors-list">
                 {Object.keys(this.props.errors).map((error, i) => (
