@@ -42,8 +42,8 @@ class ChannelNav extends React.Component {
             # {currentChannel.name}
           </h1>
           <ul className="channel-navbar-details">
-            <li><FaUserCircle /> {currentChannel.channelMembers.length}</li>
-            <li>{currentChannel.description}</li>
+              <li><FaUserCircle /> <span>{currentChannel.channelMembers.length}</span></li>
+              <li><span>{currentChannel.description}</span></li>
           </ul>
         </div>
         {this.renderNavSearch()}
@@ -88,7 +88,9 @@ class ChannelNav extends React.Component {
       <IconContext.Provider value={{ color: "grey", className: "global-class-name" }}>
         <ul className="channel-navbar-list">
           <li onClick={this.props.handleSidebar}><FaInfoCircle /></li>
-          <li onClick={this.openDropdown}><FaCog /></li>
+          {
+            this.props.currentChannel && <li onClick={this.openDropdown}><FaCog /></li>
+          }
           {
             this.state.openDropdown &&
             <ul className="gear-dropdown">

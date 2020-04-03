@@ -22,7 +22,8 @@
 }
 .slack-bar-workspace-menu {
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 12px;
+    margin-bottom: 14px;
     margin-left: 15px;
     width: 100%;
 }
@@ -50,7 +51,7 @@
 .slack-bar-dropdown {
     position: absolute;
     width: 155px;
-    left: 10px;
+    left: 14px;
     top: 50px;
     background-color: rgb(243, 243, 243);
     list-style-type: none;
@@ -59,7 +60,7 @@
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     padding-inline-start: 0px;
-    border-radius: 5px;
+    border-radius: 3px;
     font-family: Arial, Helvetica, sans-serif;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); 
     z-index: 1;
@@ -81,8 +82,9 @@
 }
 
 .slack-bar-dropdown > li:last-child {
-    margin-bottom: 10px;
     border-top: 1px solid lightgrey;
+    margin-bottom: 3px;
+    padding-bottom: 5px;
 }
 
 .slack-bar-dropdown > li:last-child:hover {
@@ -131,14 +133,14 @@ i {
   -webkit-transform: rotate(45deg);
 }
 
-/* .navbar-channels {
-    
-} */
+.navbar-channels {
+    border-top: 1px solid rgba(255, 255, 255, .2);
+    margin-bottom: .83em;
+}
 
 .navbar-channels-header {
     display: flex;
     justify-content: space-between;
-    margin-bottom: -3px;
 }
 
 .navbar-channels-h2 {
@@ -168,6 +170,10 @@ i {
     outline: none;
 }
 
+.navbar-add-channel > button:hover {
+    color: white;
+}
+
 .navbar-channels-list {
     list-style-type: none;
     margin-block-start: 0em;
@@ -185,19 +191,37 @@ i {
     cursor: pointer;
     padding-top: 5px;
     padding-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .navbar-channels-list > li:hover {
     background-color: rgb(51, 12, 51);
+    cursor: pointer;
 }
-.navbar-delete-button{
-    display: inline-flex;
-    border-radius: 50%;
-    background: rgba(139, 0, 0, 0);
+
+.navbar-channels-list > li > span {
+    width: 75%;
+    padding: 2px 0;
+}
+
+.navbar-delete-button {
+    display: none;
+    background: none;
     color: rgba(255, 255, 255, 0.76);
-    height: 20px;
-    font-weight: bolder;
-    border-width: 0.0cm;
+    border: none;
+    font-size: 17px;
+    margin-right: 16px;
+    padding: 0;
+}
+
+.navbar-delete-button:hover {
+    color: white;
+}
+
+.navbar-channels-list >li:hover .navbar-delete-button {
+    display: inline-flex;
     cursor: pointer;
 }
 

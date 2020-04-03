@@ -99,13 +99,6 @@ class NavBar extends React.Component {
                   &#8853;
                 </button>
               </div>
-              <div className="navbar-delete-channel">
-                {/* <button
-                  onClick={() => this.props.openModalForm("delete channel")}
-                >
-                  &#8853;
-                </button> */}
-              </div>
             </div>
             <ul className="navbar-channels-list">
 
@@ -116,7 +109,7 @@ class NavBar extends React.Component {
                 onClick={() => this.props.selectChannel(channel)}
                 id={`${channel.name === currentChannel.name ? "selected" : ""}`}
                 >
-                  {`# ${channel.name}`}{" "}
+                  <span>{`# ${channel.name}`}{" "}</span>
                   {
                     channel.createdBy === this.props.user.id &&
                     <button
@@ -145,7 +138,7 @@ class NavBar extends React.Component {
                 <li 
                 onClick={() => this.props.selectDmgroup(dmgroup)}
                 id={`${dmgroup._id === currentDmgroup._id ? "selected" : ""}`}>
-                  {this.displayNames(dmgroup.dmMembers)}
+                  <span>{this.displayNames(dmgroup.dmMembers)}</span>
                   
                   <button className="navbar-delete-button" onClick={() => this.props.openModalForm("delete dmgroup")}>
                     &times;{" "}
