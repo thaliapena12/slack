@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import './main_page.css'; 
-import img0 from './slack-img0.jpg';
+import img0 from './slack-img1.jpg';
 import { login } from "../../actions/session_actions";
 import { openModalForm, closeModalForm } from "../../actions/modal_form_actions";
 
@@ -30,12 +30,8 @@ class MainPage extends React.Component {
             <div>
                 <div className="header">
                     <div className="header-left">
-                        <img className="logo" src={img0} alt="Slack Logo"/>
-                        <h2><a href="https://slack.com/features" target="_blank">Why Slack?</a></h2>
-                        <h2><a href="https://slack.com/solutions/project-management" target="_blank">Solutions</a></h2>
-                        <h2><a href="https://slack.com/help" target="_blank"> Resources</a></h2>
-                        <h2><a href="https://slack.com/enterprise" target="_blank">Enterprise</a></h2>
-                        <h2><a href="https://slack.com/pricing" target="_blank">Pricing</a></h2>
+                        <img className="logo" src={img0} alt="Logo"/>
+                        <span class="slackers">Slackers</span>                       
                     </div>
                     <div className="signup-login">
                     <div className="log-in">
@@ -57,19 +53,19 @@ class MainPage extends React.Component {
                         />
 
                         <h1 className="homepage-main-text">
-                        Slack replaces email inside your company
+                        Slackers replaces email inside your company
                         </h1>
                         <p className="homepage-p-text">
-                        Keep conversations organized in Slack, the smart alternative to email
+                        Keep conversations organized in Slackers, the smart alternative to email
                         </p>
                         <ul className="homepage-link">
-                            <Link className="try-c-link" to={'/signup'}>TRY SLACK</Link>
+                            <Link className="try-c-link" to={'/signup'}>TRY SLACKERS</Link>
                             
                             <a className="try-demo-link" onClick={this.handleDemoUser}>TRY DEMO</a>
                         </ul>
                         <p className="already-signup-text">
                         
-                        Already using Slack? <Link className="already-signup" to={'/login'}>Sign In</Link>
+                        Already using Slackers? <Link className="already-signup" to={'/login'}>Sign In</Link>
                         </p>
                     </div>
                 </div>

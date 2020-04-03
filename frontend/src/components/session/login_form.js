@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import './login.css';
-import img0 from '../../components/main/slack-img0.jpg';
+import img0 from '../../components/main/slack-img1.jpg';
 
 class LoginForm extends React.Component {
     constructor(props) {
