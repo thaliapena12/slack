@@ -88,7 +88,9 @@ class ChannelNav extends React.Component {
       <IconContext.Provider value={{ color: "grey", className: "global-class-name" }}>
         <ul className="channel-navbar-list">
           <li onClick={this.props.handleSidebar}><FaInfoCircle /></li>
-          <li onClick={this.openDropdown}><FaCog /></li>
+          {
+            this.props.currentChannel && <li onClick={this.openDropdown}><FaCog /></li>
+          }
           {
             this.state.openDropdown &&
             <ul className="gear-dropdown">
