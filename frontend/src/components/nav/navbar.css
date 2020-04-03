@@ -22,7 +22,8 @@
 }
 .slack-bar-workspace-menu {
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 12px;
+    margin-bottom: 14px;
     margin-left: 15px;
     width: 100%;
 }
@@ -131,14 +132,14 @@ i {
   -webkit-transform: rotate(45deg);
 }
 
-/* .navbar-channels {
-    
-} */
+.navbar-channels {
+    border-top: 1px solid rgba(255, 255, 255, .2);
+    margin-bottom: .83em;
+}
 
 .navbar-channels-header {
     display: flex;
     justify-content: space-between;
-    margin-bottom: -3px;
 }
 
 .navbar-channels-h2 {
@@ -190,8 +191,9 @@ i {
 .navbar-channels-list > li:hover {
     background-color: rgb(51, 12, 51);
 }
+
 .navbar-delete-button{
-    display: inline-flex;
+    display: none;
     border-radius: 50%;
     background: rgba(139, 0, 0, 0);
     color: rgba(255, 255, 255, 0.76);
@@ -199,6 +201,10 @@ i {
     font-weight: bolder;
     border-width: 0.0cm;
     cursor: pointer;
+}
+
+.navbar-channels-list >li:hover .navbar-delete-button {
+    display: inline-flex;
 }
 
 #selected {
