@@ -25,7 +25,7 @@
     margin-inline-end: 0px;
     padding-inline-start: 0px;
     margin: 0;
-    color: darkgrey;
+    color: #636466;
     font-weight: 400;
     font-size: 15px;
     margin-top: 5px;
@@ -90,8 +90,8 @@
 .gear-dropdown {
     list-style: none;
     position: absolute;
-    top: 45px;
-    right: 33px;
+    top: 50px;
+    right: 35px;
     background: rgb(243, 243, 243);
     border-radius: 3px;
     padding-inline-start: 0px;

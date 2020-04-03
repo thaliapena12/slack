@@ -26,6 +26,7 @@
     background: none;
     border: none;
     outline: none;
+    cursor: pointer;
 }
 
 .info-sidebar-header > button:hover {
