@@ -42,8 +42,8 @@ class ChannelNav extends React.Component {
             # {currentChannel.name}
           </h1>
           <ul className="channel-navbar-details">
-            <li><FaUserCircle /> {currentChannel.channelMembers.length}</li>
-            <li>{currentChannel.description}</li>
+              <li><FaUserCircle /> <span>{currentChannel.channelMembers.length}</span></li>
+              <li><span>{currentChannel.description}</span></li>
           </ul>
         </div>
         {this.renderNavSearch()}
