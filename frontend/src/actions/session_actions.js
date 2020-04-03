@@ -43,7 +43,7 @@ export const signup = user => dispatch => (
         const decoded = jwt_decode(token);
         const firstChannel = {
             name: `${decoded.username}`,
-            description: "your first channel",
+            description: "Your first channel",
             accessType: "public",
             createdBy: decoded.id,
             channelMembers: [decoded.id]

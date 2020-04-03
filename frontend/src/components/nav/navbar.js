@@ -45,6 +45,11 @@ class NavBar extends React.Component {
   }
 
   render() {
+    var userCreatedChannelsIds = [];
+    let userCreatedChannels = this.props.userCreatedChannels.userCreatedChannels;
+    if (Object.values(userCreatedChannels).length) {
+      Object.values(userCreatedChannels).forEach(channel => userCreatedChannelsIds.push(channel._id));
+    }
     if (this.props.loggedIn) {
       const titleCase = (string) => {
         let words = string.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1))
@@ -111,7 +116,7 @@ class NavBar extends React.Component {
                 >
                   <span>{`# ${channel.name}`}{" "}</span>
                   {
-                    channel.createdBy === this.props.user.id &&
+                    userCreatedChannelsIds.includes(channel._id) &&
                     <button
                       className="navbar-delete-button"
                       onClick={() => this.props.openModalForm("delete channel")}
