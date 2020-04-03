@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import img0 from '../../components/main/slack-img0.jpg';
+import img0 from '../../components/main/slack-img1.jpg';
 import './signup.css' 
 
 class SignupForm extends React.Component {
