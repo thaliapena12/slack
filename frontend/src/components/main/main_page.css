@@ -2,6 +2,11 @@
     background: white;
     text-align:center;
 }
+
+.main-container {
+    height: 100%;
+}
+
 .header {
     /* background-color: white;
     display: inline-flex;
@@ -14,13 +19,15 @@
     border-bottom: 1px solid lightgray;
     width: auto;
     justify-content: space-between;
-    min-height: 70px;
+    height: 10%;
     align-items: center;
   
     
 }
+
 .header-left{
     display: inline-flex;
+    align-items: center;
 }
 .header-left > h2{
     display:inline-block;
@@ -56,44 +63,54 @@
     display: inline-flex;
     padding: 15px;
 }
+.signup-login > a:first-of-type {
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
+
+.signup-login > a:first-of-type:hover {
+    text-decoration: underline;
+    color:rgb(51, 141, 194);
+    cursor: pointer;
+}
+
 .sign-up{
     background-color: #5c195e;
     color: white;
-    padding: .75rem 1rem;;
+    padding: 5px;
     margin-bottom: 5px;
+    margin-top: 5px;
     border-radius: 3px;;
     text-align: center;
-    height: 20px;
+    height: 30px;
     border-color: #5c195e;
     font-size: 15px;
     margin-left: 10px;
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
+
 .log-in{
     padding: 5px;
     margin-top: 5px;
     margin-bottom: 5px;
     border-radius: 3px;;
     text-align: center;
-    height: 20px;  
-
+    height: 30px;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    cursor: pointer;
 }
 
-.log-in > a{
-    color: black;
-    font-family: Arial, Helvetica, sans-serif;
+a {
     text-decoration: none;
 }
-.log-in >a:hover{
-    text-decoration: underline;
-    color:rgb(51, 141, 194);
-}
-.sign-up > a{
-    color: #fff;
-    font-weight: 200;
-    font-family: Arial, Helvetica, sans-serif;
-    text-decoration: none;
-}
+
 .sign-up:hover{
     background-color: rgb(80, 14, 80);
 }
@@ -153,50 +170,40 @@ img{
     -webkit-box-flex: 1;
     /* flex-grow: 1; */
     width: 50px;
-    height: 50px;
+    height: 54px;
     /* margin-top: 20px; */
 }
 .slackers{
-    font-weight: 400;
-    font-size: x-large;
-    margin-top: 10px;
+    font-weight: 900;
+    font-size: 30px;
+    margin-top: 3px;
 
 }
 
 #rollingball {
     width: 100%;
+    height: 60%;
     max-height: 500px;
     position: absolute;
     top: 0;
     left: 0;
     z-index: 1;
-    margin-top: 80px;
+    margin-top: 7%;
 }
 
 video {
     object-fit: contain;
 }
 
-.home-page-whole-div {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    font: inherit;
-    color: inherit;
-    text-align: inherit;
-    text-decoration: inherit;
-    vertical-align: inherit;
-    box-sizing: inherit;
-    background: transparent;
+.homepage-whole-div {
+    height: 67%;
+    padding: 5% 8%;
+    background: #E5E1DC;
+    box-sizing: border-box;
 }
 
 .homepage-first-div {
-    background-color: #E5E1DC;
-    min-height: 400px;
-    padding-left: 8%;
-    padding-top: 100px;
-    background-image: url(https://a.slack-edge.com/085e3/marketing/img/homepage/video/brand-campaign_hero-video.mp4);
+
 }
 
 .homepage-main-text {
@@ -238,6 +245,10 @@ video {
     z-index: 2;
 }
 
+.try-c-link:hover {
+    background-color: #541b5a;
+}
+
 .try-demo-link {
     background-color: #E5E1DC;
     font-size: 16px;
@@ -252,6 +263,10 @@ video {
     cursor: pointer;
 }
 
+.try-demo-link:hover {
+    border: 2px solid #611f69;
+}
+
 .already-signup-text {
     font-size: 13px;
     font-weight: 500;
@@ -260,8 +275,13 @@ video {
 }
 
 .already-signup {
-    border-bottom: 1px solid #1264a3;
     color: #1264a3;
+    text-decoration: none;
+}
+
+.already-signup:hover {
+    color: #105991;
+    text-decoration: underline;
 }
 
 .homepage-2-div {
@@ -319,7 +339,7 @@ footer{
 
 .container {
     background: #611f69;
-    height: 150px;
+    height: 20%;
 }
   
 .inner-container {
@@ -363,4 +383,19 @@ footer{
     .inner-container {
       margin: 0 18.5%;
     }
+}
+
+.copyright {
+    height: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.github-img > i {
+    margin-right: 3px;
+}
+
+.linkedin-img > i {
+    margin-right: 3px;
 }
