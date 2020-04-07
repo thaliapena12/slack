@@ -46,6 +46,7 @@ class NavBar extends React.Component {
   }
 
   render() {
+    
     var userCreatedChannelsIds = [];
     let userCreatedChannels = this.props.userCreatedChannels.userCreatedChannels;
     if (Object.values(userCreatedChannels).length) {
