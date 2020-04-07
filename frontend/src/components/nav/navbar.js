@@ -46,7 +46,7 @@ class NavBar extends React.Component {
   }
 
   render() {
-    
+
     var userCreatedChannelsIds = [];
     let userCreatedChannels = this.props.userCreatedChannels.userCreatedChannels;
     if (Object.values(userCreatedChannels).length) {
@@ -138,11 +138,11 @@ class NavBar extends React.Component {
           {/* END OF CHANNEL section */}
 
           {/* DM GROUP SECTION */}
-          <div className="navbar-channels">
-            <div className="navbar-channels-header">
+          <div className="navbar-dmgroups">
+            <div className="navbar-dmgroups-header">
               {/* DM group title and new DM button */}
-              <h2 className="navbar-channels-h2">Direct Messages</h2>
-              <div className="navbar-add-channel">
+              <h2 className="navbar-dmgroups-h2">Direct Messages</h2>
+              <div className="navbar-add-dmgroup">
                 <button onClick={() => this.props.openModalForm("new dmgroup")}>
                   &#8853;
                 </button>
@@ -150,7 +150,7 @@ class NavBar extends React.Component {
             </div>
 
             {/* DM groups list */}
-            <ul className="navbar-channels-list">
+            <ul className="navbar-dmgroups-list">
               {this.props.userDmgroups.map(dmgroup => (
                 <li 
                 onClick={() => this.props.selectDmgroup(dmgroup)}
