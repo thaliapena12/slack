@@ -5,6 +5,20 @@ import MessageItem from "./message_item";
 
 class Messages extends React.Component {
 
+    constructor(props){
+        super(props);
+        this.messageUser = this.messageUser.bind(this);
+    }
+
+    messageUser(user){
+        console.log(user);
+        this.props.generateDmgroup([user])
+        .then(dmgroup => {
+            window.dm=dmgroup;
+            //this.props.selectDmgroup(dmgroup);
+        });        
+    }
+
     componentWillUpdate() {
         const node = ReactDOM.findDOMNode(this);
         this.shouldScrollToBottom = node.scrollTop + node.clientHeight + 100 >= node.scrollHeight;
@@ -26,7 +40,10 @@ class Messages extends React.Component {
                     {messages[0] === undefined ?
                         "No messages here" :
                         messages.map(message => (
-                        <MessageItem key={message._id} message={message} />
+                            <MessageItem 
+                                key={message._id} 
+                                message={message} 
+                                messageUser={this.messageUser}/>
                     ))}               
                 </div>
             ); 
@@ -38,7 +55,11 @@ class Messages extends React.Component {
                     {messages[0] === undefined ?
                         "No messages here" :
                         messages.map(message => (
-                        <MessageItem key={message._id} message={message} />
+                            <MessageItem
+                                key={message._id}
+                                message={message}
+                                messageUser={this.messageUser} />
+
                     ))}               
                 </div>
             ); 

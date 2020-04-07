@@ -23,6 +23,12 @@ class DmgroupsForm extends React.Component {
     });
   }
 
+  /********************************************************/
+  /* generateDMgroups only needs users that will be added */
+  /* to the conversation with current user. Current user  */
+  /* is taken care of by the API                          */
+  /********************************************************/
+
   handleClick(index){
     let user = this.state.usersList.splice(index, 1);
     this.state.selectedUsers.push(user);
