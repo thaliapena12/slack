@@ -27,19 +27,23 @@ class MainPage extends React.Component {
     }
     render() {
         return (
-            <div>
+            <div className="main-container">
                 <div className="header">
                     <div className="header-left">
                         <img className="logo" src={img0} alt="Logo"/>
                         <span class="slackers">Slackers</span>                       
                     </div>
                     <div className="signup-login">
-                    <div className="log-in">
-                        <Link to={'/login'}>Sign In</Link>
-                    </div>
-                    <div className="sign-up" >
-                        <Link to={'/signup'}>Get Started</Link>
-                    </div>
+                        <Link to={'/login'}>
+                            <div className="log-in">
+                                Sign In
+                            </div>
+                        </Link>
+                        <Link to={'/signup'}>
+                            <div className="sign-up" >
+                                Get Started
+                            </div>
+                        </Link>
                     </div>
                 </div>
                 <div className="homepage-whole-div">
@@ -118,7 +122,7 @@ class MainPage extends React.Component {
                         </div>
                     </div>     
                 </footer>
-                <div><center>Copyright &copy; 2020 </center> </div> 
+                <div className="copyright"><center>&copy; Copyright 2020 </center> </div> 
             </div>
         );
     }
