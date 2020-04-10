@@ -60,7 +60,7 @@ class ChannelsForm extends React.Component {
             </div>
             <small>
               Channels are where your team communicates. They're best when
-              organized around a topic - #marketing. for example
+              organized around a topic - #marketing for example.
             </small>
           </nav>
           <div className="add-channel-form">
@@ -77,7 +77,7 @@ class ChannelsForm extends React.Component {
             </label>
             <br />
             <label>
-              <h2>Description(optional)</h2>
+              <h2>Description (optional)</h2>
               <br />
               <input
                 type="text"
@@ -119,20 +119,22 @@ class ChannelsForm extends React.Component {
             </div>
             <br />
             <small>
-              When a channel is set to private, it can only be <br /> viewed or
-              joined by invitation
+              When a channel is set to private, it can only be viewed <br /> 
+              or joined by invitation
             </small>
             <br />
             <br />
             <div className="bottom">
-              <a href="https://slack.com/help/articles/360017938993-What-is-a-channel?utm_medium=in-prod&utm_source=in-prod&utm_campaign=cd_in-prod_in-prod_all_en_sharedchannels-betterinvites_cr-create-channel_ym-201911"><small>Learn more</small></a>
+              {/* <a href="https://slack.com/help/articles/360017938993-What-is-a-channel?utm_medium=in-prod&utm_source=in-prod&utm_campaign=cd_in-prod_in-prod_all_en_sharedchannels-betterinvites_cr-create-channel_ym-201911"><small>Learn more</small></a> */}
             </div>
-            <input
-              className="channel-submit"
-              type="submit"
-              // value={this.props.formType}
-              value="Create"
-            />
+            <div className="channel-submit-container">
+              <input
+                className="channel-submit"
+                type="submit"
+                // value={this.props.formType}
+                value="Create"
+              />
+            </div>
           </div>
         </form>
       </div>

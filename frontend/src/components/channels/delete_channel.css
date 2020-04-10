@@ -14,3 +14,19 @@
     font-family: Arial, Helvetica, sans-serif;
     margin-left: 40%;
 }
+
+.channel-delete {
+    margin-right: 10px;
+}
+
+.channel-delete:hover {
+    cursor: pointer;
+    background-color: darkgray;
+    outline: none;
+}
+
+.channel-delete-header button:hover {
+    cursor: pointer;
+    background-color: darkgray;
+    outline: none;
+}
