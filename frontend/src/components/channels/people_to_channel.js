@@ -28,6 +28,11 @@ class PeopleToChannel extends React.Component {
                 newState.push(user);
                 this.setState({ errors: "" });
             }
+
+            // Remove user from usersList
+            // let usersListState = this.state.usersList;
+            // usersListState = usersListState.filter(el => el._id !== user._id)
+            // this.setState({ selectedUsers: newState, usersList: usersListState });
             this.setState({ selectedUsers: newState });
         }
         
@@ -76,22 +81,20 @@ class PeopleToChannel extends React.Component {
                             <h3> Add people to channel</h3>
                         </div>
                         <div className="newdm-selected">
-                            <div className="newdm-input-area">
-                                <div className="newdm-input">
-                                    <ul className="selected-list">
-                                        {this.state.selectedUsers.map(user => {
-                                            return (
-                                                <li>
-                                                    <img src={userPlaceHolder} alt="User Image" />
-                                                    <div className="selected-list-username">
-                                                        {user.username}
-                                                    </div>
-                                                    <button onClick={this.unselect(user)}>x</button>
-                                                </li>
-                                            )
-                                        })}
-                                    </ul>
-                                </div>
+                            <div className="people-to-channel-input-area">
+                                <ul className="selected-list">
+                                    {this.state.selectedUsers.map(user => {
+                                        return (
+                                            <li>
+                                                <img src={userPlaceHolder} alt="User Image" />
+                                                <div className="selected-list-username">
+                                                    {user.username}
+                                                </div>
+                                                <button onClick={this.unselect(user)}>x</button>
+                                            </li>
+                                        )
+                                    })}
+                                </ul>
                             </div>
                             <button 
                                 onClick={this.addPeople} 
