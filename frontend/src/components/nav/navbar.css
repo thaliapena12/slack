@@ -214,6 +214,7 @@ i {
     font-size: 17px;
     margin-right: 16px;
     padding: 0;
+    outline: none;
 }
 
 .navbar-delete-button:hover {
