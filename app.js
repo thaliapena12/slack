@@ -9,7 +9,7 @@ const dmgroups = require("./routes/api/dmgroups");
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const path = require('path');
-
+const configureChat = require("./config/configureChat");
 
 
 
@@ -31,6 +31,8 @@ app.get("/", (req, res) => res.send("Hello"));
 const port = process.env.PORT || 5000;
 
 const server = app.listen(port, () => console.log(`Server is running on port ${port}`));
+const io = require("socket.io").listen(server);
+configureChat(io);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
