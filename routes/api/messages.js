@@ -43,7 +43,7 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
                     text: req.body.text,
                     authoredBy: req.user.id,
                     channel: channel.id
-                });              
+                });
 
                 newMessage.save()
                     .then(message => {
@@ -52,14 +52,16 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
                             .then(user => {
                                 const resMessage = new Object({
                                     text: req.body.text,
-                                    authoredBy: {username: user.username},
+                                    authoredBy: { username: user.username },
                                     createdAt: new Date()
                                 })
+                                const chat = new ChatServerClient();
+                                chat.dispatchReceiveMessage(newMessage.channel, resMessage, newMessage.authoredBy);
                                 res.json(resMessage)
-                            })                         
-                }).catch(error => console.log(error));
-        }).catch(err => res.status(404).json({ notchannelfound: 'No channel found with that ID' })); 
-        
+                            })
+                    }).catch(error => console.log(error));
+            }).catch(err => res.status(404).json({ notchannelfound: 'No channel found with that ID' }));
+
     } else {
         Dmgroup.findById(req.body.dmgroup)
             .then(dmgroup => {
@@ -67,7 +69,7 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
                     text: req.body.text,
                     authoredBy: req.user.id,
                     dmgroup: dmgroup.id
-            
+
                 });
                 newMessage.save()
                     .then(message => {
@@ -85,10 +87,10 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
                     })
                     .catch(error => console.log(error));
 
-        }).catch(err => res.status(404).json({ notdmgroupfound: 'No dm group found with that ID' })); 
-        
-    }   
-  }
+            }).catch(err => res.status(404).json({ notdmgroupfound: 'No dm group found with that ID' }));
+
+    }
+}
 )
 
 // DELETE
