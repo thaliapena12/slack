@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from 'react-dom';
 import "./messages.css";
 import MessageItem from "./message_item";
+import socketIOClient from 'socket.io-client';
 
 class Messages extends React.Component {
 
