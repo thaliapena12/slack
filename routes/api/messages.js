@@ -7,6 +7,7 @@ const Channel = require('../../models/Channel');
 const Message = require('../../models/Message');
 const Dmgroup = require('../../models/Dmgroup');
 const jwt = require("jsonwebtoken");
+const ChatServerClient = require('../../util/chat_server_client');
 
 // GET
 // messages under specific channel
