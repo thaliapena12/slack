@@ -20,6 +20,7 @@ class ChatServerClient {
                 message,
                 authorId
             }
+            console.log("IN")
             this.socket.emit('broadcast_message', payload);
         })
     }

@@ -36,6 +36,9 @@
     color: grey;
     padding-top: 0px;
     background: rgb(230, 230, 230);
+    height: 35px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .message-form-list-one {

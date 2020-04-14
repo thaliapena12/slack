@@ -11,12 +11,8 @@ class Messages extends React.Component {
         this.shouldScrollToBottom = node.scrollTop + node.clientHeight + 100 >= node.scrollHeight;
     }
 
-    componentDidUpdate() {
-        if (this.shouldScrollToBottom){
-            const node = ReactDOM.findDOMNode(this);
-            node.scrollTop = node.scrollHeight;
-        }
-
+    componentDidMount(){
+        console.log("updating")
         // set up chat
         const { currentUser } = this.props;
         this.socket = socketIOClient();
@@ -28,6 +24,13 @@ class Messages extends React.Component {
         this.socket.on('receive_message', message => {
             this.props.receiveMessage(message);
         });
+    }
+    
+    componentDidUpdate() {
+        if (this.shouldScrollToBottom){
+            const node = ReactDOM.findDOMNode(this);
+            node.scrollTop = node.scrollHeight;
+        }
     }
 
     render() {
