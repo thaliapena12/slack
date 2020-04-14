@@ -17,6 +17,21 @@ class Messages extends React.Component {
         }
     }
 
+    componentDidMount() {
+        console.log("updating")
+        // set up chat
+        const { currentUser } = this.props;
+        this.socket = socketIOClient();
+
+        // tell chat server which user this is
+        this.socket.emit('identify_user', currentUser);
+
+        // how to handle a new message from the server
+        this.socket.on('receive_message', message => {
+            this.props.receiveMessage(message);
+        });
+    }
+
     render() {
         if(this.props.currentChannel){
             const messages  = this.props.currentChannel.channelMessages;
