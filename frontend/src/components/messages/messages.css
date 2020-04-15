@@ -46,9 +46,9 @@
                 
             }
 
-            .message-avatar:hover .user-popup{
+            /* .message-avatar:hover .user-popup{
                 display: inline-block;
-            }
+            } */
 
             .user-card img{
                 width: 100%;
