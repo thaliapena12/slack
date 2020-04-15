@@ -272,6 +272,7 @@ video {
     font-weight: 500;
     position: relative;
     z-index: 2;
+    top: 20px;
 }
 
 .already-signup {
@@ -398,4 +399,50 @@ footer{
 
 .linkedin-img > i {
     margin-right: 3px;
+}
+
+.live-chat-instructions {
+    display: none;
+    background: transparent;
+    width: 300px;
+    height: 95px;
+    border: 1px solid #611f69;
+    border-radius: 3px;
+    position: absolute;
+    left: 375px;
+    top: -20px;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.live-chat-instructions > h3 {
+    font-size: 16px;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    text-align: initial;
+    color: #E01E5A;
+    font-weight: 900;
+}
+
+.live-chat-instructions > p {
+    font-size: 14px;
+    font-weight: bold;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    padding-left: 5px;
+}
+
+.homepage-link:hover .live-chat-instructions {
+    display: block;
+}
+
+.homepage-link {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+    width: 370px;
 }

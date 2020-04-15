@@ -15,16 +15,27 @@ class MainPage extends React.Component {
 
     handleDemoUser(e) {
         e.preventDefault();
-        const user = { email: "mscott@dundermifflin.com", password: "password" }
-        this.props.processForm(user).then((res) => {
-          this.props.closeModalForm();
-          this.props.history.push(`/channels`);
-        });
+        let user;
+        if (e.currentTarget.text === "TRY DEMO 1") {
+            user = { email: "mscott@dundermifflin.com", password: "password" }
+            this.props.processForm(user).then((res) => {
+                this.props.closeModalForm();
+                this.props.history.push(`/channels`);
+            });
+        } else {
+            user = { email: "jhalpert@dundermifflin.com", password: "password" }
+            this.props.processForm(user).then((res) => {
+                this.props.closeModalForm();
+                this.props.history.push(`/channels`);
+            });
+        }
+        
     }
     
     componentDidMount(){
         document.getElementById("rollingball").play()
     }
+
     render() {
         return (
             <div className="main-container">
@@ -63,9 +74,14 @@ class MainPage extends React.Component {
                         Keep conversations organized in Slackers, the smart alternative to email
                         </p>
                         <ul className="homepage-link">
-                            <Link className="try-c-link" to={'/signup'}>TRY SLACKERS</Link>
+                            <Link className="try-c-link" onClick={this.handleDemoUser}>TRY DEMO 1</Link>
                             
-                            <a className="try-demo-link" onClick={this.handleDemoUser}>TRY DEMO</a>
+                            <a className="try-demo-link" onClick={this.handleDemoUser}>TRY DEMO 2</a>
+
+                            <div className="live-chat-instructions">
+                                <h3>Try the live chat!</h3>
+                                <p>1. Log in with DEMO 1. <br />2. Open an incognito window. <br />3. Log in with DEMO 2.</p>
+                            </div>
                         </ul>
                         <p className="already-signup-text">
                         
