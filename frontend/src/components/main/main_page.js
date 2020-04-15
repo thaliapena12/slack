@@ -15,7 +15,7 @@ class MainPage extends React.Component {
 
     handleDemoUser(e) {
         e.preventDefault();
-        const user = { email: "demo@abc.com", password: "password" }
+        const user = { email: "mscott@dundermifflin.com", password: "password" }
         this.props.processForm(user).then((res) => {
           this.props.closeModalForm();
           this.props.history.push(`/channels`);

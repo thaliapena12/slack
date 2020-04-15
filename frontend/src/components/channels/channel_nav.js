@@ -92,7 +92,7 @@ class ChannelNav extends React.Component {
             this.props.currentChannel && <li onClick={this.openDropdown}><FaCog /></li>
           }
           {
-            this.state.openDropdown &&
+            this.props.currentChannel && this.state.openDropdown &&
             <ul className="gear-dropdown">
               <li onClick={() => this.props.openModalForm("add people to channel")}>Add people to channel</li>
             </ul>

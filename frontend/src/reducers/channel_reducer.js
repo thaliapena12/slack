@@ -20,6 +20,7 @@ const ChannelsReducer = (
       return newState;
     case RECEIVE_NEW_CHANNEL:
       newState.new = action.channel.data;
+      newState.userCreatedChannels.push(action.channel.data);
       return newState;
     case REMOVE_CHANNEL:
       delete newState.all[action.channelId];
