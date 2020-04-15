@@ -57,7 +57,7 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
                                     createdAt: new Date()
                                 })
                                 const chat = new ChatServerClient();
-                                chat.dispatchReceiveMessage(newMessage.channel, resMessage, newMessage.authoredBy);
+                                chat.dispatchReceiveMessage(newMessage.channel, null, resMessage, newMessage.authoredBy);
                                 res.json(resMessage)
                             })
                     }).catch(error => console.log(error));
@@ -82,6 +82,8 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
                                     authoredBy: { username: user.username },
                                     createdAt: new Date()
                                 })
+                                const chat = new ChatServerClient();
+                                chat.dispatchReceiveMessage(null, newMessage.dmgroup, resMessage, newMessage.authoredBy);
                                 res.json(resMessage)
                             })
                         // res.json({messageSuccess: 'The message was succesful added under the dm group'}) 
