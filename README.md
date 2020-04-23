@@ -74,7 +74,7 @@ MERN Stack (MongoDB, Express, React, and NodeJS).
 - Redux.
   - Client side data management.
 - Node.js
-  - Web server & services in service oriented architecure.
+  - Web server & services in service oriented architecture.
 - MongoDB.
   - Non-relational database.
   - Mongoose (to connect and interact with MongoDB).
