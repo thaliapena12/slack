@@ -57,11 +57,11 @@ Slackers is a clone of the popular app, Slack. The app makes it really simple to
 
 ### Future Expansions
 
-- Implements more features in WebSocket instead of REST, similiar to Slack's implementation.
-- Implements workspace.
-- Implements more test coverage.
+- Implement more features in WebSocket instead of REST, similiar to Slack's implementation.
+- Implement workspace.
+- Implement more test coverage.
 - Optimization:
-  - More advanced webpack config.
+  - More advance webpack config.
   - Prerendering.
 
 ---
@@ -142,7 +142,7 @@ docker-compose up build
 
 #### Option A. Run application on Local Machine
 
-- Start server application with production build locally.  
+- Start server application with production built locally.  
   Server will be listening to [http://localhost:3000] by default.
 
   ```npm ./slack
