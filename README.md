@@ -1,6 +1,6 @@
 # Slack Clone
 
-Slackers is a clone of the popular app, Slack. The app makes it really simple to follow different conversations and to keep all the communication regarding a project on the same place. Slackers incorporates user authentication and login, interaction with different channels and direct messages.
+Slackers is a clone of the popular app, Slack. The app makes it really simple to follow different conversations and to keep all the communication regarding a project in the same place. Slackers incorporates user authentication and login, interaction with different channels and direct messages.
 
   ![1](https://user-images.githubusercontent.com/7420659/78506195-7f578380-7767-11ea-9a4c-a7a10a2f5b88.gif)
 
