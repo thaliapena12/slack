@@ -7,34 +7,42 @@ const getMessageTime = (timestamp) => {
 };
 
 
-const MessageItem = ({message}) => {
-    return (
-    <div className="message-item">
-        <div className="message-avatar">
-            <img src={userPlaceholder} alt="User Avatar" />
-            <div className="user-popup">
-                <div className="user-card">
-                    <div className="avatar">
-                        <img src={userPlaceholder} alt="User Image" />
-                    </div>
-                    <div className="user-info">
-                        <div className="user-name">
-                            Name here
-                        </div>
-                        <div className="user-contact">
-                            <button>Message</button>
+class MessageItem extends React.Component {
+
+    render(){
+
+        const { message, messageUser } = this.props;
+        window.message = message;
+        return (
+            <div className="message-item">
+                <div className="message-avatar">
+                    <img src={userPlaceholder} alt="User Avatar" />
+                    <div className="user-popup">
+                        <div className="user-card">
+                            <div className="avatar">
+                                <img src={userPlaceholder} alt="User Image" />
+                            </div>
+                            <div className="user-info">
+                                <div className="user-name">
+                                    Name here
+                                </div>
+                                <div className="user-contact">
+                                    <button onClick={() => messageUser(message.authoredBy._id)}>
+                                        Message
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div className="message-details">
+                    <span className="message-author">{message.authoredBy.username}</span>
+                    <span className="message-time">{getMessageTime(message.createdAt)}</span>
+                    <div className="message-text">{message.text}</div>
+                </div>
             </div>
-        </div>
-        <div className="message-details">
-            <span className="message-author">{message.authoredBy.username}</span>
-            <span className="message-time">{getMessageTime(message.createdAt)}</span>
-            <div className="message-text">{message.text}</div>
-        </div>
-    </div>
-)
+        )
+    }
 };
 
 export default MessageItem;

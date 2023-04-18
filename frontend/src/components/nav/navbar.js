@@ -22,6 +22,7 @@ class NavBar extends React.Component {
       this.props.logout();
   }
 
+  // Dropdown action for top left menu User logout 
   handleDropdown (e) {
     e.preventDefault();
     this.setState({ dropdown: !this.state.dropdown });
@@ -45,6 +46,7 @@ class NavBar extends React.Component {
   }
 
   render() {
+
     var userCreatedChannelsIds = [];
     let userCreatedChannels = this.props.userCreatedChannels.userCreatedChannels;
     if (Object.values(userCreatedChannels).length) {
@@ -75,15 +77,16 @@ class NavBar extends React.Component {
               <div className="slack-bar-workspace">
                 Workspace <i className="arrow down"></i>
               </div>
+
+               {/* Displays Username Under Workspace with green
+               online dot */}
               <div className="slack-bar-currentUser">
                 <span className="dot"></span>
                 <span>{titleCase(this.props.user.username)}</span>
               </div>
             </div>
-            {/* <div className="slack-bar-notifications">
-              <span role="img" aria-label="">&#x1f514;</span>
-              <FaRegBell />
-            </div> */}
+
+            {/* Dropdown menu with logout option */}
             {this.state.dropdown && (
               <ul className="slack-bar-dropdown">
                 <li>
@@ -96,8 +99,11 @@ class NavBar extends React.Component {
               </ul>
             )}
           </div>
+
+          {/* CHANNEL SECTION */}
           <div className="navbar-channels">
             <div className="navbar-channels-header">
+              {/* Channel title with add channel button */}
               <h2 className="navbar-channels-h2">Channels</h2>
               <div className="navbar-add-channel">
                 <button onClick={() => this.props.openModalForm("new channel")}>
@@ -105,9 +111,9 @@ class NavBar extends React.Component {
                 </button>
               </div>
             </div>
-            <ul className="navbar-channels-list">
 
-             
+            {/* Channel list */}
+            <ul className="navbar-channels-list">             
               {this.props.userChannels.map((channel, key) => (
                 <li 
                 key={key} 
@@ -129,16 +135,22 @@ class NavBar extends React.Component {
               ))}
             </ul>
           </div>
-          <div className="navbar-channels">
-            <div className="navbar-channels-header">
-              <h2 className="navbar-channels-h2">Direct Messages</h2>
-              <div className="navbar-add-channel">
+          {/* END OF CHANNEL section */}
+
+          {/* DM GROUP SECTION */}
+          <div className="navbar-dmgroups">
+            <div className="navbar-dmgroups-header">
+              {/* DM group title and new DM button */}
+              <h2 className="navbar-dmgroups-h2">Direct Messages</h2>
+              <div className="navbar-add-dmgroup">
                 <button onClick={() => this.props.openModalForm("new dmgroup")}>
                   &#8853;
                 </button>
               </div>
             </div>
-            <ul className="navbar-channels-list">
+
+            {/* DM groups list */}
+            <ul className="navbar-dmgroups-list">
               {this.props.userDmgroups.map(dmgroup => (
                 <li 
                 onClick={() => this.props.selectDmgroup(dmgroup)}
@@ -151,16 +163,6 @@ class NavBar extends React.Component {
                 </li>
               ))}
             </ul>
-            {/* <ul className="navbar-channels-list">
-              {this.props.userDmgroups.map((dmgroup, key) => (
-                  <li key={key} onClick={() => this.props.selectDmgroup(dmgroup)}>
-                    {`# ${dmgroup.dmMembers}`}{" "}
-                      <button className="navbar-delete-button" onClick={() => this.props.openModalForm("delete dmgroup")}>
-                        &times;{" "}
-                      </button> 
-                  </li>
-                ))}
-            </ul> */}
           </div>
         </nav>
         </IconContext.Provider>
